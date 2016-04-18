@@ -19,7 +19,7 @@
 <script
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
-<script type="text/javascript" src="validator.js"></script>
+<script type="text/javascript" src="./js/validator.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

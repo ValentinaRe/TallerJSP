@@ -151,13 +151,14 @@ private int uid;
 	/**
 	 * Este metodo ingresa datos de contacto en la base de datos
 	 * @param contacto
-	 * @return String 
+	 * @return msg mensaje de tipo String
 	 * @throws PersistentException
 	 */
 	public static String ingresar(Contacto contacto) throws PersistentException {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
 		try {
+			try{
 			orm.Contacto lormContacto = orm.ContactoDAO.createContacto();
 			// Initialize the properties of the persistent object here
 			
@@ -175,6 +176,8 @@ private int uid;
 		}
 		catch (Exception e) {
 			t.rollback();
+		}}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
 		return msg; 
 	}
@@ -188,7 +191,8 @@ private int uid;
 	public static String eliminar(Contacto contacto) throws PersistentException {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
-		try {
+		try{
+		  try {
 			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
 			// Delete the persistent object
 			orm.ContactoDAO.delete(lormContacto);
@@ -197,8 +201,10 @@ private int uid;
 		}
 		catch (Exception e) {
 			t.rollback();
+		} }catch (NullPointerException e) {
+			e.printStackTrace();
 		}
-		return msg;
+			return msg;
 	}
 	/**
 	 * 
@@ -238,6 +244,7 @@ private int uid;
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
 		try {
+			try{
 			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+ +"'", null);
 			// Update the properties of the persistent object
 			System.out.println("id: "+contacto.uid);
@@ -256,6 +263,8 @@ private int uid;
 		}
 		catch (Exception e) {
 			t.rollback();
+		}}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
 		return msg;
 	}

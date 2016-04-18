@@ -36,7 +36,7 @@ public class Usuario {
 	}
 	/**
 	 * Permite ingresar los datos de usuario a la base de datos
-	 * @param usuario
+	 * @param usuario de tipo Usuario
 	 * @return msg un mensaje que muestra si hubo un ingreso exitoso
 	 * @throws PersistentException
 	 */
@@ -44,6 +44,7 @@ public class Usuario {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
 		try {
+			try{
 			orm.Usuario lormUsuario = orm.UsuarioDAO.createUsuario();
 			// Initialize the properties of the persistent object here
 			
@@ -57,12 +58,14 @@ public class Usuario {
 		}
 		catch (Exception e) {
 			t.rollback();
+		}}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
 		return msg; 
 	}
 	/**
 	 * Permite eliminar un usuario de la base de datos
-	 * @param usuario
+	 * @param usuario de tipo Usuario
 	 * @return msg mensaje que avisa que los datos fueron eliminados
 	 * @throws PersistentException
 	 */
@@ -70,6 +73,7 @@ public class Usuario {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
 		try {
+			try{
 			orm.Usuario lormUsuario = orm.UsuarioDAO.loadUsuarioByORMID(usuario.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
 			// Delete the persistent object
 			orm.UsuarioDAO.delete(lormUsuario);
@@ -78,12 +82,14 @@ public class Usuario {
 		}
 		catch (Exception e) {
 			t.rollback();
+		}}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
 		return msg;
 	}
 	/**
 	 * Metodo que muestra los datos que estan en la base de datos
-	 * @return no genera retorno
+	 * @return listaUSuario
 	 * @throws PersistentException
 	 */
 	public static List <Usuario> listar() throws PersistentException {
@@ -112,6 +118,7 @@ public class Usuario {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
 		try {
+			try{
 			orm.Usuario lormUsuario = orm.UsuarioDAO.loadUsuarioByORMID(usuario.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+ +"'", null);
 			// Update the properties of the persistent object
 			System.out.println("id: "+usuario.uid);
@@ -126,6 +133,8 @@ public class Usuario {
 		}
 		catch (Exception e) {
 			t.rollback();
+		}}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
 		return msg;
 	}
