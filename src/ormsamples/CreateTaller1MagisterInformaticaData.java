@@ -10,11 +10,14 @@ public class CreateTaller1MagisterInformaticaData {
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		try {
 			orm.Contacto lormContacto = orm.ContactoDAO.createContacto();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contactouid
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : empresau
 			orm.ContactoDAO.save(lormContacto);
 			orm.Usuario lormUsuario = orm.UsuarioDAO.createUsuario();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : pass, user
 			orm.UsuarioDAO.save(lormUsuario);
+			orm.Empresa lormEmpresa = orm.EmpresaDAO.createEmpresa();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contacto, pais, direccion, ciudad, nombre
+			orm.EmpresaDAO.save(lormEmpresa);
 			t.commit();
 		}
 		catch (Exception e) {

@@ -18,6 +18,7 @@ License Type: Academic
 		<property name="pais" column="pais" type="string" length="100" not-null="false" lazy="false"/>
 		<property name="region" column="Region" type="string" length="100" not-null="false" lazy="false"/>
 		<property name="ciudad" column="ciudad" type="string" length="50" not-null="false" lazy="false"/>
-		<property name="contactouid" column="Contactouid" type="integer" not-null="true" lazy="false"/>
+		<many-to-one name="empresau" cascade="lock" column="Empresauid" class="orm.Empresa" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
 	</class>
 </hibernate-mapping>

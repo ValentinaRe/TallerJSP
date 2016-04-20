@@ -17,6 +17,19 @@ public class Contacto {
 	public Contacto() {
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == orm.ORMConstants.KEY_CONTACTO_EMPRESAU) {
+			this.empresau = (orm.Empresa) owner;
+		}
+	}
+	
+	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
+		}
+		
+	};
+	
 	private int uid;
 	
 	private String nombre;
@@ -33,7 +46,7 @@ public class Contacto {
 	
 	private String ciudad;
 	
-	private int contactouid;
+	private orm.Empresa empresau;
 	
 	private void setUid(int value) {
 		this.uid = value;
@@ -103,12 +116,28 @@ public class Contacto {
 		return ciudad;
 	}
 	
-	public void setContactouid(int value) {
-		this.contactouid = value;
+	public void setEmpresau(orm.Empresa value) {
+		if (empresau != null) {
+			empresau.contacto.remove(this);
+		}
+		if (value != null) {
+			value.contacto.add(this);
+		}
 	}
 	
-	public int getContactouid() {
-		return contactouid;
+	public orm.Empresa getEmpresau() {
+		return empresau;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Empresau(orm.Empresa value) {
+		this.empresau = value;
+	}
+	
+	private orm.Empresa getORM_Empresau() {
+		return empresau;
 	}
 	
 	public String toString() {

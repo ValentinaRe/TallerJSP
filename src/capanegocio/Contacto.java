@@ -150,8 +150,8 @@ private int uid;
 	
 	/**
 	 * Este metodo ingresa datos de contacto en la base de datos
-	 * @param contacto
-	 * @return msg mensaje de tipo String
+	 * @param contacto de tipo Contacto
+	 * @return msg retorna un mensaje de tipo String
 	 * @throws PersistentException
 	 */
 	public static String ingresar(Contacto contacto) throws PersistentException {
@@ -169,7 +169,7 @@ private int uid;
 			lormContacto.setPais(contacto.pais);
 			lormContacto.setRegion(contacto.region);
 			lormContacto.setCiudad(contacto.ciudad);
-			lormContacto.setContactouid(0);
+		
 			msg="Ingreso exitoso";
 			orm.ContactoDAO.save(lormContacto);
 			t.commit();
@@ -185,7 +185,7 @@ private int uid;
 	/**
 	 * Metodo para eliminar datos de la Base de datos
 	 * @param contacto de tipo Contacto
-	 * @return  msg mensaje de tipo String
+	 * @return  msg retorna un mensaje de tipo String
 	 * @throws PersistentException
 	 */
 	public static String eliminar(Contacto contacto) throws PersistentException {
@@ -236,8 +236,8 @@ private int uid;
 	}
 	/**
 	 * Metodo que permite actualizar datos de contacto en la base de datos
-	 * @param contacto
-	 * @return String
+	 * @param contacto de tipo Contacto
+	 * @return msg retorna un mensaje de tipo String
 	 * @throws PersistentException
 	 */
 	public static String actualizar(Contacto contacto) throws PersistentException {

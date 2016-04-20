@@ -27,7 +27,8 @@ public class ContactoCriteria extends AbstractORMCriteria {
 	public final StringExpression pais;
 	public final StringExpression region;
 	public final StringExpression ciudad;
-	public final IntegerExpression contactouid;
+	public final IntegerExpression empresauId;
+	public final AssociationExpression empresau;
 	
 	public ContactoCriteria(Criteria criteria) {
 		super(criteria);
@@ -39,7 +40,8 @@ public class ContactoCriteria extends AbstractORMCriteria {
 		pais = new StringExpression("pais", this);
 		region = new StringExpression("region", this);
 		ciudad = new StringExpression("ciudad", this);
-		contactouid = new IntegerExpression("contactouid", this);
+		empresauId = new IntegerExpression("empresau.uid", this);
+		empresau = new AssociationExpression("empresau", this);
 	}
 	
 	public ContactoCriteria(PersistentSession session) {
@@ -48,6 +50,10 @@ public class ContactoCriteria extends AbstractORMCriteria {
 	
 	public ContactoCriteria() throws PersistentException {
 		this(orm.Taller1MagisterInformaticaPersistentManager.instance().getSession());
+	}
+	
+	public EmpresaCriteria createEmpresauCriteria() {
+		return new EmpresaCriteria(createCriteria("empresau"));
 	}
 	
 	public Contacto uniqueContacto() {
