@@ -139,19 +139,24 @@ public class Usuario {
 		return msg;
 	}
 	
-public static List <Usuario> busqueda() throws PersistentException {
+public static Usuario busquedaUsuario(Usuario usuarioRec) throws PersistentException {
 		Usuario usuario=new Usuario();
-		List <orm.Usuario> listaUsuarioOrm = orm.UsuarioDAO.queryUsuario("Usuario.user='"+usuario.getUser()+"'& usuario.pass='"+usuario.getPass()+"'", null);
-		List <Usuario> listaUsuario = new ArrayList<>(); 
+		try{
+		orm.Usuario usuarioOrm = orm.UsuarioDAO.loadUsuarioByQuery("Usuario.user='"+usuarioRec.getUser()+"'& usuario.pass='"+usuarioRec.getPass()+"'", null);
 		
-		for (orm.Usuario usuarioOrm:listaUsuarioOrm) {
-			
+		
+		
 			usuario.setUser(usuarioOrm.getUser());
 			usuario.setPass(usuarioOrm.getPass());
 			
-			listaUsuario.add(usuario);
-		}
+			
+		
 		System.out.println(" record(s) retrieved.");
-		return listaUsuario;
+		return usuario;
+		}catch(NullPointerException e){
+			e.printStackTrace();
+			
+			return usuario;
+		}
 	}
 }

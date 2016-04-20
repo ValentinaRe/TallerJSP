@@ -61,7 +61,7 @@ public class TallerServlet extends HttpServlet {
 		String ciudad ="";
 		TallerServlet ingresa= new TallerServlet();
 		try{
-			nombre=request.getParameter( "nombre");
+			nombre=request.getParameter( "nombre");		
 			apellido= request.getParameter( "apellido");
 			mail= request.getParameter( "mail");
 			telefono=request.getParameter( "telefono");

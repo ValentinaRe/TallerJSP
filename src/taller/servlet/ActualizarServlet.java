@@ -54,8 +54,12 @@ public class ActualizarServlet extends HttpServlet {
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
 		try {
-
-			int id = Integer.parseInt(request.getParameter("id"));
+			int id = 0;
+			try {
+				id = Integer.parseInt(request.getParameter("id"));
+			} catch (NullPointerException e) {
+				id = 0;
+			}
 			String nombre = request.getParameter("nombre");
 			String apellido = request.getParameter("apellido");
 			String mail = request.getParameter("mail");
@@ -105,8 +109,9 @@ public class ActualizarServlet extends HttpServlet {
 	/**
 	 * Metodo validacion mail
 	 * 
-	 * @param email de tipo String
-	 * @return boolean 
+	 * @param email
+	 *            de tipo String
+	 * @return boolean
 	 */
 	private boolean validateEmail(String email) {
 		// Compiles the given regular expression into a pattern.
@@ -121,8 +126,9 @@ public class ActualizarServlet extends HttpServlet {
 	/**
 	 * Metodo validacion telefono
 	 * 
-	 * @param cadena de tipo String
-	 * @return boolean 
+	 * @param cadena
+	 *            de tipo String
+	 * @return boolean
 	 */
 	private boolean esEntero(String cadena) {
 		for (int i = 0; i < cadena.length(); i++)
@@ -135,10 +141,11 @@ public class ActualizarServlet extends HttpServlet {
 	/**
 	 * Metodo de validacion de id
 	 * 
-	 * @param id de tipo int
+	 * @param id
+	 *            de tipo int
 	 * @return boolean
 	 */
-	private  boolean validarId(int id) {
+	private boolean validarId(int id) {
 		String cadena = String.valueOf(id);
 		for (int i = 0; i < cadena.length(); i++)
 			if (!Character.isDigit(cadena.charAt(i))) {
