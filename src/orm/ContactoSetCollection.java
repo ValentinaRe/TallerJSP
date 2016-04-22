@@ -71,6 +71,7 @@ public class ContactoSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>uid</li>
+	 * <li>run</li>
 	 * <li>nombre</li>
 	 * <li>apellido</li>
 	 * <li>mail</li>
@@ -89,6 +90,7 @@ public class ContactoSetCollection extends org.orm.util.ORMSet {
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>uid</li>
+	 * <li>run</li>
 	 * <li>nombre</li>
 	 * <li>apellido</li>
 	 * <li>mail</li>

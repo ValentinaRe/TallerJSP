@@ -323,8 +323,8 @@ public class ContactoDAO {
 	
 	public static boolean deleteAndDissociate(orm.Contacto contacto)throws PersistentException {
 		try {
-			if(contacto.getEmpresau() != null) {
-				contacto.getEmpresau().contacto.remove(contacto);
+			if(contacto.getEmpresauid() != null) {
+				contacto.getEmpresauid().contacto.remove(contacto);
 			}
 			
 			return delete(contacto);
@@ -337,8 +337,8 @@ public class ContactoDAO {
 	
 	public static boolean deleteAndDissociate(orm.Contacto contacto, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if(contacto.getEmpresau() != null) {
-				contacto.getEmpresau().contacto.remove(contacto);
+			if(contacto.getEmpresauid() != null) {
+				contacto.getEmpresauid().contacto.remove(contacto);
 			}
 			
 			try {

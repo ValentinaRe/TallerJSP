@@ -5,10 +5,10 @@ License Type: Academic
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="orm.Usuario" table="Usuario" lazy="false">
+	<class name="orm.Usuario" table="usuario" lazy="false">
 		<id name="uid" column="uid" type="integer" unsaved-value="0">
 			<generator class="sequence">
-				<param name="sequence">seq_Usuario</param>
+				<param name="sequence">seq_usuario</param>
 			</generator>
 		</id>
 		<property name="user" column="`user`" type="string" length="50" not-null="true" lazy="false"/>

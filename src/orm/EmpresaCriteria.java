@@ -20,19 +20,25 @@ import org.orm.criteria.*;
 
 public class EmpresaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression uid;
+	public final StringExpression rut;
 	public final StringExpression nombre;
 	public final StringExpression ciudad;
 	public final StringExpression direccion;
 	public final StringExpression pais;
+	public final StringExpression telefono;
+	public final StringExpression razonSocial;
 	public final CollectionExpression contacto;
 	
 	public EmpresaCriteria(Criteria criteria) {
 		super(criteria);
 		uid = new IntegerExpression("uid", this);
+		rut = new StringExpression("rut", this);
 		nombre = new StringExpression("nombre", this);
 		ciudad = new StringExpression("ciudad", this);
 		direccion = new StringExpression("direccion", this);
 		pais = new StringExpression("pais", this);
+		telefono = new StringExpression("telefono", this);
+		razonSocial = new StringExpression("razonSocial", this);
 		contacto = new CollectionExpression("ORM_Contacto", this);
 	}
 	

@@ -8,16 +8,22 @@ import org.orm.PersistentTransaction;
 
 public class Empresa {
 private int uid;
+private String rut;
 private String nombre;
 private String ciudad;
 private String direccion;
 private String pais;
-
+private String razonSocial;
 public Empresa() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-
+public String getRut() {
+	return pais;
+}
+public void setRut(String pais) {
+	this.pais = pais;
+}
 public int getUid() {
 	return uid;
 }
@@ -48,6 +54,14 @@ public String getPais() {
 public void setPais(String pais) {
 	this.pais = pais;
 }
+
+public String getRazonSocial() {
+	return pais;
+}
+public void setRazonSocial(String pais) {
+	this.pais = pais;
+}
+
 /**
  * Este metodo ingresa datos de la empresa a la base de datos 
  * @param empresa de tipo Empresa
@@ -61,11 +75,12 @@ public static String ingresar(Empresa empresa) throws PersistentException {
 		try{
 		orm.Empresa lormEmpresa = orm.EmpresaDAO.createEmpresa();
 		// Initialize the properties of the persistent object here
-		
+		lormEmpresa.setRut(empresa.rut);
 		lormEmpresa.setNombre(empresa.nombre);
 		lormEmpresa.setCiudad(empresa.ciudad);
 		lormEmpresa.setDireccion(empresa.direccion);
 		lormEmpresa.setPais(empresa.pais);
+		lormEmpresa.setRazonSocial(empresa.razonSocial);
         msg="Ingreso exitoso";
 		orm.EmpresaDAO.save(lormEmpresa);
 		t.commit();
@@ -88,7 +103,7 @@ public static String eliminar(Empresa empresa) throws PersistentException {
 	String msg="";
 	try{
 	  try {
-		orm.Empresa lormEmpresa = orm.EmpresaDAO.loadEmpresaByORMID(empresa.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
+		orm.Empresa lormEmpresa = orm.EmpresaDAO.loadEmpresaByQuery("Empresa.rut = '"+empresa.rut+"'", null);//loadEmpresaByORMID(empresa.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
 		// Delete the persistent object
 		orm.EmpresaDAO.delete(lormEmpresa);
 		t.commit();
@@ -114,11 +129,12 @@ public static List <Empresa> listar() throws PersistentException {
 	
 	for (orm.Empresa empresaOrm:listaEmpresaOrm) {
 		Empresa empresa= new Empresa();
+		empresa.setRut(empresaOrm.getRut());
 		empresa.setNombre(empresaOrm.getNombre());
 		empresa.setCiudad(empresaOrm.getCiudad());
 		empresa.setDireccion(empresaOrm.getDireccion());
 		empresa.setPais(empresaOrm.getPais());
-
+		empresa.setRazonSocial(empresaOrm.getRazonSocial());
 		listaEmpresa.add(empresa);
 	}
 	System.out.println( " record(s) retrieved.");
@@ -138,10 +154,12 @@ public static String actualizar(Empresa empresa) throws PersistentException {
 		orm.Empresa lormEmpresa = orm.EmpresaDAO.loadEmpresaByORMID(empresa.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+ +"'", null);
 		// Update the properties of the persistent object
 		System.out.println("id: "+empresa.uid);
+		lormEmpresa.setRut(empresa.rut);
 		lormEmpresa.setNombre(empresa.nombre);
 		lormEmpresa.setCiudad(empresa.ciudad);
 		lormEmpresa.setDireccion(empresa.direccion);
 		lormEmpresa.setPais(empresa.pais);
+		lormEmpresa.setRazonSocial(empresa.razonSocial);
 		
 		System.out.println("Ingreso exitoso");
 		msg="datos actualizados";

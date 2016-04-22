@@ -20,29 +20,38 @@ import org.orm.criteria.*;
 
 public class EmpresaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression uid;
+	public final StringExpression rut;
 	public final StringExpression nombre;
 	public final StringExpression ciudad;
 	public final StringExpression direccion;
 	public final StringExpression pais;
+	public final StringExpression telefono;
+	public final StringExpression razonSocial;
 	public final CollectionExpression contacto;
 	
 	public EmpresaDetachedCriteria() {
 		super(orm.Empresa.class, orm.EmpresaCriteria.class);
 		uid = new IntegerExpression("uid", this.getDetachedCriteria());
+		rut = new StringExpression("rut", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		ciudad = new StringExpression("ciudad", this.getDetachedCriteria());
 		direccion = new StringExpression("direccion", this.getDetachedCriteria());
 		pais = new StringExpression("pais", this.getDetachedCriteria());
+		telefono = new StringExpression("telefono", this.getDetachedCriteria());
+		razonSocial = new StringExpression("razonSocial", this.getDetachedCriteria());
 		contacto = new CollectionExpression("ORM_Contacto", this.getDetachedCriteria());
 	}
 	
 	public EmpresaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, orm.EmpresaCriteria.class);
 		uid = new IntegerExpression("uid", this.getDetachedCriteria());
+		rut = new StringExpression("rut", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		ciudad = new StringExpression("ciudad", this.getDetachedCriteria());
 		direccion = new StringExpression("direccion", this.getDetachedCriteria());
 		pais = new StringExpression("pais", this.getDetachedCriteria());
+		telefono = new StringExpression("telefono", this.getDetachedCriteria());
+		razonSocial = new StringExpression("razonSocial", this.getDetachedCriteria());
 		contacto = new CollectionExpression("ORM_Contacto", this.getDetachedCriteria());
 	}
 	

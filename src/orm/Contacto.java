@@ -18,8 +18,8 @@ public class Contacto {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == orm.ORMConstants.KEY_CONTACTO_EMPRESAU) {
-			this.empresau = (orm.Empresa) owner;
+		if (key == orm.ORMConstants.KEY_CONTACTO_EMPRESAUID) {
+			this.empresauid = (orm.Empresa) owner;
 		}
 	}
 	
@@ -31,6 +31,8 @@ public class Contacto {
 	};
 	
 	private int uid;
+	
+	private String run;
 	
 	private String nombre;
 	
@@ -46,7 +48,7 @@ public class Contacto {
 	
 	private String ciudad;
 	
-	private orm.Empresa empresau;
+	private orm.Empresa empresauid;
 	
 	private void setUid(int value) {
 		this.uid = value;
@@ -116,28 +118,36 @@ public class Contacto {
 		return ciudad;
 	}
 	
-	public void setEmpresau(orm.Empresa value) {
-		if (empresau != null) {
-			empresau.contacto.remove(this);
+	public void setRun(String value) {
+		this.run = value;
+	}
+	
+	public String getRun() {
+		return run;
+	}
+	
+	public void setEmpresauid(orm.Empresa value) {
+		if (empresauid != null) {
+			empresauid.contacto.remove(this);
 		}
 		if (value != null) {
 			value.contacto.add(this);
 		}
 	}
 	
-	public orm.Empresa getEmpresau() {
-		return empresau;
+	public orm.Empresa getEmpresauid() {
+		return empresauid;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Empresau(orm.Empresa value) {
-		this.empresau = value;
+	public void setORM_Empresauid(orm.Empresa value) {
+		this.empresauid = value;
 	}
 	
-	private orm.Empresa getORM_Empresau() {
-		return empresau;
+	private orm.Empresa getORM_Empresauid() {
+		return empresauid;
 	}
 	
 	public String toString() {

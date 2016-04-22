@@ -5,20 +5,21 @@ License Type: Academic
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="orm.Contacto" table="Contacto" lazy="false">
+	<class name="orm.Contacto" table="contacto" lazy="false">
 		<id name="uid" column="uid" type="integer" unsaved-value="0">
 			<generator class="sequence">
-				<param name="sequence">seq_Contacto</param>
+				<param name="sequence">seq_contacto</param>
 			</generator>
 		</id>
-		<property name="nombre" column="nombre" type="string" length="100" not-null="false" lazy="false"/>
-		<property name="apellido" column="apellido" type="string" length="100" not-null="false" lazy="false"/>
-		<property name="mail" column="mail" type="string" length="50" not-null="false" lazy="false"/>
-		<property name="telefono" column="telefono" type="string" length="20" not-null="false" lazy="false"/>
-		<property name="pais" column="pais" type="string" length="100" not-null="false" lazy="false"/>
-		<property name="region" column="Region" type="string" length="100" not-null="false" lazy="false"/>
-		<property name="ciudad" column="ciudad" type="string" length="50" not-null="false" lazy="false"/>
-		<many-to-one name="empresau" cascade="lock" column="Empresauid" class="orm.Empresa" not-null="true" lazy="no-proxy" access="field">
+		<property name="run" column="run" unique="true" type="string" length="12" not-null="true" lazy="false"/>
+		<property name="nombre" column="nombre" type="string" length="50" not-null="true" lazy="false"/>
+		<property name="apellido" column="apellido" type="string" length="50" not-null="true" lazy="false"/>
+		<property name="mail" column="mail" type="string" length="50" not-null="true" lazy="false"/>
+		<property name="telefono" column="telefono" type="string" length="20" not-null="true" lazy="false"/>
+		<property name="pais" column="pais" type="string" length="50" not-null="true" lazy="false"/>
+		<property name="region" column="region" type="string" length="50" not-null="true" lazy="false"/>
+		<property name="ciudad" column="ciudad" type="string" length="50" not-null="true" lazy="false"/>
+		<many-to-one name="empresauid" cascade="lock" column="empresauid" class="orm.Empresa" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

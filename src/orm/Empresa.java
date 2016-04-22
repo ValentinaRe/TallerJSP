@@ -34,6 +34,8 @@ public class Empresa {
 	
 	private int uid;
 	
+	private String rut;
+	
 	private String nombre;
 	
 	private String ciudad;
@@ -41,6 +43,10 @@ public class Empresa {
 	private String direccion;
 	
 	private String pais;
+	
+	private String telefono;
+	
+	private String razonSocial;
 	
 	private java.util.Set ORM_contacto = new java.util.HashSet();
 	
@@ -88,6 +94,30 @@ public class Empresa {
 		return pais;
 	}
 	
+	public void setRut(String value) {
+		this.rut = value;
+	}
+	
+	public String getRut() {
+		return rut;
+	}
+	
+	public void setTelefono(String value) {
+		this.telefono = value;
+	}
+	
+	public String getTelefono() {
+		return telefono;
+	}
+	
+	public void setRazonSocial(String value) {
+		this.razonSocial = value;
+	}
+	
+	public String getRazonSocial() {
+		return razonSocial;
+	}
+	
 	private void setORM_Contacto(java.util.Set value) {
 		this.ORM_contacto = value;
 	}
@@ -96,7 +126,7 @@ public class Empresa {
 		return ORM_contacto;
 	}
 	
-	public final orm.ContactoSetCollection contacto = new orm.ContactoSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_EMPRESA_CONTACTO, orm.ORMConstants.KEY_CONTACTO_EMPRESAU, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final orm.ContactoSetCollection contacto = new orm.ContactoSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_EMPRESA_CONTACTO, orm.ORMConstants.KEY_CONTACTO_EMPRESAUID, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getUid());

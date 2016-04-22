@@ -20,6 +20,7 @@ import org.orm.criteria.*;
 
 public class ContactoCriteria extends AbstractORMCriteria {
 	public final IntegerExpression uid;
+	public final StringExpression run;
 	public final StringExpression nombre;
 	public final StringExpression apellido;
 	public final StringExpression mail;
@@ -27,12 +28,13 @@ public class ContactoCriteria extends AbstractORMCriteria {
 	public final StringExpression pais;
 	public final StringExpression region;
 	public final StringExpression ciudad;
-	public final IntegerExpression empresauId;
-	public final AssociationExpression empresau;
+	public final IntegerExpression empresauidId;
+	public final AssociationExpression empresauid;
 	
 	public ContactoCriteria(Criteria criteria) {
 		super(criteria);
 		uid = new IntegerExpression("uid", this);
+		run = new StringExpression("run", this);
 		nombre = new StringExpression("nombre", this);
 		apellido = new StringExpression("apellido", this);
 		mail = new StringExpression("mail", this);
@@ -40,8 +42,8 @@ public class ContactoCriteria extends AbstractORMCriteria {
 		pais = new StringExpression("pais", this);
 		region = new StringExpression("region", this);
 		ciudad = new StringExpression("ciudad", this);
-		empresauId = new IntegerExpression("empresau.uid", this);
-		empresau = new AssociationExpression("empresau", this);
+		empresauidId = new IntegerExpression("empresauid.uid", this);
+		empresauid = new AssociationExpression("empresauid", this);
 	}
 	
 	public ContactoCriteria(PersistentSession session) {
@@ -52,8 +54,8 @@ public class ContactoCriteria extends AbstractORMCriteria {
 		this(orm.Taller1MagisterInformaticaPersistentManager.instance().getSession());
 	}
 	
-	public EmpresaCriteria createEmpresauCriteria() {
-		return new EmpresaCriteria(createCriteria("empresau"));
+	public EmpresaCriteria createEmpresauidCriteria() {
+		return new EmpresaCriteria(createCriteria("empresauid"));
 	}
 	
 	public Contacto uniqueContacto() {

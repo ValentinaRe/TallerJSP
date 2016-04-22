@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
-  <Entity name="Contacto">
+  <Entity name="contacto">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -13,12 +13,23 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="run">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>12</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>true</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="nombre">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
-      <Nullable>true</Nullable>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -28,8 +39,8 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
-      <Nullable>true</Nullable>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -40,7 +51,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -51,7 +62,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>20</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -61,19 +72,19 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
-      <Nullable>true</Nullable>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Region">
+    <Column name="region">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
-      <Nullable>true</Nullable>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -84,16 +95,16 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>50</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Empresauid">
+    <Column name="empresauid">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Empresa.uid</ReferencedColumn>
+      <ReferencedColumn>empresa.uid</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -103,7 +114,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Usuario">
+  <Entity name="usuario">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -138,7 +149,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Empresa">
+  <Entity name="empresa">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -150,11 +161,22 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="rut">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>12</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>true</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="nombre">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
+      <Length>50</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -165,7 +187,7 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
+      <Length>50</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -176,7 +198,7 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>100</Length>
+      <Length>50</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -194,12 +216,34 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="telefono">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>20</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="razonSocial">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
-  <ForeignKey name="FKContacto289938">
-    <ReferenceTable>Contacto</ReferenceTable>
-    <ReferencedTable>Empresa</ReferencedTable>
+  <ForeignKey name="FKcontacto84342">
+    <ReferenceTable>contacto</ReferenceTable>
+    <ReferencedTable>empresa</ReferencedTable>
     <Columns>
-      <Column>Empresauid</Column>
+      <Column>empresauid</Column>
     </Columns>
     <RefColumns>
       <Column>uid</Column>

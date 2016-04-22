@@ -12,8 +12,7 @@ import org.orm.PersistentTransaction;
  *
  */
 public class Contacto {
-private int uid;
-	
+	private int uid;
 
 	private String nombre;
 	
@@ -28,6 +27,9 @@ private int uid;
 	private String region;
 	
 	private String ciudad;
+	
+	private String run;
+	
 	/**
 	 * Constructor de la clase
 	 */
@@ -147,7 +149,20 @@ private int uid;
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad; 
 	}
-	
+/**
+ * Metodo para obtener valor de run	
+ * @return run de tipo String
+ */
+	public String getRun(){
+		return run;
+	}
+	/**
+	 * Metodo get para modificar el valor de run
+	 * @param run de tipo String
+	 */
+	public void setRun(String run){
+		this.run=run;
+	}
 	/**
 	 * Este metodo ingresa datos de contacto en la base de datos
 	 * @param contacto de tipo Contacto
@@ -162,7 +177,7 @@ private int uid;
 			
 			orm.Contacto lormContacto = orm.ContactoDAO.createContacto();
 			// Initialize the properties of the persistent object here
-			
+			lormContacto.setRun(contacto.run);
 			lormContacto.setNombre(contacto.nombre);
 			lormContacto.setApellido(contacto.apellido);
 			lormContacto.setMail(contacto.mail);
@@ -194,7 +209,7 @@ private int uid;
 		String msg="";
 		try{
 		  try {
-			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
+			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByQuery("Contacto.run = '"+contacto.run+"'", null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
 			// Delete the persistent object
 			orm.ContactoDAO.delete(lormContacto);
 			t.commit();
@@ -223,6 +238,7 @@ private int uid;
 		
 		for (orm.Contacto contactoOrm:listaContactoOrm) {
 			Contacto contacto= new Contacto();
+			contacto.setRun(contactoOrm.getRun());
 			contacto.setNombre(contactoOrm.getNombre());
 			contacto.setApellido(contactoOrm.getApellido());
 			contacto.setMail(contactoOrm.getMail());
@@ -249,6 +265,7 @@ private int uid;
 			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+ +"'", null);
 			// Update the properties of the persistent object
 			System.out.println("id: "+contacto.uid);
+			lormContacto.setRun(contacto.run);
 			lormContacto.setNombre(contacto.nombre);
 			lormContacto.setApellido(contacto.apellido);
 			lormContacto.setMail(contacto.mail);

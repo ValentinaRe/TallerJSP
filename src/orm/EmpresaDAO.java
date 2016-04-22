@@ -325,7 +325,7 @@ public class EmpresaDAO {
 		try {
 			orm.Contacto[] lContactos = empresa.contacto.toArray();
 			for(int i = 0; i < lContactos.length; i++) {
-				lContactos[i].setEmpresau(null);
+				lContactos[i].setEmpresauid(null);
 			}
 			return delete(empresa);
 		}
@@ -339,7 +339,7 @@ public class EmpresaDAO {
 		try {
 			orm.Contacto[] lContactos = empresa.contacto.toArray();
 			for(int i = 0; i < lContactos.length; i++) {
-				lContactos[i].setEmpresau(null);
+				lContactos[i].setEmpresauid(null);
 			}
 			try {
 				session.delete(empresa);
