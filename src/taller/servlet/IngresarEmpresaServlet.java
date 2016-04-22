@@ -35,6 +35,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("FormularioIngresoEmpresa.jsp");
 	}
 
 	/**
@@ -45,30 +46,38 @@ public class IngresarEmpresaServlet extends HttpServlet {
 		PersistentTransaction t = null;
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
+		String rut="";
 		String nombre = "";
 		String ciudad ="";
 		String direccion ="";
 		String pais = "";
+		String telefono="";
+		String razonSocial="";
 		
 		
 		IngresarEmpresaServlet ingresa= new IngresarEmpresaServlet();
 		try{
+			rut=request.getParameter( "rut");
 			nombre=request.getParameter( "nombre");
 			ciudad= request.getParameter( "ciudad");
 			direccion= request.getParameter( "direccion");
 			pais=request.getParameter( "pais");
+			telefono=request.getParameter( "telefono");
+			razonSocial=request.getParameter( "razonSocial");
 			
-			
-			if(nombre.trim().equals("")|| ciudad.trim().equals("")||direccion.trim().equals("")||pais.trim().equals("")){
+			if(rut.trim().equals("")||nombre.trim().equals("")|| ciudad.trim().equals("")||direccion.trim().equals("")||pais.trim().equals("")||telefono.trim().equals("")||razonSocial.trim().equals("")){
 				System.out.println("una variable vacia");
 				
 			}else{
-				if(nombre.length()<=100 && ciudad.length()<=20 && direccion.length()<=20 && pais.length()<=20 ){
+				if(rut.length()<=12 && nombre.length()<=50 && ciudad.length()<=50 && direccion.length()<=50 && pais.length()<=50 && telefono.length()<=20 && razonSocial.length()<=50){
 					Empresa ingresar = new Empresa();
+					ingresar.setRut(rut);
 					ingresar.setNombre(nombre);
 					ingresar.setCiudad(ciudad);
 					ingresar.setDireccion(direccion);
 					ingresar.setPais(pais);
+					ingresar.setTelefono(telefono);
+					ingresar.setRazonSocial(razonSocial);
 					
 					try {
 						Empresa.ingresar(ingresar);

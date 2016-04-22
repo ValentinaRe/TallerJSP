@@ -10,6 +10,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import capanegocio.Contacto;
+import capanegocio.Empresa;
 
 /**
  * Servlet implementation class EliminarServlet
@@ -33,6 +34,7 @@ public class EliminarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("FormularioEliminar.jsp");
 	}
 
 	/**
@@ -44,13 +46,25 @@ public class EliminarServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		int id = Integer.parseInt(request.getParameter("id"));
+		//String run=request.getParameter("run");
 		EliminarServlet delete = new EliminarServlet();
 		delete.validarId(id);
 		Contacto eliminar = new Contacto();
-		
+	//	if(run.trim().equals("")){
+		//	System.out.println("una variable vacia");
+		//}else{
+			//eliminar.setRun("run");
+			//try {
+			//Contacto.eliminar(eliminar);
+				
+		//	} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+		//		e.printStackTrace();
+		//	}
+		//}
 		if (id<0){
 			System.out.println("una variable vacia");
-		}else{
+	}else{
 			eliminar.setUid(id);
 			try {
 				Contacto.eliminar(eliminar);

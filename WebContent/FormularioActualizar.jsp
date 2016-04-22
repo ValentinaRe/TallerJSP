@@ -20,6 +20,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+ <jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Actualizar Contacto</title>
 </head>
 <body>
@@ -30,7 +31,12 @@
 				<input type="text" class="form-control" name="id" required> <br>
 			</div>
 		</div>
-
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Run</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="run" required> <br>
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
 			<div class="col-lg-3">

@@ -30,6 +30,7 @@ public class EliminarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("FormularioEliminarEmpresa.jsp");
 	}
 
 	/**
@@ -38,19 +39,31 @@ public class EliminarEmpresaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		int id = Integer.parseInt(request.getParameter("id"));
+		//String rut=request.getParameter("rut");
 		EliminarEmpresaServlet delete = new EliminarEmpresaServlet();
 		delete.validarId(id);
-		Empresa eliminar = new Empresa();
+		 Empresa eliminar = new Empresa();
+		//if(rut.trim().equals("")){
+			//System.out.println("una variable vacia");
+		//}else{
+			//eliminar.setRut("rut");
+			//try {
+				//Empresa.eliminar(eliminar);
+			//} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+			//	e.printStackTrace();
+			//}
+		//}
 		
 		if (id<0){
-			System.out.println("una variable vacia");
+		System.out.println("una variable vacia");
 		}else{
 			eliminar.setUid(id);
 			try {
 				Empresa.eliminar(eliminar);
 			} catch (PersistentException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+			e.printStackTrace();
 			}
 			
 		}

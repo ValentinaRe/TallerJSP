@@ -29,6 +29,10 @@ public class Contacto {
 	private String ciudad;
 	
 	private String run;
+	 
+	
+	
+	
 	
 	/**
 	 * Constructor de la clase
@@ -163,6 +167,7 @@ public class Contacto {
 	public void setRun(String run){
 		this.run=run;
 	}
+	
 	/**
 	 * Este metodo ingresa datos de contacto en la base de datos
 	 * @param contacto de tipo Contacto
@@ -170,13 +175,18 @@ public class Contacto {
 	 * @throws PersistentException
 	 */
 	public static String ingresar(Contacto contacto) throws PersistentException {
+		
 		PersistentTransaction t = orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
 		String msg="";
+		
+		
+		
 		try {
 			try{
-			
+				
 			orm.Contacto lormContacto = orm.ContactoDAO.createContacto();
 			// Initialize the properties of the persistent object here
+			
 			lormContacto.setRun(contacto.run);
 			lormContacto.setNombre(contacto.nombre);
 			lormContacto.setApellido(contacto.apellido);
@@ -185,10 +195,12 @@ public class Contacto {
 			lormContacto.setPais(contacto.pais);
 			lormContacto.setRegion(contacto.region);
 			lormContacto.setCiudad(contacto.ciudad);
-		    
+	
+			
 			msg="Ingreso exitoso";
 			orm.ContactoDAO.save(lormContacto);
 			t.commit();
+			
 		}
 		catch (Exception e) {
 			t.rollback();
@@ -209,7 +221,8 @@ public class Contacto {
 		String msg="";
 		try{
 		  try {
-			orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByQuery("Contacto.run = '"+contacto.run+"'", null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
+			  orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);
+			  //orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByQuery("Contacto.run = '"+contacto.run+"'", null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'", null);
 			// Delete the persistent object
 			orm.ContactoDAO.delete(lormContacto);
 			t.commit();

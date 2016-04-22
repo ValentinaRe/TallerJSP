@@ -40,10 +40,12 @@ public class ListarEmpresaServlet extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			for(Empresa empresa: lista){
 				out.println("");
+				out.println("el rut es: "+empresa.getRut());
 				out.println("el nombre es: "+empresa.getNombre());
 				out.println("la ciudad es: "+empresa.getCiudad());
 				out.println("la direccion es: "+empresa.getDireccion());
 				out.println("el pais es: "+empresa.getPais());
+				out.println("la razon social es: "+empresa.getRazonSocial());
 				out.println("--------------");
 	
 			}

@@ -133,7 +133,7 @@
       <Length>50</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
+      <Unique>true</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>

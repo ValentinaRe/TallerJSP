@@ -21,9 +21,15 @@
 <title>Ingresar Empresa</title>
 </head>
 <body>
+<h2 >Ingrese Datos de Empresa</h2>
 <form id="IngresarEmpresaServlet" action="IngresarEmpresaServlet" method="Post"
 		class="form-horizontal mitad" action="#">
-
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Rut</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="rut" required> <br>
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
 			<div class="col-lg-3">
@@ -49,7 +55,18 @@
 				<input type="text" class="form-control" name="pais" required> <br>
 			</div>
 		</div>
-		
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Telefono</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="telefono" required> <br>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Razon Social</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="razonSocial" required> <br>
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>

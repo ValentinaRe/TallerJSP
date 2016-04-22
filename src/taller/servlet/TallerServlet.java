@@ -52,6 +52,7 @@ public class TallerServlet extends HttpServlet {
 		PersistentTransaction t = null;
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
+		String run="";
 		String nombre = "";
 		String apellido ="";
 		String mail ="";
@@ -62,6 +63,7 @@ public class TallerServlet extends HttpServlet {
 		int id=1;
 		TallerServlet ingresa= new TallerServlet();
 		try{
+			run=request.getParameter( "run");		
 			nombre=request.getParameter( "nombre");		
 			apellido= request.getParameter( "apellido");
 			mail= request.getParameter( "mail");
@@ -71,13 +73,14 @@ public class TallerServlet extends HttpServlet {
 			ciudad=request.getParameter( "ciudad");
 			ingresa.validateEmail(mail);
 			ingresa.esEntero(telefono);
-			
-			if(nombre.trim().equals("")|| apellido.trim().equals("")||mail.trim().equals("")||telefono.trim().equals("")||pais.trim().equals("")||region.trim().equals("")||ciudad.trim().equals("")){
+			ingresa.validarRun(run);
+			if(run.trim().equals("")||nombre.trim().equals("")|| apellido.trim().equals("")||mail.trim().equals("")||telefono.trim().equals("")||pais.trim().equals("")||region.trim().equals("")||ciudad.trim().equals("")){
 				System.out.println("una variable vacia");
 				
 			}else{
 				if(nombre.length()<=100 && apellido.length()<=100 && mail.length()<=50 && telefono.length()<=20 && pais.length()<=100 && region.length()<=100 && ciudad.length()<=50 ){
 					Contacto ingresar = new Contacto();
+					ingresar.setRun(run);
 					ingresar.setNombre(nombre);
 					ingresar.setApellido(apellido);
 					ingresar.setMail(mail);
@@ -132,7 +135,30 @@ public class TallerServlet extends HttpServlet {
 			 return true;
 		 }
 		// Initialize the properties of the persistent object here
-	
+		public static boolean validarRun(String run) {
+			 
+			boolean validacion = false;
+			try {
+			run =  run.toUpperCase();
+			run = run.replace(".", "");
+			run = run.replace("-", "");
+			int runAux = Integer.parseInt(run.substring(0, run.length() - 1));
+			 
+			char dv = run.charAt(run.length() - 1);
+			 
+			int m = 0, s = 1;
+			for (; runAux != 0; runAux /= 10) {
+			s = (s + runAux % 10 * (9 - m++ % 6)) % 11;
+			}
+			if (dv == (char) (s != 0 ? s + 47 : 75)) {
+			validacion = true;
+			}
+			 
+			} catch (java.lang.NumberFormatException e) {
+			} catch (Exception e) {
+			}
+			return validacion;
+			}
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */

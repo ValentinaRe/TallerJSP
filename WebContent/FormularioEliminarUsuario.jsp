@@ -18,6 +18,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Eliminar Usuario</title>
 </head>
 <body>

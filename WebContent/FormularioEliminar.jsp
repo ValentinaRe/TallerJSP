@@ -18,12 +18,13 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Eliminar Contacto</title>
 </head>
 <body>
 	<form action="EliminarServlet" method="Post" class="form-horizontal mitad" id="EliminarServlet">
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Id</label>
+			<label class="col-lg-3 control-label">Ingrese id</label>
 			<div class="col-lg-3">
 				<input type="text" class="form-control" name="id" required> <br>
 			</div>

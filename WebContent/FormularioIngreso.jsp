@@ -21,13 +21,19 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Ingresar Contacto</title>
 </head>
 <body>
 <h2 >Ingrese Datos de Contacto</h2>
 	<form id="TallerServlet" action="TallerServlet" method="Post"
 		class="form-horizontal mitad" action="#">
-
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Run</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" placeholder="Ingrese Run" name="run" required> <br>
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
 			<div class="col-lg-3">
@@ -75,13 +81,7 @@
 				<button type="submit" class="btn btn-success left">Enviar</button>
 			</div>
 		</div>
-	</form>
-	 <form class="form-signin" role="form" action="LoginServlet" method="get" id="LoginServlet">
-		<div class="form-group">
-         <button class="btn btn-success left" type="submit">salir</button>
-        </div>
-  </div>
-  </form> 
+	
 </body>
 
 </html>

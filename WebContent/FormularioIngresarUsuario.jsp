@@ -18,11 +18,14 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
+
 <title>Ingresar Usuario</title>
 </head>
 <body>
+<h2 >Ingrese Datos de Usuario</h2>
 	<form id="IngresarUsuarioServlet" action="IngresarUsuarioServlet"
-		method="Post" class="form-horizontal mitad" action="#">
+		method="post" class="form-horizontal mitad" action="#">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese user</label>
 			<div class="col-lg-3">

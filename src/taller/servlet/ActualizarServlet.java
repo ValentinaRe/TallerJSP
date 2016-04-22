@@ -41,6 +41,7 @@ public class ActualizarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("FormularioActualizar.jsp");
 	}
 
 	/**
@@ -60,6 +61,7 @@ public class ActualizarServlet extends HttpServlet {
 			} catch (NullPointerException e) {
 				id = 0;
 			}
+			String run = request.getParameter("run");
 			String nombre = request.getParameter("nombre");
 			String apellido = request.getParameter("apellido");
 			String mail = request.getParameter("mail");
@@ -73,17 +75,18 @@ public class ActualizarServlet extends HttpServlet {
 			actual.esEntero(telefono);
 			Contacto actualizar = new Contacto();
 
-			if (id < 0 || nombre.trim().equals("") || apellido.trim().equals("") || mail.trim().equals("")
+			if (id < 0||run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("") || mail.trim().equals("")
 					|| telefono.trim().equals("") || pais.trim().equals("") || region.trim().equals("")
 					|| ciudad.trim().equals("")) {
 				System.out.println("una variable vacia");
 
 			} else {
 
-				if (nombre.length() <= 100 && apellido.length() <= 100 && mail.length() <= 50 && telefono.length() <= 20
-						&& pais.length() <= 100 && region.length() <= 100 && ciudad.length() <= 50) {
+				if (run.length()<=12 && nombre.length() <= 50 && apellido.length() <=50 && mail.length() <= 50 && telefono.length() <= 20
+						&& pais.length() <= 50 && region.length() <= 50 && ciudad.length() <= 50) {
 					out.println("Id = " + id);
 					actualizar.setUid(id);
+					actualizar.setRun(run);
 					actualizar.setNombre(nombre);
 					actualizar.setApellido(apellido);
 					actualizar.setMail(mail);

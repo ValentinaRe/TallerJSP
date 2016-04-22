@@ -33,6 +33,7 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("FormularioActualizarEmpresa.jsp");
 	}
 
 	/**
@@ -45,28 +46,33 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 		try {
 
 			int id = Integer.parseInt(request.getParameter("id"));
+			String rut=request.getParameter( "rut");
 			String nombre=request.getParameter( "nombre");
 			String ciudad= request.getParameter( "ciudad");
 			String direccion= request.getParameter( "direccion");
 			String pais=request.getParameter( "pais");
+			String telefono=request.getParameter("telefono");
+			String razonSocial=request.getParameter( "razonSocial");
 			ActualizarEmpresaServlet actual = new ActualizarEmpresaServlet();
 			actual.validarId(id);
 			
 			Empresa actualizar = new Empresa();
 
-			if (id < 0 || nombre.trim().equals("") || ciudad.trim().equals("") || direccion.trim().equals("")
+			if (id < 0 ||rut.trim().equals("")|| nombre.trim().equals("") || ciudad.trim().equals("") || direccion.trim().equals("")
 					||  pais.trim().equals("")){
 				System.out.println("una variable vacia");
 
 			} else {
 
-				if (nombre.length() <= 100 && ciudad.length() <= 20 && direccion.length() <= 20 && pais.length() <= 20) {
+				if (rut.length()<=12 && nombre.length() <= 50 && ciudad.length() <= 20 && direccion.length() <= 20 && pais.length() <= 20 && razonSocial.length()<=50) {
 					out.println("Id = " + id);
 					actualizar.setUid(id);
+					actualizar.setRut(rut);
 					actualizar.setNombre(nombre);
 					actualizar.setCiudad(ciudad);
 					actualizar.setDireccion(direccion);
 					actualizar.setPais(pais);
+					actualizar.setRazonSocial(razonSocial);
 					try {
 						Empresa.actualizar(actualizar);
 					} catch (PersistentException e) {

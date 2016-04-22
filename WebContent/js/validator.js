@@ -9,14 +9,25 @@ $(document).ready(function() {
 											validating : 'glyphicon glyphicon-refresh'
 										},
 										fields : {
+											run : {
+												validators : {
+													notEmpty : {
+														message : 'El run es requerido'
+													},
+													stringLength : {
+														max : 12,
+														message : 'El run debe contener maximo 12 caracteres'
+													}
+												}
+											},
 											nombre : {
 												validators : {
 													notEmpty : {
 														message : 'El nombre es requerido'
 													},
 													stringLength : {
-														max : 100,
-														message : 'El nombre debe contener maximo 100 caracteres'
+														max : 50,
+														message : 'El nombre debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -26,8 +37,8 @@ $(document).ready(function() {
 														message : 'El apellido es requerido'
 													},
 													stringLength : {
-														max : 100,
-														message : 'El apellido debe contener maximo 100 caracteres'
+														max : 50,
+														message : 'El apellido debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -121,14 +132,25 @@ $(document).ready(function() {
 													}
 												}
 											},
+											run : {
+												validators : {
+													notEmpty : {
+														message : 'El run es requerido'
+													},
+													stringLength : {
+														max : 12,
+														message : 'El run debe contener maximo 12 caracteres'
+													}
+												}
+											},
 											nombre : {
 												validators : {
 													notEmpty : {
 														message : 'El nombre es requerido'
 													},
 													stringLength : {
-														max : 100,
-														message : 'El nombre debe contener maximo 100 caracteres'
+														max : 50,
+														message : 'El nombre debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -138,8 +160,8 @@ $(document).ready(function() {
 														message : 'El apellido es requerido'
 													},
 													stringLength : {
-														max : 100,
-														message : 'El apellido debe contener maximo 100 caracteres'
+														max : 50,
+														message : 'El apellido debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -365,8 +387,8 @@ $(document).ready(function() {
 												message : 'El user es requerido'
 											},
 											stringLength : {
-												max : 100,
-												message : 'El user debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'El user debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -376,8 +398,8 @@ $(document).ready(function() {
 												message : 'El password  es requerido'
 											},
 											stringLength : {
-												max : 100,
-												message : 'El password debe contener maximo 100 caracteres'
+												max : 50,
+												message : 'El password debe contener maximo 50 caracteres'
 											}
 										}
 									}
@@ -420,14 +442,25 @@ $(document).ready(function() {
 									validating : 'glyphicon glyphicon-refresh'
 								},
 								fields : {
+									rut : {
+										validators : {
+											notEmpty : {
+												message : 'El rut es requerido'
+											},
+											stringLength : {
+												max : 12,
+												message : 'El rut debe contener maximo 12 caracteres'
+											}
+										}
+									},
 									nombre : {
 										validators : {
 											notEmpty : {
 												message : 'El nombre es requerido'
 											},
 											stringLength : {
-												max : 100,
-												message : 'El nombre debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'El nombre debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -437,8 +470,8 @@ $(document).ready(function() {
 												message : 'La ciudad es requerida'
 											},
 											stringLength : {
-												max : 100,
-												message : 'La ciudad debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'La ciudad debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -449,8 +482,8 @@ $(document).ready(function() {
 												message : 'La direccion es requerida'
 											},
 											stringLength : {
-												max : 20,
-												message : 'La ciudad debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'La ciudad debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -460,8 +493,34 @@ $(document).ready(function() {
 												message : 'El pais es requerido'
 											},
 											stringLength : {
+												max : 50,
+												message : 'El pais debe contener maximo 50 caracteres'
+											}
+										}
+									},
+									telefono : {
+										validators : {
+											notEmpty : {
+												message : 'El telefono es requerido'
+											},
+											stringLength : {
 												max : 20,
-												message : 'El pais debe contener maximo 20 caracteres'
+												message : 'El telefono debe contener maximo 20 caracteres'
+											},
+											regexp : {
+												regexp : /^[0-9]+$/,
+												message : 'El teléfono solo puede contener números'
+											}
+										}
+									},
+									razonSocial : {
+										validators : {
+											notEmpty : {
+												message : 'La razon social es requerido'
+											},
+											stringLength : {
+												max : 50,
+												message : 'La razon social debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -470,6 +529,7 @@ $(document).ready(function() {
 								}
 
 							});
+					
 					$('#ActualizarEmpresaServlet')
 					.bootstrapValidator(
 							{
@@ -494,6 +554,17 @@ $(document).ready(function() {
 											}
 										}
 									},
+									rut : {
+										validators : {
+											notEmpty : {
+												message : 'El rut es requerido'
+											},
+											stringLength : {
+												max : 12,
+												message : 'El rut debe contener maximo 12 caracteres'
+											}
+										}
+									},
 									nombre : {
 										validators : {
 											notEmpty : {
@@ -511,8 +582,8 @@ $(document).ready(function() {
 												message : 'La ciudad es requerida'
 											},
 											stringLength : {
-												max : 100,
-												message : 'La ciudad debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'La ciudad debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -525,8 +596,8 @@ $(document).ready(function() {
 												message : 'La direccion es requerido'
 											},
 											stringLength : {
-												max : 20,
-												message : 'La direccion debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'La direccion debe contener maximo 50 caracteres'
 											}
 										}
 									},
@@ -536,11 +607,37 @@ $(document).ready(function() {
 												message : 'El pais es requerido'
 											},
 											stringLength : {
-												max : 20,
-												message : 'El pais debe contener maximo 20 caracteres'
+												max : 50,
+												message : 'El pais debe contener maximo 50 caracteres'
 											}
 										}
-									},				
+									},	
+									telefono : {
+										validators : {
+											notEmpty : {
+												message : 'El telefono es requerido'
+											},
+											stringLength : {
+												max : 20,
+												message : 'El telefono debe contener maximo 20 caracteres'
+											},
+											regexp : {
+												regexp : /^[0-9]+$/,
+												message : 'El teléfono solo puede contener números'
+											}
+										}
+									},
+									razonSocial : {
+										validators : {
+											notEmpty : {
+												message : 'La razon social es requerido'
+											},
+											stringLength : {
+												max : 50,
+												message : 'La razon social debe contener maximo 50 caracteres'
+											}
+										}
+									},
 
 								}
 

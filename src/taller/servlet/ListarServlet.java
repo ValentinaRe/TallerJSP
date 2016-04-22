@@ -40,6 +40,7 @@ public class ListarServlet extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			for(Contacto contacto: lista){
 				out.println("");
+				out.println("el run es: "+contacto.getRun());
 				out.println("el nombre es: "+contacto.getNombre());
 				out.println("el apellido es: "+contacto.getApellido());
 				out.println("el mail es: "+contacto.getMail());

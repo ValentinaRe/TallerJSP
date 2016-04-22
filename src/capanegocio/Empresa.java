@@ -13,23 +13,25 @@ private String nombre;
 private String ciudad;
 private String direccion;
 private String pais;
+private String telefono;
 private String razonSocial;
 public Empresa() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public String getRut() {
-	return pais;
-}
-public void setRut(String pais) {
-	this.pais = pais;
-}
+
 public int getUid() {
 	return uid;
 }
 public void setUid(int uid) {
-	this.uid = uid;
-}
+	this.uid = uid;}
+public String getRut() {
+		return rut;
+		}
+public void setRut(String rut) {
+		this.rut = rut;
+	}
+
 public String getNombre() {
 	return nombre;
 }
@@ -54,12 +56,18 @@ public String getPais() {
 public void setPais(String pais) {
 	this.pais = pais;
 }
+public String getTelefono() {
+	return telefono;
+}
+public void setTelefono(String telefono) {
+	this.telefono = telefono;
+}
 
 public String getRazonSocial() {
-	return pais;
+	return razonSocial;
 }
-public void setRazonSocial(String pais) {
-	this.pais = pais;
+public void setRazonSocial(String razonSocial) {
+	this.razonSocial = razonSocial;
 }
 
 /**
@@ -80,6 +88,7 @@ public static String ingresar(Empresa empresa) throws PersistentException {
 		lormEmpresa.setCiudad(empresa.ciudad);
 		lormEmpresa.setDireccion(empresa.direccion);
 		lormEmpresa.setPais(empresa.pais);
+		lormEmpresa.setTelefono(empresa.telefono);
 		lormEmpresa.setRazonSocial(empresa.razonSocial);
         msg="Ingreso exitoso";
 		orm.EmpresaDAO.save(lormEmpresa);
@@ -134,6 +143,7 @@ public static List <Empresa> listar() throws PersistentException {
 		empresa.setCiudad(empresaOrm.getCiudad());
 		empresa.setDireccion(empresaOrm.getDireccion());
 		empresa.setPais(empresaOrm.getPais());
+		empresa.setTelefono(empresaOrm.getTelefono());
 		empresa.setRazonSocial(empresaOrm.getRazonSocial());
 		listaEmpresa.add(empresa);
 	}
@@ -159,6 +169,7 @@ public static String actualizar(Empresa empresa) throws PersistentException {
 		lormEmpresa.setCiudad(empresa.ciudad);
 		lormEmpresa.setDireccion(empresa.direccion);
 		lormEmpresa.setPais(empresa.pais);
+		lormEmpresa.setTelefono(empresa.telefono);
 		lormEmpresa.setRazonSocial(empresa.razonSocial);
 		
 		System.out.println("Ingreso exitoso");
