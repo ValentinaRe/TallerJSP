@@ -41,7 +41,7 @@ public class TallerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		response.sendRedirect("FormularioIngreso.jsp");
 	}
 
 	/**
@@ -59,6 +59,7 @@ public class TallerServlet extends HttpServlet {
 		String pais = "";
 		String region ="";
 		String ciudad ="";
+		int id=1;
 		TallerServlet ingresa= new TallerServlet();
 		try{
 			nombre=request.getParameter( "nombre");		
@@ -84,8 +85,10 @@ public class TallerServlet extends HttpServlet {
 					ingresar.setPais(pais);
 					ingresar.setRegion(region);
 					ingresar.setCiudad(ciudad);
+					
 					try {
 						Contacto.ingresar(ingresar);
+						
 					} catch (PersistentException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -97,7 +100,8 @@ public class TallerServlet extends HttpServlet {
 			
 		}catch (NullPointerException e){
 			e.printStackTrace();
-		}	
+		}
+		//System.out.println("datos ingresados con exito");
 	}
 
 	/**

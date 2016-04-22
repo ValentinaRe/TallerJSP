@@ -145,7 +145,7 @@ private int uid;
  * @param ciudad de tipo String
  */
 	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
+		this.ciudad = ciudad; 
 	}
 	
 	/**
@@ -159,6 +159,7 @@ private int uid;
 		String msg="";
 		try {
 			try{
+			
 			orm.Contacto lormContacto = orm.ContactoDAO.createContacto();
 			// Initialize the properties of the persistent object here
 			
@@ -169,7 +170,7 @@ private int uid;
 			lormContacto.setPais(contacto.pais);
 			lormContacto.setRegion(contacto.region);
 			lormContacto.setCiudad(contacto.ciudad);
-		
+		    
 			msg="Ingreso exitoso";
 			orm.ContactoDAO.save(lormContacto);
 			t.commit();

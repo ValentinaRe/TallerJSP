@@ -18,7 +18,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
-<title>Insert title here</title>
+<title>Actualizar Empresa</title>
 </head>
 <body>
 <form action="ActualizarEmpresaServlet" method="Post" class="form-horizontal mitad" id="ActualizarEmpresaServlet">

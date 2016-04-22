@@ -138,11 +138,16 @@ public class Usuario {
 		}
 		return msg;
 	}
-	
+	/**
+	 * Metodo para obtener usuario y contraseña de la base de datos 
+	 * @param usuarioRec de tipo Usuario
+	 * @return usuario de tipo Usuario
+	 * @throws PersistentException
+	 */
 public static Usuario busquedaUsuario(Usuario usuarioRec) throws PersistentException {
 		Usuario usuario=new Usuario();
 		try{
-		orm.Usuario usuarioOrm = orm.UsuarioDAO.loadUsuarioByQuery("Usuario.user='"+usuarioRec.getUser()+"'& usuario.pass='"+usuarioRec.getPass()+"'", null);
+		orm.Usuario usuarioOrm = orm.UsuarioDAO.loadUsuarioByQuery("Usuario.user='"+usuarioRec.getUser()+"'AND Usuario.pass='"+usuarioRec.getPass()+"'", null);
 		
 		
 		

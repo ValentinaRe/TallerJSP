@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet"></link>
@@ -38,7 +38,9 @@
         <div class="form-group">
          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </div>
+        
       </form> 
-  </div>
+      
+      
 </body>
 </html>

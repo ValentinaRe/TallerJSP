@@ -11,10 +11,10 @@ License Type: Academic
 				<param name="sequence">seq_Empresa</param>
 			</generator>
 		</id>
-		<property name="nombre" column="nombre" type="string" length="20" not-null="true" lazy="false"/>
-		<property name="ciudad" column="ciudad" type="string" length="20" not-null="true" lazy="false"/>
-		<property name="direccion" column="direccion" type="string" length="20" not-null="true" lazy="false"/>
-		<property name="pais" column="pais" type="string" length="20" not-null="true" lazy="false"/>
+		<property name="nombre" column="nombre" type="string" length="100" not-null="true" lazy="false"/>
+		<property name="ciudad" column="ciudad" type="string" length="100" not-null="true" lazy="false"/>
+		<property name="direccion" column="direccion" type="string" length="100" not-null="true" lazy="false"/>
+		<property name="pais" column="pais" type="string" length="50" not-null="true" lazy="false"/>
 		<set name="ORM_Contacto" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="Empresauid" not-null="true"/>
 			<one-to-many class="orm.Contacto"/>

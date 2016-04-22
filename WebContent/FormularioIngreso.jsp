@@ -21,52 +21,53 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
-<title>Insert title here</title>
+<title>Ingresar Contacto</title>
 </head>
 <body>
+<h2 >Ingrese Datos de Contacto</h2>
 	<form id="TallerServlet" action="TallerServlet" method="Post"
 		class="form-horizontal mitad" action="#">
 
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="nombre" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Nombre" name="nombre" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Apellido</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control"  name="apellido" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Apellido" name="apellido" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Mail</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="mail" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Mail" name="mail" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Telefono</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="telefono" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Telefono" name="telefono" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese País</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="pais" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Pais" name="pais" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Región</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="region" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Region" name="region" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Ciudad</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="ciudad" required> <br>
+				<input type="text" class="form-control"  placeholder="Ingrese Ciudad" name="ciudad" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
@@ -75,7 +76,12 @@
 			</div>
 		</div>
 	</form>
-
+	 <form class="form-signin" role="form" action="LoginServlet" method="get" id="LoginServlet">
+		<div class="form-group">
+         <button class="btn btn-success left" type="submit">salir</button>
+        </div>
+  </div>
+  </form> 
 </body>
 
 </html>

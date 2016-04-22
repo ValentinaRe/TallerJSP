@@ -32,16 +32,24 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		 
-			 
+		//me llega la url "proyecto/login/out"
+        // String action=(request.getPathInfo()!=null?request.getPathInfo():"");
+        HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("usuario")!= null){
+            sesion.invalidate();
+            response.sendRedirect("FormularioLogin.jsp");
+        }else{
+        	//response.sendRedirect("FormularioLogin.jsp");
+        }
 		        //me llega la url "proyecto/login/out"
 		       // String action=(request.getPathInfo()!=null?request.getPathInfo():"");
-		        HttpSession sesion = request.getSession();
-		        if(sesion.getAttribute("usuario")!= null){
+		       // HttpSession sesion = request.getSession();
+		        //if(sesion.getAttribute("usuario")!= null ){
 		            //sesion.invalidate();
-		            response.sendRedirect("FormularioIngreso.jsp");
-		        }else{
-		
-		        }
+		         //   response.sendRedirect("FormularioIngreso.jsp");
+		        //}else{
+		        	
+		        //}
 		 
 	}
 
@@ -61,16 +69,21 @@ public class LoginServlet extends HttpServlet {
         
         try {
 			usuario=Usuario.busquedaUsuario(usuario);
-			if(!usuario.getUser().equals("")){
+			if(!usuario.getUser().equals("")  ){
 	        	sesion.setAttribute("usuario", "password");
-	        	response.sendRedirect("FormularioIngreso");
-	        }
+	        	response.sendRedirect("FormularioIngreso.jsp");
+	      System.out.print("loguedo");
+			}
+			
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch(NullPointerException e){
 			
+		}catch(NullPointerException e){
+			e.printStackTrace();
+			System.out.println("datos mal ingresados");
+        	response.sendRedirect("FormularioLogin.jsp");
 		}
         
         
