@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletBuscadorSimpleCont" id="ServletBuscadorSimpleCont" method="post" class="form-horizontal mitad" action="#">
+<form action="ServletBuscadorSimple" id="ServletBuscadorSimple" method="post" class="form-horizontal mitad" action="#">
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Buscar</label>
 		<div class="col-lg-3">
