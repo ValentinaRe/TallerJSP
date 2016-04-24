@@ -26,7 +26,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese id</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="id" required> <br>
+				<input type="text" class="form-control" placeholder=" id" name="id" required> <br>
 			</div>
 		</div>
 

@@ -30,7 +30,7 @@ public class EliminarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("FormularioEliminarEmpresa.jsp");
+		request.getRequestDispatcher( "/FormularioEliminarEmpresa.jsp").forward(request, response);
 	}
 
 	/**

@@ -33,7 +33,7 @@
 	<br />
 	<input type="submit" value="mostrar">
 		<i:forEach items="${lista}" var="contacto">
-			${contacto.nombre}:${contacto.apellido}:${contacto.telefono}:${contacto.mail}
+			${contacto.uid}:${contacto.run}:${contacto.nombre}:${contacto.apellido}:${contacto.telefono}:${contacto.mail}
 		<br />
 		</i:forEach>
 	</form>

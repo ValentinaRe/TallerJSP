@@ -80,6 +80,16 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label class="col-lg-3 control-label">Seleccione Empresa</label>
+			<div class="col-lg-3">
+		    <select name="idEmpresa">
+	 		 <option value=1>Volvo</option>
+ 		 	 <option value=2>Saab</option>
+ 			 <option value=3>Mercedes</option>
+			 </select>
+		    	</div>
+		</div>
+		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>
 			</div>

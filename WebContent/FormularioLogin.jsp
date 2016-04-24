@@ -25,18 +25,20 @@
 
       <form class="form-signin" role="form" action="LoginServlet" method="post" id="LoginServlet">
       
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Iniciar Sesion</h2>
         
         <div class="form-group">
+        <label class="col-lg-3 control-label">Usuario</label>
          <input type="text" class="form-control" name="user" placeholder="Nombre de usuario" required>
         </div>
         
         <div class="form-group">
+        <label class="col-lg-3 control-label">Password</label>
          <input type="password" class="form-control" name="password" placeholder="Password" required >
         </div>
         
         <div class="form-group">
-         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
         </div>
         
       </form> 

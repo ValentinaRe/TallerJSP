@@ -15,6 +15,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import capanegocio.Contacto;
+import capanegocio.Empresa;
 
 /**
  * Servlet implementation class ActualizarServlet
@@ -41,7 +42,7 @@ public class ActualizarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("FormularioActualizar.jsp");
+		request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
 	}
 
 	/**
@@ -54,6 +55,15 @@ public class ActualizarServlet extends HttpServlet {
 		doGet(request, response);
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
+		String run ="";
+		String nombre ="";
+		String apellido="";
+		String mail ="";
+		String telefono ="";
+		String pais ="";
+		String region ="";
+		String ciudad ="";
+		String empresa = "";
 		try {
 			int id = 0;
 			try {
@@ -61,45 +71,90 @@ public class ActualizarServlet extends HttpServlet {
 			} catch (NullPointerException e) {
 				id = 0;
 			}
-			String run = request.getParameter("run");
-			String nombre = request.getParameter("nombre");
-			String apellido = request.getParameter("apellido");
-			String mail = request.getParameter("mail");
-			String telefono = request.getParameter("telefono");
-			String pais = request.getParameter("pais");
-			String region = request.getParameter("region");
-			String ciudad = request.getParameter("ciudad");
+			 run = request.getParameter("run");
+			 nombre = request.getParameter("nombre");
+			 apellido = request.getParameter("apellido");
+			 mail = request.getParameter("mail");
+			 telefono = request.getParameter("telefono");
+			 pais = request.getParameter("pais");
+			 region = request.getParameter("region");
+			 ciudad = request.getParameter("ciudad");
+			 empresa = request.getParameter("idEmpresa");
+			 int idempr=Integer.parseInt(empresa);
 			ActualizarServlet actual = new ActualizarServlet();
 			actual.validarId(id);
 			actual.validateEmail(mail);
 			actual.esEntero(telefono);
 			Contacto actualizar = new Contacto();
+			Empresa empresas = new Empresa();
 
-			if (id < 0||run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("") || mail.trim().equals("")
-					|| telefono.trim().equals("") || pais.trim().equals("") || region.trim().equals("")
-					|| ciudad.trim().equals("")) {
+			if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
+					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
+					|| region.trim().equals("") || ciudad.trim().equals("")) {
 				System.out.println("una variable vacia");
 
 			} else {
 
-				if (run.length()<=12 && nombre.length() <= 50 && apellido.length() <=50 && mail.length() <= 50 && telefono.length() <= 20
-						&& pais.length() <= 50 && region.length() <= 50 && ciudad.length() <= 50) {
+				if (run.length() <= 12 && nombre.length() <= 50 && apellido.length() <= 50 && mail.length() <= 50
+						&& telefono.length() <= 20 && pais.length() <= 50 && region.length() <= 50
+						&& ciudad.length() <= 50) {
 					out.println("Id = " + id);
-					actualizar.setUid(id);
-					actualizar.setRun(run);
-					actualizar.setNombre(nombre);
-					actualizar.setApellido(apellido);
-					actualizar.setMail(mail);
-					actualizar.setTelefono(telefono);
-					actualizar.setPais(pais);
-					actualizar.setRegion(region);
-					actualizar.setCiudad(ciudad);
 					try {
-						Contacto.actualizar(actualizar);
+						actualizar.setUid(id);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setRun(run);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setNombre(nombre);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setApellido(apellido);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setMail(mail);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setTelefono(telefono);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setPais(pais);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setRegion(region);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setCiudad(ciudad);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					
+					empresas.setUid(idempr);
+					actualizar.setEmpresaUid(empresas);
+					String respCon="";
+					try {
+						respCon=Contacto.actualizar(actualizar);
 					} catch (PersistentException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					
 				}
 
 			}

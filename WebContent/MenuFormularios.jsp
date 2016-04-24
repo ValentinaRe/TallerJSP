@@ -32,7 +32,7 @@
                 <div class="navbar-header">
                    
            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">toggle navigation</span>
+                        <span class="sr-only"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -40,20 +40,22 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                           <ul class="nav navbar-nav">
 							   <li role="presentation"><a href="FormularioIngreso.jsp">Ingresar Contacto </a></li>
-							   <li role="presentation"><a href="FormularioIngresarUsuario.jsp">Ingresar Usuario </a></li>
 							   <li role="presentation"><a href="FormularioActualizar.jsp">Actualizar  Contacto </a></li>
 							   <li role="presentation"><a href="FormularioEliminar.jsp">Eliminar  Contacto </a></li>
-							    <li role="presentation"><a href="FormularioEliminarEmpresa.jsp">Eliminar  Empresa </a></li>
 							   <li role="presentation"><a href="FormularioListar.jsp">Listar  Contacto </a></li>
+							   <li role="presentation"><a href="FormularioIngresarUsuario.jsp">Ingresar Usuario </a></li>
+							   <li role="presentation"><a href="FormularioActualizarUsuario.jsp">Actualizar  Usuario </a></li>
+							   <li role="presentation"><a href="FormularioEliminarUsuario.jsp">Eliminar  Usuario</a></li>  
 							   <li role="presentation"><a href="FormularioListarUsuario.jsp">Listar  Usuario</a></li>  
+							   <li role="presentation"><a href="FormularioBusquedaSimple.jsp">Busqueda  Simple</a></li>
 							  
 						    
 						      
                               
-         <li role="presentation"><form action="ServletLogin" id="ServletLogin" method="get" class="form-horizontal mitad" action="#">
+         <li role="presentation"><form action="LoginServlet" id="LoginServlet" method="get" class="form-horizontal mitad" action="#">
 		<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
-			<button type="submit" class="btn btn-success left">logout</button>
+			<button type="submit" class="btn btn-success left">salir</button>
 		</div>
 	</div>
 	</form>

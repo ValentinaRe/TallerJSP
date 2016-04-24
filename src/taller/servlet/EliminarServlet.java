@@ -34,7 +34,7 @@ public class EliminarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("FormularioEliminar.jsp");
+		request.getRequestDispatcher( "/FormularioEliminar.jsp").forward(request, response);
 	}
 
 	/**

@@ -15,15 +15,15 @@ import org.orm.PersistentException;
 import capanegocio.Contacto;
 
 /**
- * Servlet implementation class ListarServlet
+ * Servlet implementation class BusquedaSimpleServlet
  */
-public class ListarServlet extends HttpServlet {
+public class BusquedaSimpleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarServlet() {
+    public BusquedaSimpleServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,31 +33,8 @@ public class ListarServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List <Contacto> lista = new ArrayList<>();
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		try {
-			lista=Contacto.listar();
-			PrintWriter out=response.getWriter();
-			for(Contacto contacto: lista){
-				out.println("");
-				out.println("el id es: "+contacto.getUid());
-				out.println("el run es: "+contacto.getRun());
-				out.println("el nombre es: "+contacto.getNombre());
-				out.println("el apellido es: "+contacto.getApellido());
-				out.println("el mail es: "+contacto.getMail());
-				out.println("el telefono es: "+contacto.getTelefono());
-				out.println("el pais es: "+contacto.getPais());
-				out.println("el region es: "+contacto.getRegion());
-				out.println("el ciudad es: "+contacto.getCiudad());
-				out.println("--------------");
-				
-				
-			}
-			
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 	}
 
@@ -66,8 +43,27 @@ public class ListarServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String buscar = request.getParameter("buscar");
+		
+		Contacto contacto = new Contacto();
+		List<Contacto> lista = new ArrayList<Contacto>();
+		try {
+			lista = contacto.busquedaSimple(buscar);
+			System.out.println(lista.get(0).getNombre());
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.removeAttribute("busqueda");
+		request.setAttribute("busqueda", lista);
+		
+		request.getRequestDispatcher( "/FormularioBusquedaSimple.jsp").forward(request, response);
+//mostrar en jsp no por servlet
+		//listar contacto en el mismo jsp
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)

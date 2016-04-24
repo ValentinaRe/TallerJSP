@@ -12,6 +12,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import capanegocio.Contacto;
+import capanegocio.Empresa;
 
 import java.io.PrintWriter;
 import java.util.regex.Matcher;
@@ -20,158 +21,185 @@ import java.util.regex.Pattern;
 /**
  * Servlet implementation class TallerServlet
  */
-//@WebServlet("/TallerServlet")
+// @WebServlet("/TallerServlet")
 public class TallerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	  private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-	            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	 
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TallerServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("FormularioIngreso.jsp");
+	public TallerServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersistentTransaction t = null;
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
-		String run="";
+		String run = "";
 		String nombre = "";
-		String apellido ="";
-		String mail ="";
-		String telefono ="";
+		String apellido = "";
+		String mail = "";
+		String telefono = "";
 		String pais = "";
-		String region ="";
-		String ciudad ="";
-		int id=1;
-		TallerServlet ingresa= new TallerServlet();
-		try{
-			run=request.getParameter( "run");		
-			nombre=request.getParameter( "nombre");		
-			apellido= request.getParameter( "apellido");
-			mail= request.getParameter( "mail");
-			telefono=request.getParameter( "telefono");
-			pais=request.getParameter( "pais");
-			region=request.getParameter( "region");
-			ciudad=request.getParameter( "ciudad");
+		String region = "";
+		String ciudad = "";
+		String empresa = "";
+		TallerServlet ingresa = new TallerServlet();
+		try {
+			run = request.getParameter("run");
+			nombre = request.getParameter("nombre");
+			apellido = request.getParameter("apellido");
+			mail = request.getParameter("mail");
+			telefono = request.getParameter("telefono");
+			pais = request.getParameter("pais");
+			region = request.getParameter("region");
+			ciudad = request.getParameter("ciudad");
+			// obtener request de la empresa
+			empresa = request.getParameter("idEmpresa");
+			int idempr=Integer.parseInt(empresa);
 			ingresa.validateEmail(mail);
 			ingresa.esEntero(telefono);
 			ingresa.validarRun(run);
-			if(run.trim().equals("")||nombre.trim().equals("")|| apellido.trim().equals("")||mail.trim().equals("")||telefono.trim().equals("")||pais.trim().equals("")||region.trim().equals("")||ciudad.trim().equals("")){
+			if (run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
+					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
+					|| region.trim().equals("") || ciudad.trim().equals("")||idempr<0) {
 				System.out.println("una variable vacia");
-				
-			}else{
-				if(nombre.length()<=100 && apellido.length()<=100 && mail.length()<=50 && telefono.length()<=20 && pais.length()<=100 && region.length()<=100 && ciudad.length()<=50 ){
-					Contacto ingresar = new Contacto();
-					ingresar.setRun(run);
-					ingresar.setNombre(nombre);
-					ingresar.setApellido(apellido);
-					ingresar.setMail(mail);
-					ingresar.setTelefono(telefono);
-					ingresar.setPais(pais);
-					ingresar.setRegion(region);
-					ingresar.setCiudad(ciudad);
-					
+
+			} else {
+				if (nombre.length() <= 100 && apellido.length() <= 100 && mail.length() <= 50 && telefono.length() <= 20
+						&& pais.length() <= 100 && region.length() <= 100 && ciudad.length() <= 50) {
+					// instanciar clase empresa
+					Empresa empresas = new Empresa();
+					// asignar valor capturado del request
+					empresas.setUid(idempr);
+					Contacto ingresarContacto = new Contacto();
+					ingresarContacto.setRun(run);
+					ingresarContacto.setNombre(nombre);
+					ingresarContacto.setApellido(apellido);
+					ingresarContacto.setMail(mail);
+					ingresarContacto.setTelefono(telefono);
+					ingresarContacto.setPais(pais);
+					ingresarContacto.setRegion(region);
+					ingresarContacto.setCiudad(ciudad);
+					ingresarContacto.setEmpresaUid(empresas);
+					String respCon="";
+					// asignar contacto el objeto de la empresa
+					// instanciar una variable que almacene la respuesta de la
+					// capa de negocio
+
 					try {
-						Contacto.ingresar(ingresar);
-						
+						respCon=Contacto.ingresar(ingresarContacto);
+						// asignar a la variable creada la respuesta del
+						// ingresar
+						//Contacto.ingresar(ingresarContacto);
+
 					} catch (PersistentException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				}else{
+				} else {
 					System.out.println("cantidad de caracteres superior a los aceptados");
 				}
 			}
-			
-		}catch (NullPointerException e){
+
+		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-		//System.out.println("datos ingresados con exito");
+		// System.out.println("datos ingresados con exito");
 	}
 
 	/**
-	 * Metodo validacion mail 
-	 * @param email de tipo String
+	 * Metodo validacion mail
+	 * 
+	 * @param email
+	 *            de tipo String
 	 * @return boolean
 	 */
 	public static boolean validateEmail(String email) {
-			 
-	        // Compiles the given regular expression into a pattern.
-	        Pattern pattern = Pattern.compile(PATTERN_EMAIL);
-	 
-	        // Match the given input against this pattern
-	        Matcher matcher = pattern.matcher(email);
-	        return matcher.matches();
-	 
-	    }
-		/**
-		 * Metodo validacion telefono 
-		 * @param cadena de tipo String
-		 * @return boolean
-		 */
-		public boolean esEntero(String cadena){
-			 for(int i = 0; i<cadena.length(); i++)
-			 if( !Character.isDigit(cadena.charAt(i)) ){
-				 return false;
-			 }
-			 return true;
-		 }
-		// Initialize the properties of the persistent object here
-		public static boolean validarRun(String run) {
-			 
-			boolean validacion = false;
-			try {
-			run =  run.toUpperCase();
+
+		// Compiles the given regular expression into a pattern.
+		Pattern pattern = Pattern.compile(PATTERN_EMAIL);
+
+		// Match the given input against this pattern
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
+
+	}
+
+	/**
+	 * Metodo validacion telefono
+	 * 
+	 * @param cadena de tipo String
+	 * @return boolean
+	 */
+	public boolean esEntero(String cadena) {
+		for (int i = 0; i < cadena.length(); i++)
+			if (!Character.isDigit(cadena.charAt(i))) {
+				return false;
+			}
+		return true;
+	}
+
+	// Initialize the properties of the persistent object here
+	public static boolean validarRun(String run) {
+
+		boolean validacion = false;
+		try {
+			run = run.toUpperCase();
 			run = run.replace(".", "");
 			run = run.replace("-", "");
 			int runAux = Integer.parseInt(run.substring(0, run.length() - 1));
-			 
+
 			char dv = run.charAt(run.length() - 1);
-			 
+
 			int m = 0, s = 1;
 			for (; runAux != 0; runAux /= 10) {
-			s = (s + runAux % 10 * (9 - m++ % 6)) % 11;
+				s = (s + runAux % 10 * (9 - m++ % 6)) % 11;
 			}
 			if (dv == (char) (s != 0 ? s + 47 : 75)) {
-			validacion = true;
+				validacion = true;
 			}
-			 
-			} catch (java.lang.NumberFormatException e) {
-			} catch (Exception e) {
-			}
-			return validacion;
-			}
+
+		} catch (java.lang.NumberFormatException e) {
+		} catch (Exception e) {
+		}
+		return validacion;
+	}
+
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 }
-

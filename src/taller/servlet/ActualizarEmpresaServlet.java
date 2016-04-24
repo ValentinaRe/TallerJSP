@@ -33,7 +33,9 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.sendRedirect("FormularioActualizarEmpresa.jsp");
+		
+		request.getRequestDispatcher( "/FormularioActualizarEmpresa.jsp").forward(request, response);
+		
 	}
 
 	/**

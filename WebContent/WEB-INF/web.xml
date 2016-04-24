@@ -176,4 +176,14 @@
     <servlet-name>LogOutServlet</servlet-name>
     <url-pattern>/LogOutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BusquedaSimpleServlet</display-name>
+    <servlet-name>BusquedaSimpleServlet</servlet-name>
+    <servlet-class>taller.servlet.BusquedaSimpleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BusquedaSimpleServlet</servlet-name>
+    <url-pattern>/BusquedaSimpleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

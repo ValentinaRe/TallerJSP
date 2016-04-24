@@ -28,6 +28,12 @@
 				<input type="text" class="form-control" name="id" required> <br>
 			</div>
 		</div>
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Rut</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="rut" required> <br>
+			</div>
+		</div>
 
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
@@ -52,6 +58,12 @@
 			<label class="col-lg-3 control-label">Ingrese País</label>
 			<div class="col-lg-3">
 				<input type="text" class="form-control" name="pais" required> <br>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Ingrese Telefono</label>
+			<div class="col-lg-3">
+				<input type="text" class="form-control" name="telefono" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
