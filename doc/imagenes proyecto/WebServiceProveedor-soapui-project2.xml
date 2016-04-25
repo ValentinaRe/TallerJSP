@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3ebb26da-dfef-403a-a055-1f332a42ca8e" activeEnvironment="Default" name="WebServiceProveedor" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7aeb0037-1977-486d-8e44-cb0529584ff5" wsaVersion="NONE" name="WebServiceProveedorSoapBinding" type="wsdl" bindingName="{http://serviciosweb}WebServiceProveedorSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Vale/workspace/TallerJSP/WebContent/wsdl/WebServiceProveedor.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\Vale\workspace\TallerJSP\WebContent\wsdl\WebServiceProveedor.wsdl"><con:part><con:url>file:\C:\Users\Vale\workspace\TallerJSP\WebContent\wsdl\WebServiceProveedor.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://serviciosweb" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://serviciosweb" xmlns:intf="http://serviciosweb" xmlns:tns1="http://orm.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://serviciosweb" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://orm.org"/>
+      <element name="busquedaAvanzada">
+        <complexType>
+          <sequence>
+            <element name="run" type="xsd:string"/>
+            <element name="nombre" type="xsd:string"/>
+            <element name="apellido" type="xsd:string"/>
+            <element name="mail" type="xsd:string"/>
+            <element name="telefono" type="xsd:string"/>
+            <element name="pais" type="xsd:string"/>
+            <element name="region" type="xsd:string"/>
+            <element name="ciudad" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="busquedaAvanzadaResponse">
+        <complexType>
+          <sequence>
+            <element name="busquedaAvanzadaReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fault" type="tns1:PersistentException"/>
+      <element name="busquedaSimple">
+        <complexType>
+          <sequence>
+            <element name="busqueda" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="busquedaSimpleResponse">
+        <complexType>
+          <sequence>
+            <element name="busquedaSimpleReturn" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="http://orm.org" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="PersistentException">
+        <sequence/>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="busquedaAvanzadaResponse">
+    <wsdl:part element="impl:busquedaAvanzadaResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PersistentException">
+    <wsdl:part element="impl:fault" name="fault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="busquedaSimpleRequest">
+    <wsdl:part element="impl:busquedaSimple" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="busquedaAvanzadaRequest">
+    <wsdl:part element="impl:busquedaAvanzada" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="busquedaSimpleResponse">
+    <wsdl:part element="impl:busquedaSimpleResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceProveedor">
+    <wsdl:operation name="busquedaAvanzada">
+      <wsdl:input message="impl:busquedaAvanzadaRequest" name="busquedaAvanzadaRequest"></wsdl:input>
+      <wsdl:output message="impl:busquedaAvanzadaResponse" name="busquedaAvanzadaResponse"></wsdl:output>
+      <wsdl:fault message="impl:PersistentException" name="PersistentException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="busquedaSimple">
+      <wsdl:input message="impl:busquedaSimpleRequest" name="busquedaSimpleRequest"></wsdl:input>
+      <wsdl:output message="impl:busquedaSimpleResponse" name="busquedaSimpleResponse"></wsdl:output>
+      <wsdl:fault message="impl:PersistentException" name="PersistentException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceProveedorSoapBinding" type="impl:WebServiceProveedor">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="busquedaAvanzada">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="busquedaAvanzadaRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="busquedaAvanzadaResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="PersistentException">
+        <wsdlsoap:fault name="PersistentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="busquedaSimple">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="busquedaSimpleRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="busquedaSimpleResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="PersistentException">
+        <wsdlsoap:fault name="PersistentException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceProveedorService">
+    <wsdl:port binding="impl:WebServiceProveedorSoapBinding" name="WebServiceProveedor">
+      <wsdlsoap:address location="http://localhost:8080/TallerJSP/services/WebServiceProveedor"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/TallerJSP/services/WebServiceProveedor</con:endpoint></con:endpoints><con:operation id="7f09374c-0aac-461e-ad64-8a12436f022e" isOneWay="false" action="" name="busquedaAvanzada" bindingOperationName="busquedaAvanzada" type="Request-Response" outputName="busquedaAvanzadaResponse" inputName="busquedaAvanzadaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c0592ac7-89e5-43b4-9e22-70d67c2d349b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/TallerJSP/services/WebServiceProveedor</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://serviciosweb">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:busquedaAvanzada>\r
+         <ser:run></ser:run>\r
+         <ser:nombre></ser:nombre>\r
+         <ser:apellido></ser:apellido>\r
+         <ser:mail></ser:mail>\r
+         <ser:telefono>554367</ser:telefono>\r
+         <ser:pais>chile</ser:pais>\r
+         <ser:region>araucania</ser:region>\r
+         <ser:ciudad>temuco</ser:ciudad>\r
+      </ser:busquedaAvanzada>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://serviciosweb/WebServiceProveedor/busquedaAvanzadaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4a09eec5-b3a2-4b85-8670-ccde4bf0fbaa" isOneWay="false" action="" name="busquedaSimple" bindingOperationName="busquedaSimple" type="Request-Response" outputName="busquedaSimpleResponse" inputName="busquedaSimpleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f0ea42f5-38bf-4401-983a-e83c4c04c557" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/TallerJSP/services/WebServiceProveedor</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://serviciosweb">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:busquedaSimple>\r
+         <ser:busqueda>?</ser:busqueda>\r
+      </ser:busquedaSimple>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://serviciosweb/WebServiceProveedor/busquedaSimpleRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
