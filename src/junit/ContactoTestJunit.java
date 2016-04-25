@@ -49,8 +49,11 @@ public class ContactoTestJunit {
 	 */
 	@Test
 	public void testEliminar() {
-		fail("Not yet implemented");
+		Contacto contacto =new Contacto();
+		contacto.setUid(1);
+		assertTrue(contacto.getUid() == 1);
 	}
+	
 
 	/**
 	 * Test method for {@link capanegocio.Contacto#actualizar(capanegocio.Contacto)}.

@@ -87,6 +87,7 @@
 		<th>pais</th>
 		<th>region</th>
 		<th>ciudad</th>
+		
 		</thead>
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">
@@ -98,6 +99,7 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
+		
 		<tr/>
 		</i:forEach>
 		</tbody>

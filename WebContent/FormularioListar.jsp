@@ -35,7 +35,7 @@
 	</form>
 	<table class="table table-striped">
 		<thead>
-		<th>id</th>
+		
 		<th>nombre</th>
 		<th>apellido</th>
 		<th>telefono</th>
@@ -45,18 +45,25 @@
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">
 			<tr>
-			<td>${contacto.uid}</td>
+			
 			<td>${contacto.nombre}</td>
 			<td>${contacto.apellido}</td>
 			<td>${contacto.telefono}</td>
 			<td>${contacto.mail}</td>
 			<td>${contacto.empresaUid.rut}</td>
 			
-			</tr>
+			
+			<td>
+						<form action="EliminarServlet" method="post">
+							<input type="hidden" value="${contacto.uid}" name="id">
+							<input type="submit" value="Eliminar" class="btn btn-danger">	
+						</form>
+					</td>	
+					</tr>
 		<br />
 		</i:forEach>
 		</tbody>
-		
+	
 </table>	
 	
 	

@@ -76,7 +76,7 @@ public class EliminarServlet extends HttpServlet {
 			}
 			
 	}
-		request.getRequestDispatcher( "/FormularioEliminar.jsp").forward(request, response);
+		request.getRequestDispatcher( "/FormularioListar.jsp").forward(request, response);
 
 	}
 /**

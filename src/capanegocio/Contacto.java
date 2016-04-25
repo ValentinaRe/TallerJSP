@@ -139,7 +139,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el paés
+	 * Método set para modificar el valor de el país
 	 * 
 	 * @param pais de tipo String
 	 */
@@ -394,34 +394,83 @@ public class Contacto {
 				.beginTransaction();
 		String msg = "";
 		try {
-			try {
+			
 				orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.getUid());// orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+
 				orm.Empresa empresa = orm.EmpresaDAO.loadEmpresaByORMID(contacto.getEmpresaUid().getUid());
 																								// +"'",
 																								// null);
 				// Update the properties of the persistent object
 				System.out.println("id: " + contacto.getUid());
-				lormContacto.setRun(contacto.getRun());
-				lormContacto.setNombre(contacto.getNombre());
-				lormContacto.setApellido(contacto.getApellido());
-				lormContacto.setMail(contacto.getMail());
-				lormContacto.setTelefono(contacto.getTelefono());
-				lormContacto.setPais(contacto.getPais());
-				lormContacto.setRegion(contacto.getRegion());
-				lormContacto.setCiudad(contacto.getCiudad());
-				lormContacto.setEmpresauid(empresa);
+				try {
+					lormContacto.setRun(contacto.getRun());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setNombre(contacto.getNombre());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setApellido(contacto.getApellido());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setMail(contacto.getMail());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setTelefono(contacto.getTelefono());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setPais(contacto.getPais());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setRegion(contacto.getRegion());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setCiudad(contacto.getCiudad());
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+				try {
+					lormContacto.setEmpresauid(empresa);
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+					msg = "Dato nulo";
+				}
+			
+				msg = "Ingreso exitoso";
+				orm.ContactoDAO.save(lormContacto);
+				t.commit();
+
+			
+				
 				
 				System.out.println("Ingreso exitoso");
 				msg = "datos actualizados";
 				orm.ContactoDAO.save(lormContacto);
 				t.commit();
-
-			} catch (Exception e) {
-				t.rollback();
-			}
-		} catch (NullPointerException e) {
-			e.printStackTrace();
 		}
+			 catch (Exception e) {
+				t.rollback();
+			} 
 		return msg;
 	}
 /**
@@ -526,22 +575,24 @@ public class Contacto {
 				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
 				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
 				|| contacto.getMail() != null && !contacto.getMail().equals("")
-				||contacto.getTelefono() != null && !contacto.getTelefono().equals(""))
-				&&(contacto.getPais() != null && contacto.getPais().equals(""))){
+				|| contacto.getTelefono() != null && !contacto.getTelefono().equals(""))
+				&& (contacto.getPais() != null && !contacto.getPais().equals(""))){
+				
 			query += "AND ";
 		}
 		if(contacto.getPais() != null && !contacto.getPais().trim().equals("")){
 			query += "Contacto.pais='"+contacto.getPais()+ "' ";
-		}/*
+		}	
 		if((contacto.getRun()!=null && !contacto.getRun().equals("")
 				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
 				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
 				|| contacto.getMail() != null && !contacto.getMail().equals("")
 				|| contacto.getTelefono() != null && !contacto.getTelefono().equals("")
-				||contacto.getPais() != null && !contacto.getPais().equals(""))
-				&&(contacto.getRegion() != null && !contacto.getRegion().equals(""))){
+				|| contacto.getPais() != null && !contacto.getPais().equals(""))
+				&& (contacto.getRegion() != null && !contacto.getRegion().equals(""))){
+				
 			query += "AND ";
-		}/*
+		}
 		if(contacto.getRegion() != null && !contacto.getRegion().trim().equals("")){
 			query += "Contacto.region='"+contacto.getRegion()+ "' ";
 			
@@ -551,17 +602,17 @@ public class Contacto {
 				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
 				|| contacto.getMail() != null && !contacto.getMail().equals("")
 				|| contacto.getTelefono() != null && !contacto.getTelefono().equals("")
-				|| contacto.getPais() != null && !contacto.getPais().equals(""))
-				||contacto.getRegion() != null && !contacto.getRegion().equals("")
+				|| contacto.getPais() != null && !contacto.getPais().equals("")
+				|| contacto.getRegion() != null && !contacto.getRegion().equals(""))
 				&&(contacto.getCiudad() != null && !contacto.getCiudad().equals(""))){
+				
 			query += "AND ";
-		}
-		
+		}	
 		if(contacto.getCiudad() != null && !contacto.getCiudad().trim().equals("")){
 			query += "Contacto.ciudad='"+contacto.getCiudad()+ "' ";
 		}
 		
-			*/
+	
 		
 		listarContactos=orm.ContactoDAO.queryContacto(query,null);
 		
