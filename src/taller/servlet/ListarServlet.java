@@ -29,6 +29,7 @@ public class ListarServlet extends HttpServlet {
     }
 
 	/**
+	 * Método que recibe peticiones get para  listar contactos
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,6 +39,7 @@ public class ListarServlet extends HttpServlet {
 		try {
 			lista=Contacto.listar();
 			PrintWriter out=response.getWriter();
+			
 			for(Contacto contacto: lista){
 				out.println("");
 				out.println("el id es: "+contacto.getUid());
@@ -49,7 +51,8 @@ public class ListarServlet extends HttpServlet {
 				out.println("el pais es: "+contacto.getPais());
 				out.println("el region es: "+contacto.getRegion());
 				out.println("el ciudad es: "+contacto.getCiudad());
-				out.println("--------------");
+				out.println("empresa: "+ contacto.getEmpresaUid());
+				//out.println("--------------");
 				
 				
 			}
@@ -58,6 +61,8 @@ public class ListarServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("listaContacto",lista);
+		request.getRequestDispatcher("FormularioListar.jsp").forward(request, response);
 		
 	}
 
@@ -67,6 +72,9 @@ public class ListarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		
+		
 	}
 
 	/**
@@ -74,7 +82,10 @@ public class ListarServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)

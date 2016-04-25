@@ -15,8 +15,10 @@ $(document).ready(function() {
 														message : 'El run es requerido'
 													},
 													stringLength : {
+														min : 9,
+														message : 'El run debe contener mínimo 9 caracteres',
 														max : 12,
-														message : 'El run debe contener maximo 12 caracteres'
+														message : 'El run debe contener máximo 12 caracteres'
 													}
 												}
 											},
@@ -52,7 +54,7 @@ $(document).ready(function() {
 													},
 													stringLength : {
 														max : 50,
-														message : 'El mail debe contener maximo 50 caracteres'
+														message : 'El correo electronico debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -138,6 +140,8 @@ $(document).ready(function() {
 														message : 'El run es requerido'
 													},
 													stringLength : {
+														min : 12,
+														message : 'El run debe contener mínimo 9 caracteres',
 														max : 12,
 														message : 'El run debe contener maximo 12 caracteres'
 													}
@@ -175,7 +179,7 @@ $(document).ready(function() {
 													},
 													stringLength : {
 														max : 50,
-														message : 'El mail debe contener maximo 50 caracteres'
+														message : 'El correo electronico debe contener maximo 50 caracteres'
 													}
 												}
 											},
@@ -269,22 +273,26 @@ $(document).ready(function() {
 				            user: {
 				                validators: {
 				                    notEmpty: {
-				                        message: 'El nombre de usuario es requerido'
+				                        message: 'El user es requerido'
 				                    },
 				                    stringLength: {
+				                    	min : 9,
+										message : 'El user debe contener mínimo 9 caracteres',
 				                        max: 20,
-				                        message: 'El nombre de usuario debe contener maximo 20 caracteres'
+				                        message: 'El user debe contener maximo 20 caracteres'
 				                    }
 				                }
 				            },
 				            password: {
 				                validators: {
 				                    notEmpty: {
-				                        message: 'La contraseña es requerida'
+				                        message: 'El password es requerido'
 				                    },
 				                    stringLength: {
+				                    	min : 12,
+										message : 'El password debe contener mínimo 12 caracteres',
 				                        max: 20,
-				                        message: 'La contraseña debe contener maximo 20 caracteres'
+				                        message: 'El password debe contener maximo 20 caracteres'
 				                    }
 				                }
 				            }
@@ -300,22 +308,26 @@ $(document).ready(function() {
 				            user: {
 				                validators: {
 				                    notEmpty: {
-				                        message: 'El nombre de usuario es requerido'
+				                        message: 'El user de usuario es requerido'
 				                    },
 				                    stringLength: {
+				                    	min : 9,
+										message : 'El user debe contener mínimo 9 caracteres',
 				                        max: 20,
-				                        message: 'El nombre de usuario debe contener maximo 20 caracteres'
+				                        message: 'El user  debe contener maximo 20 caracteres'
 				                    }
 				                }
 				            },
 				            password: {
 				                validators: {
 				                    notEmpty: {
-				                        message: 'La contraseña es requerida'
+				                        message: 'El password es requerido'
 				                    },
 				                    stringLength: {
+				                    	min : 12,
+										message : 'El password debe contener minimo 12 caracteres',
 				                        max: 20,
-				                        message: 'La contraseña debe contener maximo 20 caracteres'
+				                        message: 'El password debe contener maximo 20 caracteres'
 				                    }
 				                }
 				            }
@@ -336,8 +348,10 @@ $(document).ready(function() {
 												message : 'El user es requerido'
 											},
 											stringLength : {
+												min : 9,
+												message : 'El user debe contener minimo 9 caracteres',
 												max : 100,
-												message : 'El nombre debe contener maximo 20 caracteres'
+												message : 'El user debe contener maximo 20 caracteres'
 											}
 										}
 									},
@@ -347,8 +361,10 @@ $(document).ready(function() {
 												message : 'El password es requerido'
 											},
 											stringLength : {
-												max : 100,
-												message : 'El apellido debe contener maximo 20 caracteres'
+												min : 12,
+												message : 'El password debe contener minimo 12 caracteres',
+												max : 20,
+												message : 'El password debe contener maximo 20 caracteres'
 											}
 										}
 									
@@ -387,8 +403,10 @@ $(document).ready(function() {
 												message : 'El user es requerido'
 											},
 											stringLength : {
-												max : 50,
-												message : 'El user debe contener maximo 50 caracteres'
+												min : 9,
+												message : 'El user debe contener mínimo 9 caracteres',
+												max : 20,
+												message : 'El user debe contener maximo 20 caracteres'
 											}
 										}
 									},
@@ -398,8 +416,10 @@ $(document).ready(function() {
 												message : 'El password  es requerido'
 											},
 											stringLength : {
-												max : 50,
-												message : 'El password debe contener maximo 50 caracteres'
+												min : 12,
+												message : 'El password debe contener mínimo 12 caracteres',
+												max : 20,
+												message : 'El password debe contener maximo 20 caracteres'
 											}
 										}
 									}
@@ -448,6 +468,8 @@ $(document).ready(function() {
 												message : 'El rut es requerido'
 											},
 											stringLength : {
+												min : 12,
+												message : 'El rut debe contener mínimo 9 caracteres',
 												max : 12,
 												message : 'El rut debe contener maximo 12 caracteres'
 											}
@@ -560,6 +582,8 @@ $(document).ready(function() {
 												message : 'El rut es requerido'
 											},
 											stringLength : {
+												max : 9,
+												message : 'El rut debe contener maximo 9 caracteres',
 												max : 12,
 												message : 'El rut debe contener maximo 12 caracteres'
 											}

@@ -33,10 +33,11 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioActualizarUsuario.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método recibe peticiones post para actualizar un usuario
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -80,6 +81,7 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
+		request.getRequestDispatcher( "/FormularioActualizarUsuario.jsp").forward(request, response);
 	}
 	private  boolean validarId(int id) {
 		String cadena = String.valueOf(id);

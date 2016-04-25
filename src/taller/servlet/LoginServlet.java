@@ -54,6 +54,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	/**
+	 * Método que recibe peticiones post para loguearse
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

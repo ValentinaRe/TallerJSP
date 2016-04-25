@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="i" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
@@ -8,7 +9,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Busqueda Simple</title>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 </head>
 <body>
 	<form action="BusquedaSimpleServlet" id="BusquedaSimpleServlet" method="post" class="form-horizontal mitad" action="#">
@@ -32,12 +34,16 @@
 		</thead>
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">
+			<tr>
 			<td>${contacto.uid}</td>
 			<td>${contacto.nombre}</td>
 			<td>${contacto.apellido}</td>
 			<td>${contacto.telefono}</td>
 			<td>${contacto.mail}</td>
-		<br />
+			<td>${contacto.pais}</td>
+			<td>${contacto.region}</td>
+			<td>${contacto.ciudad}</td>
+		<tr/>
 		</i:forEach>
 		</tbody>
 </table>	

@@ -29,6 +29,7 @@ public class ListarEmpresaServlet extends HttpServlet {
     }
 
 	/**
+	 * Método que recibe peticiones get para listar empresas
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,7 +55,8 @@ public class ListarEmpresaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		request.setAttribute("listaContacto",lista);
+		request.getRequestDispatcher("FormularioListar.jsp").forward(request, response);
 	}
 	
 

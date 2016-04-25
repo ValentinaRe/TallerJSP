@@ -35,9 +35,10 @@ public class IngresarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
+		
 	}
 	/**
+	 * Método post que recibe peticiones post para ingresar una empresa
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,9 +53,12 @@ public class IngresarEmpresaServlet extends HttpServlet {
 		String pais = "";
 		String telefono="";
 		String razonSocial="";
-		
-		
 		IngresarEmpresaServlet ingresa= new IngresarEmpresaServlet();
+		ingresa.esEntero(telefono);
+		ingresa.validarRut(rut);
+		String mensaje="";
+		
+		
 		try{
 			rut=request.getParameter( "rut");
 			nombre=request.getParameter( "nombre");
@@ -63,7 +67,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 			pais=request.getParameter( "pais");
 			telefono=request.getParameter( "telefono");
 			razonSocial=request.getParameter( "razonSocial");
-			
+			if((ingresa.validarRut(rut)==true) && (ingresa.esEntero(telefono)==true) ){
 			if(rut.trim().equals("")||nombre.trim().equals("")|| ciudad.trim().equals("")||direccion.trim().equals("")||pais.trim().equals("")||telefono.trim().equals("")||razonSocial.trim().equals("")){
 				System.out.println("una variable vacia");
 				
@@ -89,9 +93,50 @@ public class IngresarEmpresaServlet extends HttpServlet {
 				}
 			}
 			
-		}catch (NullPointerException e){
-			e.printStackTrace();
-		}	
+		
+			}
+			else {
+				mensaje="Datos mal ingresados";
+				System.out.println("cantidad de caracteres superior a los aceptados");
+				request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
+			}	
+		
+		
+		
+	}catch (NullPointerException e) {
+		e.printStackTrace();
+	}
+	}
+	public static boolean validarRut(String rut) {
+
+		boolean validacion = false;
+		try {
+			rut = rut.toUpperCase();
+			rut = rut.replace(".", "");
+			rut = rut.replace("-", "");
+			int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+
+			char dv = rut.charAt(rut.length() - 1);
+
+			int m = 0, s = 1;
+			for (; rutAux != 0; rutAux /= 10) {
+				s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+			}
+			if (dv == (char) (s != 0 ? s + 47 : 75)) {
+				validacion = true;
+			}
+
+		} catch (java.lang.NumberFormatException e) {
+		} catch (Exception e) {
+		}
+		return validacion;
+	}
+	public boolean esEntero(String cadena) {
+		for (int i = 0; i < cadena.length(); i++)
+			if (!Character.isDigit(cadena.charAt(i))) {
+				return false;
+			}
+		return true;
 	}
 
 	

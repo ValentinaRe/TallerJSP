@@ -30,8 +30,10 @@ public class ListarUsuarioServlet extends HttpServlet {
     }
 
 	/**
+	 * Método que recibe peticiones get para  listar  ususarios
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -53,6 +55,8 @@ public class ListarUsuarioServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("listaContacto",lista);
+		request.getRequestDispatcher("FormularioListarUsuario.jsp").forward(request, response);
 	}
 
 	/**

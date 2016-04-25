@@ -30,10 +30,11 @@ public class EliminarEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioEliminarEmpresa.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método recibe peticiones post para eliminar una empresa
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,7 +68,7 @@ public class EliminarEmpresaServlet extends HttpServlet {
 			}
 			
 		}
-		
+		request.getRequestDispatcher( "/FormularioEliminarEmpresa.jsp").forward(request, response);
 
 	}
 /**

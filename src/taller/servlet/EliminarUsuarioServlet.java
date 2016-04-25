@@ -31,10 +31,11 @@ public class EliminarUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioEliminarUsuario.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método que recibe petición post para eliminar usuario
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,7 +57,10 @@ public class EliminarUsuarioServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	}}
+			
+	}
+		request.getRequestDispatcher( "/FormularioEliminarUsuario.jsp").forward(request, response);
+		}
 		boolean validarId(int id) {
 			String cadena = String.valueOf(id);
 			for (int i = 0; i < cadena.length(); i++)

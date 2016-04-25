@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.List"%>
+<%@page import="orm.Usuario" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="i" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,17 +24,35 @@
 <title>Listar Usuario</title>
 </head>
 <body>
-<%@page import="java.util.List"%>
-<%@page import="orm.Usuario" %>
-<% List <Usuario> lista = (List<Usuario>)request.getAttribute("ListaUsuario");%>
+
+
+</head>
+<body>
+
 	<form action="ListarUsuarioServlet" method="get">
 	<label>lista de usuarios</label>
 	<br />
 	<input type="submit" value="mostrar">
-		<i:forEach items="${lista}" var="usuario">
-			${usuario.user}:${usuario.pass}
+	</form>
+	<table class="table table-striped">
+		<thead>
+		<th>user</th>
+		<th>password</th>
+		
+		</thead>
+		<tbody>
+		<i:forEach items="${listaContacto}" var="usuario">
+			<tr>
+			<td>${usuario.user}</td>
+			<td>${usuario.pass}</td>
+		
+			</tr>
 		<br />
 		</i:forEach>
-	</form>
+		</tbody>
+		
+</table>	
+	
+	
 </body>
 </html>

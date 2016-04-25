@@ -186,4 +186,14 @@
     <servlet-name>BusquedaSimpleServlet</servlet-name>
     <url-pattern>/BusquedaSimpleServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BusquedaAvanzadaServlet</display-name>
+    <servlet-name>BusquedaAvanzadaServlet</servlet-name>
+    <servlet-class>taller.servlet.BusquedaAvanzadaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BusquedaAvanzadaServlet</servlet-name>
+    <url-pattern>/BusquedaAvanzadaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

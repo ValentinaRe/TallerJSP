@@ -42,10 +42,11 @@ public class ActualizarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método recibe peticiones post para  actualizar contacto
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -64,6 +65,9 @@ public class ActualizarServlet extends HttpServlet {
 		String region ="";
 		String ciudad ="";
 		String empresa = "";
+		String mensaje="";
+	
+		
 		try {
 			int id = 0;
 			try {
@@ -81,13 +85,14 @@ public class ActualizarServlet extends HttpServlet {
 			 ciudad = request.getParameter("ciudad");
 			 empresa = request.getParameter("idEmpresa");
 			 int idempr=Integer.parseInt(empresa);
-			ActualizarServlet actual = new ActualizarServlet();
+			 ActualizarServlet actual = new ActualizarServlet();
 			actual.validarId(id);
-			actual.validateEmail(mail);
+			actual.validarRun(run);
+			actual.validateMail(mail);
 			actual.esEntero(telefono);
 			Contacto actualizar = new Contacto();
 			Empresa empresas = new Empresa();
-
+			if((actual.validarRun(run)==true)&&(actual.validateMail(mail)==true) && (actual.esEntero(telefono)==true) ){
 			if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
 					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
 					|| region.trim().equals("") || ciudad.trim().equals("")) {
@@ -159,24 +164,32 @@ public class ActualizarServlet extends HttpServlet {
 
 			}
 
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
+			}
+			else {
+				mensaje="Datos mal ingresados";
+				System.out.println("cantidad de caracteres superior a los aceptados");
+				request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
+			}	
+		
+		
+		
+	}catch (NullPointerException e) {
+		e.printStackTrace();
+	}
 	}
 
 	/**
 	 * Metodo validacion mail
 	 * 
-	 * @param email
-	 *            de tipo String
+	 * @param email de tipo String
 	 * @return boolean
 	 */
-	private boolean validateEmail(String email) {
+	private boolean validateMail(String mail) {
 		// Compiles the given regular expression into a pattern.
 		Pattern pattern = Pattern.compile(PATTERN_EMAIL);
 
 		// Match the given input against this pattern
-		Matcher matcher = pattern.matcher(email);
+		Matcher matcher = pattern.matcher(mail);
 		return matcher.matches();
 
 	}
@@ -184,8 +197,7 @@ public class ActualizarServlet extends HttpServlet {
 	/**
 	 * Metodo validacion telefono
 	 * 
-	 * @param cadena
-	 *            de tipo String
+	 * @param cadena de tipo String
 	 * @return boolean
 	 */
 	private boolean esEntero(String cadena) {
@@ -199,8 +211,7 @@ public class ActualizarServlet extends HttpServlet {
 	/**
 	 * Metodo de validacion de id
 	 * 
-	 * @param id
-	 *            de tipo int
+	 * @param id de tipo int
 	 * @return boolean
 	 */
 	private boolean validarId(int id) {
@@ -211,6 +222,31 @@ public class ActualizarServlet extends HttpServlet {
 			}
 		return true;
 	}
+	public static boolean validarRun(String run) {
+
+		boolean validacion = false;
+		try {
+			run = run.toUpperCase();
+			run = run.replace(".", "");
+			run = run.replace("-", "");
+			int runAux = Integer.parseInt(run.substring(0, run.length() - 1));
+
+			char dv = run.charAt(run.length() - 1);
+
+			int m = 0, s = 1;
+			for (; runAux != 0; runAux /= 10) {
+				s = (s + runAux % 10 * (9 - m++ % 6)) % 11;
+			}
+			if (dv == (char) (s != 0 ? s + 47 : 75)) {
+				validacion = true;
+			}
+
+		} catch (java.lang.NumberFormatException e) {
+		} catch (Exception e) {
+		}
+		return validacion;
+	}
+
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)

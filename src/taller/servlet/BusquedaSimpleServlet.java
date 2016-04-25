@@ -39,29 +39,42 @@ public class BusquedaSimpleServlet extends HttpServlet {
 	}
 
 	/**
+	 * Método recibe peticiones post para realizar una busqueda simple 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String buscar = request.getParameter("buscar");
+		String buscar;
+		try{
+		 buscar = request.getParameter("buscar");
+		}catch(NullPointerException e){
+			buscar="";
+		}
 		
+	
 		Contacto contacto = new Contacto();
 		List<Contacto> lista = new ArrayList<Contacto>();
 		try {
+			
 			lista = contacto.busquedaSimple(buscar);
-			System.out.println(lista.get(0).getNombre());
+		    if(!lista.isEmpty()){
+		    	
+		    	
+		    }
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch(NullPointerException e){
+			e.printStackTrace();
 		}
 		
 		request.removeAttribute("busqueda");
-		request.setAttribute("busqueda", lista);
+		request.setAttribute("listaContacto", lista);
 		
 		request.getRequestDispatcher( "/FormularioBusquedaSimple.jsp").forward(request, response);
-//mostrar en jsp no por servlet
-		//listar contacto en el mismo jsp
+		
 	}
 	
 

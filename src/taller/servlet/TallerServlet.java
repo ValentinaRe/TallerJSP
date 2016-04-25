@@ -42,10 +42,11 @@ public class TallerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método que recibe petición post para ingresar contacto
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -64,7 +65,9 @@ public class TallerServlet extends HttpServlet {
 		String region = "";
 		String ciudad = "";
 		String empresa = "";
+		
 		TallerServlet ingresa = new TallerServlet();
+		String mensaje="";
 		try {
 			run = request.getParameter("run");
 			nombre = request.getParameter("nombre");
@@ -77,9 +80,12 @@ public class TallerServlet extends HttpServlet {
 			// obtener request de la empresa
 			empresa = request.getParameter("idEmpresa");
 			int idempr=Integer.parseInt(empresa);
-			ingresa.validateEmail(mail);
+			ingresa.validateMail(mail);
 			ingresa.esEntero(telefono);
 			ingresa.validarRun(run);
+			
+			if((ingresa.validarRun(run)==true)&&(ingresa.validateMail(mail)==true) && (ingresa.esEntero(telefono)==true) ){
+				
 			if (run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
 					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
 					|| region.trim().equals("") || ciudad.trim().equals("")||idempr<0) {
@@ -117,17 +123,23 @@ public class TallerServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				} else {
-					System.out.println("cantidad de caracteres superior a los aceptados");
-				}
+				     
+			
+			}}
+				
 			}
-
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
-		// System.out.println("datos ingresados con exito");
+			else {
+				mensaje="Datos mal ingresados";
+				System.out.println("cantidad de caracteres superior a los aceptados");
+				request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
+			}	
+		
+		
+		
+	}catch (NullPointerException e) {
+		e.printStackTrace();
 	}
-
+	}
 	/**
 	 * Metodo validacion mail
 	 * 
@@ -135,13 +147,13 @@ public class TallerServlet extends HttpServlet {
 	 *            de tipo String
 	 * @return boolean
 	 */
-	public static boolean validateEmail(String email) {
+	public static boolean validateMail(String mail) {
 
 		// Compiles the given regular expression into a pattern.
 		Pattern pattern = Pattern.compile(PATTERN_EMAIL);
 
 		// Match the given input against this pattern
-		Matcher matcher = pattern.matcher(email);
+		Matcher matcher = pattern.matcher(mail);
 		return matcher.matches();
 
 	}

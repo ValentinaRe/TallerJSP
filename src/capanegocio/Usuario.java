@@ -137,8 +137,7 @@ public class Usuario {
 	 * Metodo que permite actualizar los datos en la base de datos
 	 * 
 	 * @param usuario
-	 * @return msg retorna un mensaje que avisa que los datos fueron
-	 *         actualizados
+	 * @return msg retorna un mensaje que avisa que los datos fueron actualizados
 	 * @throws PersistentException
 	 */
 	public static String actualizar(Usuario usuario) throws PersistentException {
@@ -172,8 +171,7 @@ public class Usuario {
 	/**
 	 * Metodo para obtener usuario y contraseña de la base de datos
 	 * 
-	 * @param usuarioRec
-	 *            de tipo Usuario
+	 * @param usuarioRec de tipo Usuario
 	 * @return usuario de tipo Usuario
 	 * @throws PersistentException
 	 */

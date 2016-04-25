@@ -317,11 +317,10 @@ public class Contacto {
 		String msg = "";
 		try {
 			try {
-				orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);
-				// orm.Contacto lormContacto =
-				// orm.ContactoDAO.loadContactoByQuery("Contacto.run =
-				// '"+contacto.run+"'",
-				// null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
+				//orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);
+				 orm.Contacto lormContacto =
+				 orm.ContactoDAO.loadContactoByQuery("Contacto.run ='"+contacto.getRun()+"'" ,
+				 null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
 				// null);
 				// Delete the persistent object
 				orm.ContactoDAO.delete(lormContacto);
@@ -357,6 +356,7 @@ public class Contacto {
 	          orm.Empresa empresaORM = orm.EmpresaDAO.loadEmpresaByORMID(contactoOrm.getEmpresauid().getUid());
 	           
 			Contacto contacto = new Contacto();
+			contacto.setUid(contactoOrm.getUid());
 			contacto.setRun(contactoOrm.getRun());
 			contacto.setNombre(contactoOrm.getNombre());
 			contacto.setApellido(contactoOrm.getApellido());
@@ -424,7 +424,12 @@ public class Contacto {
 		}
 		return msg;
 	}
-
+/**
+ * Método para realizar una búsqueda simple a la base de datos de contacto asociado a empresa por medio de una query realizada con un or
+ * @param busqueda de tipo String
+ * @return listaContacto de tipo List<Contacto>
+ * @throws PersistentException
+ */
 	public List<Contacto> busquedaSimple(String busqueda) throws PersistentException {
 		List<Contacto> listaContacto = new ArrayList<Contacto>();
 		List<orm.Contacto> listarContacto = new ArrayList<orm.Contacto>();
@@ -439,12 +444,7 @@ public class Contacto {
 				"' OR Contacto.region ='"+busqueda+
 				"' OR Contacto.ciudad ='"+busqueda+"'" ,null);
 		}
-		//modificar la variable recibida desde el formulario:
-		//a minusculas 
-		//a mayusculas
-		//buscar ñ como n
-		//buscar n como ñ
-		//buscar normal
+		
 		for (orm.Contacto contactoOrm : listarContacto) {
             Contacto contactoCon = new Contacto();
             Empresa empreNegocio=new Empresa();
@@ -560,6 +560,19 @@ public class Contacto {
 		return listaContacto;
 		
 		}
-	
-
+	private static String AlteracionPalabra(String busqueda )  {
+		busqueda = busqueda.toLowerCase();
+		for(int i=0; i<busqueda.length; i++){
+		      if (letras.indexOf(texto.charAt(i),0)!=-1){
+		         return 1;
+		      }
+      //para alterar String for () dentro del for lo recorro con charAt
+		//palabra.charAt(cont);
+		//if palabracharAt(cont)=ñ.replace(n) altero por n
+		//transformar el arreglo de chart a string
+		//retorno como string ignorecase
+		
+		//String hay que crear una variable nueva para trabajarlo con el uso de char
 }
+}
+	}

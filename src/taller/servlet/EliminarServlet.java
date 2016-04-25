@@ -34,10 +34,11 @@ public class EliminarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher( "/FormularioEliminar.jsp").forward(request, response);
+		
 	}
 
 	/**
+	 * Método recibe peticiones post para eliminar contacto
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -45,36 +46,37 @@ public class EliminarServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		int id = Integer.parseInt(request.getParameter("id"));
-		//String run=request.getParameter("run");
-		EliminarServlet delete = new EliminarServlet();
-		delete.validarId(id);
+		//int id = Integer.parseInt(request.getParameter("id"));
+		String run=request.getParameter("run");
+	//	EliminarServlet delete = new EliminarServlet();
+		//delete.validarId(id);
+		System.out.println(run);
 		Contacto eliminar = new Contacto();
-	//	if(run.trim().equals("")){
-		//	System.out.println("una variable vacia");
-		//}else{
-			//eliminar.setRun("run");
-			//try {
-			//Contacto.eliminar(eliminar);
-				
-		//	} catch (PersistentException e) {
-				// TODO Auto-generated catch block
-		//		e.printStackTrace();
-		//	}
-		//}
-		if (id<0){
+		if(run.trim().equals("")){
 			System.out.println("una variable vacia");
-	}else{
-			eliminar.setUid(id);
+		}else{
+			eliminar.setRun("run");
 			try {
-				Contacto.eliminar(eliminar);
-			} catch (PersistentException e) {
+			Contacto.eliminar(eliminar);
+				
+		} catch (PersistentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
-		
+		//if (id<0){
+		//	System.out.println("una variable vacia");
+	//}else{
+		//	eliminar.setUid(id);
+		//	try {
+			//	Contacto.eliminar(eliminar);
+		//	} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+			//	e.printStackTrace();
+			//}
+			
+	//	}
+		request.getRequestDispatcher( "/FormularioEliminar.jsp").forward(request, response);
 
 	}
 /**

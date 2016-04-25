@@ -34,31 +34,43 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher( "/FormularioActualizarEmpresa.jsp").forward(request, response);
+		
 		
 	}
 
 	/**
+	 * Método recibe peticiones post para actualizar empresa
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
+		String rut="";
+		String nombre="";
+		String ciudad="";
+		String direccion="";
+		String pais="";
+		String telefono="";
+		String razonSocial="";
+		String mensaje="";
+		
 		try {
 
 			int id = Integer.parseInt(request.getParameter("id"));
-			String rut=request.getParameter( "rut");
-			String nombre=request.getParameter( "nombre");
-			String ciudad= request.getParameter( "ciudad");
-			String direccion= request.getParameter( "direccion");
-			String pais=request.getParameter( "pais");
-			String telefono=request.getParameter("telefono");
-			String razonSocial=request.getParameter( "razonSocial");
+			 rut=request.getParameter( "rut");
+			 nombre=request.getParameter( "nombre");
+			 ciudad= request.getParameter( "ciudad");
+			 direccion= request.getParameter( "direccion");
+			 pais=request.getParameter( "pais");
+			 telefono=request.getParameter("telefono");
+			 razonSocial=request.getParameter( "razonSocial");
 			ActualizarEmpresaServlet actual = new ActualizarEmpresaServlet();
 			actual.validarId(id);
-			
+			actual.validarRut(rut);
+			actual.esEntero(telefono);
 			Empresa actualizar = new Empresa();
+			if((actual.validarRut(rut)==true) && (actual.esEntero(telefono)==true) ){
 
 			if (id < 0 ||rut.trim().equals("")|| nombre.trim().equals("") || ciudad.trim().equals("") || direccion.trim().equals("")
 					||  pais.trim().equals("")){
@@ -68,13 +80,44 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 
 				if (rut.length()<=12 && nombre.length() <= 50 && ciudad.length() <= 20 && direccion.length() <= 20 && pais.length() <= 20 && razonSocial.length()<=50) {
 					out.println("Id = " + id);
-					actualizar.setUid(id);
-					actualizar.setRut(rut);
-					actualizar.setNombre(nombre);
-					actualizar.setCiudad(ciudad);
-					actualizar.setDireccion(direccion);
-					actualizar.setPais(pais);
-					actualizar.setRazonSocial(razonSocial);
+					try {
+						actualizar.setRut(rut);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setNombre(nombre);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setCiudad(ciudad);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setDireccion(direccion);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setPais(pais);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					try {
+						actualizar.setTelefono(telefono);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						actualizar.setRazonSocial(razonSocial);
+					} catch (NullPointerException e) {
+						e.printStackTrace();
+					}
+					
+					
 					try {
 						Empresa.actualizar(actualizar);
 					} catch (PersistentException e) {
@@ -85,9 +128,19 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 
 			}
 
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-		}
+
+			}
+			else {
+				mensaje="Datos mal ingresados";
+				System.out.println("cantidad de caracteres superior a los aceptados");
+				request.getRequestDispatcher( "/FormularioActualizarEmpresa.jsp").forward(request, response);
+			}	
+		
+		
+		
+	}catch (NullPointerException e) {
+		e.printStackTrace();
+	}
 	}
 
 	private  boolean validarId(int id) {
@@ -97,6 +150,37 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 				return false;
 			}
 		return true;
+	}
+	private boolean esEntero(String cadena) {
+		for (int i = 0; i < cadena.length(); i++)
+			if (!Character.isDigit(cadena.charAt(i))) {
+				return false;
+			}
+		return true;
+	}
+	public static boolean validarRut(String rut) {
+
+		boolean validacion = false;
+		try {
+			rut = rut.toUpperCase();
+			rut = rut.replace(".", "");
+			rut = rut.replace("-", "");
+			int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+
+			char dv = rut.charAt(rut.length() - 1);
+
+			int m = 0, s = 1;
+			for (; rutAux != 0; rutAux /= 10) {
+				s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+			}
+			if (dv == (char) (s != 0 ? s + 47 : 75)) {
+				validacion = true;
+			}
+
+		} catch (java.lang.NumberFormatException e) {
+		} catch (Exception e) {
+		}
+		return validacion;
 	}
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
