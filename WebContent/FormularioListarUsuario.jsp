@@ -45,7 +45,12 @@
 			<tr>
 			<td>${usuario.user}</td>
 			<td>${usuario.pass}</td>
-		
+					<td>
+						<form action="EliminarUsuarioServlet" method="post">
+							<input type="hidden" value="${usuaro.uid}" name="id">
+							<input type="submit" value="Eliminar" class="btn btn-danger">	
+						</form>
+					</td>	
 			</tr>
 		<br />
 		</i:forEach>

@@ -22,6 +22,7 @@
 <title>Actualizar Usuario</title>
 </head>
 <body>
+<h2 >Actualizar Usuario</h2>
 	<form action="FormularioActualizarServlet" method="Post"
 		class="form-horizontal mitad" id="FormularioActualizarServlet">
 		<div class="form-group">

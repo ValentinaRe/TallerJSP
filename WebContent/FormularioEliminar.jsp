@@ -22,6 +22,7 @@
 <title>Eliminar Contacto</title>
 </head>
 <body>
+<h2 >Eliminar Contacto</h2>
 	<form action="EliminarServlet" method="Post" class="form-horizontal mitad" id="EliminarServlet">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese id</label>

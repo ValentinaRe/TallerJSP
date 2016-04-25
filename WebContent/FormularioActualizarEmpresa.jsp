@@ -21,6 +21,7 @@
 <title>Actualizar Empresa</title>
 </head>
 <body>
+<h2 >Actualizar Empresa</h2>
 <form action="ActualizarEmpresaServlet" method="Post" class="form-horizontal mitad" id="ActualizarEmpresaServlet">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Id</label>

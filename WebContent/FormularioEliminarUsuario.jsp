@@ -22,6 +22,7 @@
 <title>Eliminar Usuario</title>
 </head>
 <body>
+<h2 >Eliminar Usuario</h2>
 <form action="EliminarUsuarioServlet" method="Post" class="form-horizontal mitad" id="EliminarUsuarioServlet">
 	     
 		<div class="form-group">

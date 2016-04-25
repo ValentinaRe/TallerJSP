@@ -21,6 +21,7 @@
 <script type="text/javascript" src="validator.js"></script>
 </head>
 <body>
+
 <div class="container">
 
       <form class="form-signin" role="form" action="LoginServlet" method="post" id="LoginServlet">

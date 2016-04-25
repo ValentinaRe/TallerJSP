@@ -13,6 +13,7 @@
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
 </head>
 <body>
+<h2 >Busqueda avanzada</h2>
 	<form action="BusquedaAvanzadaServlet" id="BusquedaAvanzadaServlet" method="post" class="form-horizontal mitad" action="#">
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Run</label>

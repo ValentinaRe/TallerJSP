@@ -24,6 +24,7 @@
 <title>Actualizar Contacto</title>
 </head>
 <body>
+<h2 >Actualizar Contacto</h2>
 	<form action="ActualizarServlet" method="Post" class="form-horizontal mitad" id="ActualizarServlet">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Id</label>
@@ -83,9 +84,9 @@
 			<label class="col-lg-3 control-label">Seleccione Empresa</label>
 			<div class="col-lg-3">
 		    <select name="idEmpresa">
-	 		 <option value=1>Volvo</option>
- 		 	 <option value=2>Saab</option>
- 			 <option value=3>Mercedes</option>
+	 		 <option value=1>comasa</option>
+ 		 	 <option value=2>Santa Isabel</option>
+ 			 <option value=3>sofoagro</option>
 			 </select>
 		    	</div>
 		</div>

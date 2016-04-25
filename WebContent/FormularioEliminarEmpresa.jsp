@@ -21,7 +21,7 @@
 <title>Eliminar Empresa</title>
 </head>
 <body>
-
+<h2 >Eliminar Empresa</h2>
 	<form action="EliminarEmpresaServlet" method="Post" class="form-horizontal mitad" id="EliminarEmpresaServlet">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Id</label>
@@ -32,6 +32,6 @@
 
 		<input type="submit" value="Enviar">
 	</form>
-	${mensaje}$
+	
 </body>
 </html>

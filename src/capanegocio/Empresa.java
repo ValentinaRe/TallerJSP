@@ -222,8 +222,7 @@ public class Empresa {
 		String msg = "";
 		try {
 			try {
-				orm.Empresa lormEmpresa = orm.EmpresaDAO.loadEmpresaByQuery("Empresa.rut = '" + empresa.rut + "'",
-						null);// loadEmpresaByORMID(empresa.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
+				orm.Empresa lormEmpresa =orm.EmpresaDAO.loadEmpresaByORMID(empresa.getUid());//orm.EmpresaDAO.loadEmpresaByQuery("Empresa.rut = '" + empresa.rut + "'",null);loadEmpresaByORMID(empresa.uid);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
 								// null);
 				// Delete the persistent object
 				orm.EmpresaDAO.delete(lormEmpresa);

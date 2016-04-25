@@ -20,6 +20,10 @@
       <parameter name="className" value="serviciosweb.WebServiceProveedorSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="WebServiceProveedor"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="busquedaSimple" qname="operNS:busquedaSimple" xmlns:operNS="http://serviciosweb" returnQName="retNS:busquedaSimpleReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:busqueda" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
+      </operation>
       <operation name="busquedaAvanzada" qname="operNS:busquedaAvanzada" xmlns:operNS="http://serviciosweb" returnQName="retNS:busquedaAvanzadaReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:run" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:nombre" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -29,10 +33,6 @@
         <parameter qname="pns:pais" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:region" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:ciudad" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
-      </operation>
-      <operation name="busquedaSimple" qname="operNS:busquedaSimple" xmlns:operNS="http://serviciosweb" returnQName="retNS:busquedaSimpleReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:busqueda" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
       </operation>
       <parameter name="allowedMethods" value="busquedaSimple busquedaAvanzada"/>
