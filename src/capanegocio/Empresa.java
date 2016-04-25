@@ -23,28 +23,28 @@ public class Empresa {
 		// TODO Auto-generated constructor stub
 	}
 /**
- * Metodo para obtener el valor de id
+ * Método para obtener el valor de id
  * @return uid de tipo int 
  */
 	public int getUid() {
 		return uid;
 	}
 /**
- * Metodo para modificar el valor de id
+ * Método para modificar el valor de id
  * @param uid de tipo int
  */
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
 /**
- * Metodo para obtner el valor de rut
+ * Método para obtner el valor de rut
  * @return rut de tipo String
  */
 	public String getRut() {
 		return rut;
 	}
 /**
- * Metodo para modificar el valor de rut
+ * Método para modificar el valor de rut
  * @param rut de tipo String
  */
 
@@ -52,7 +52,7 @@ public class Empresa {
 		this.rut = rut;
 	}
 	/**
-	 * Medoto para obtener el valor de nombre
+	 * Método para obtener el valor de nombre
 	 * @return nombre de tipo String
 	 */
 
@@ -60,77 +60,77 @@ public class Empresa {
 		return nombre;
 	}
 /**
- * Metodo para modificar el valor de nombre
+ * Método para modificar el valor de nombre
  * @param nombre de tipo String
  */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 /**
- * Metodo para obtener el valor de ciudad
+ * Método para obtener el valor de ciudad
  * @return ciudad de tipo String
  */
 	public String getCiudad() {
 		return ciudad;
 	}
 /**
- * Metodo para modificar el valor de ciudad
+ * Método para modificar el valor de ciudad
  * @param ciudad de tipo String
  */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 /**
- * Metodo para obtener el valo de direccion
+ * Método para obtener el valo de dirección
  * @return direccion de tipo String
  */
 	public String getDireccion() {
 		return direccion;
 	}
 /**
- * Metodo para modificar el valor de direccion
+ * Método para modificar el valor de dirección
  * @param direccion de tipo String
  */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 /**
- * Metodo para obtener el valor de pais
+ * Método para obtener el valor de país
  * @return pais de valos String
  */
 	public String getPais() {
 		return pais;
 	}
 /**
- * Metodo para modificar el valor de pais
+ * Método para modificar el valor de país
  * @param pais de tipo String
  */
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
 /**
- * Metodo para obtener el valor de telefono
+ * Método para obtener el valor de teléfono
  * @return telefono de tipo String
  */
 	public String getTelefono() {
 		return telefono;
 	}
 /**
- * Metodo para modificar el valor de telefono
+ * Método para modificar el valor de teléfono
  * @param telefono de tipo String
  */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 /**
- * Metodo para obtener el valor de razon social
+ * Método para obtener el valor de razón social
  * @return razon social de tipo String
  */
 	public String getRazonSocial() {
 		return razonSocial;
 	}
 /**
- * Metodo para modificar el valor de razon social
+ * Método para modificar el valor de razón social
  * @param razonSocial de tipo String
  */
 
@@ -139,7 +139,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Este metodo ingresa datos de la empresa a la base de datos
+	 * Este método ingresa datos de la empresa a la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg retorna un mensaje de tipo String
@@ -210,7 +210,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Metodo para eliminar datos de la base de datos
+	 * Método para eliminar datos de la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg retorna mensaje de tipo String
@@ -239,7 +239,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Metodo para listar los datos de empresa de la base de datos
+	 * Método para listar los datos de empresa de la base de datos
 	 * 
 	 * @return ArrayList retorna un arreglo con la lista empresa
 	 * @throws PersistentException
@@ -267,7 +267,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Metodo que permite actualizar datos de empresa en la base de datos
+	 * Método que permite actualizar datos de empresa en la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg String retorna un mensaje

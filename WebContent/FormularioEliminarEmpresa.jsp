@@ -32,5 +32,6 @@
 
 		<input type="submit" value="Enviar">
 	</form>
+	${mensaje}$
 </body>
 </html>

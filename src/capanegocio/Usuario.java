@@ -11,31 +11,51 @@ public class Usuario {
 	private int uid;
 	private String user;
 	private String pass;
-
+/**
+ * Constructor de la clase Usuario
+ */
 	public Usuario() {
 		super();
 	}
-
+/**
+ * Método para obtener el valor de id
+ * @return uid de tipo int
+ */
 	public int getUid() {
 		return uid;
 	}
-
+/**
+ * Método para obtener el valor de usuario
+ * @return user de tipo String
+ */
 	public String getUser() {
 		return user;
 	}
-
+/**
+ * Método para obtener el valor de la contraseña
+ * @return
+ */
 	public String getPass() {
 		return pass;
 	}
-
+/**
+ *  Método para modificar el valor de id
+ * @param uid de tipo int
+ */
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
-
+/**
+ *  Método para modificar el valor de usuario
+ * @param user
+ */
 	public void setUser(String user) {
 		this.user = user;
 	}
-
+/**
+ *  Método para modificar el valor de la contraseña
+ * @param pass
+ */
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
@@ -43,8 +63,7 @@ public class Usuario {
 	/**
 	 * Permite ingresar los datos de usuario a la base de datos
 	 * 
-	 * @param usuario
-	 *            de tipo Usuario
+	 * @param usuario de tipo Usuario
 	 * @return msg un mensaje que muestra si hubo un ingreso exitoso
 	 * @throws PersistentException
 	 */
@@ -85,8 +104,7 @@ public class Usuario {
 	/**
 	 * Permite eliminar un usuario de la base de datos
 	 * 
-	 * @param usuario
-	 *            de tipo Usuario
+	 * @param usuario de tipo Usuario
 	 * @return msg mensaje que avisa que los datos fueron eliminados
 	 * @throws PersistentException
 	 */
@@ -112,7 +130,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Metodo que muestra los datos que estan en la base de datos
+	 * Método que muestra los datos que estan en la base de datos
 	 * 
 	 * @return listaUSuario
 	 * @throws PersistentException
@@ -134,9 +152,9 @@ public class Usuario {
 	}
 
 	/**
-	 * Metodo que permite actualizar los datos en la base de datos
+	 * Método que permite actualizar los datos en la base de datos
 	 * 
-	 * @param usuario
+	 * @param usuario se tipo Usuario
 	 * @return msg retorna un mensaje que avisa que los datos fueron actualizados
 	 * @throws PersistentException
 	 */
@@ -169,7 +187,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Metodo para obtener usuario y contraseña de la base de datos
+	 * Método para obtener usuario y contraseña de la base de datos
 	 * 
 	 * @param usuarioRec de tipo Usuario
 	 * @return usuario de tipo Usuario

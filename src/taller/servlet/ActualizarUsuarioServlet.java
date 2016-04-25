@@ -46,6 +46,7 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 		
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
+		
 		try {
 
 			int id = Integer.parseInt(request.getParameter("id"));

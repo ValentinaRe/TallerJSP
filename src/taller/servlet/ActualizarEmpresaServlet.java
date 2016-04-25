@@ -69,6 +69,7 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 			actual.validarId(id);
 			actual.validarRut(rut);
 			actual.esEntero(telefono);
+			
 			Empresa actualizar = new Empresa();
 			if((actual.validarRut(rut)==true) && (actual.esEntero(telefono)==true) ){
 
@@ -132,7 +133,7 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 			}
 			else {
 				mensaje="Datos mal ingresados";
-				System.out.println("cantidad de caracteres superior a los aceptados");
+				
 				
 			}	
 		

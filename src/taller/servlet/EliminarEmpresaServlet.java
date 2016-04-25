@@ -39,6 +39,7 @@ public class EliminarEmpresaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		//String rut=request.getParameter("rut");
 		EliminarEmpresaServlet delete = new EliminarEmpresaServlet();
@@ -57,7 +58,7 @@ public class EliminarEmpresaServlet extends HttpServlet {
 		//}
 		
 		if (id<0){
-		System.out.println("una variable vacia");
+		System.out.println(" variable vacia");
 		}else{
 			eliminar.setUid(id);
 			try {

@@ -15,7 +15,7 @@ import capanegocio.Empresa;
  * @author Vale
  *
  */
-public class ContactoTest {
+public class ContactoTestJunit {
 
 	/**
 	 * Test method for {@link capanegocio.Contacto#ingresar(capanegocio.Contacto)}.
@@ -35,22 +35,13 @@ public class ContactoTest {
 		dato.setRegion("jajaja");
 		dato.setCiudad("Juanito");
 		dato.setEmpresaUid(empresa);
-		//assertTrue(dato.getNombre().equals("Juanito"));
-		//assertTrue(dato.getApellido().equals("Jones"));
-		//assertTrue(dato.getMail().equals("Juanito@jones.cl"));
-		//assertTrue(dato.getTelefono().equals("56899"));
-		//assertTrue(dato.getPais().equals("Juanito"));
-		//assertTrue(dato.getRegion().equals("jajaja"));
-		//assertTrue(dato.getCiudad().equals("Juanito"));
+		
 		
 		String contactoingreso=Contacto.ingresar(dato);
 		System.out.println(contactoingreso);
 		assertTrue(contactoingreso.equals("Ingreso exitoso" ));
 		
-		
-		
-		
-		
+		fail("Not yet implemented");
 	}
 
 	/**
@@ -58,14 +49,8 @@ public class ContactoTest {
 	 */
 	@Test
 	public void testEliminar() {
-		Contacto contacto =new Contacto();
-		contacto.setUid(1);
-		assertTrue(contacto.getUid() == 1);
+		fail("Not yet implemented");
 	}
-
-	
-	
-	
 
 	/**
 	 * Test method for {@link capanegocio.Contacto#actualizar(capanegocio.Contacto)}.
@@ -84,7 +69,6 @@ public class ContactoTest {
 		dato.setRegion("jajaja");
 		dato.setCiudad("Juanito");
 		dato.setEmpresaUid(empresa);
-	
 		assertTrue(dato.getNombre().equals("Juanito"));
 		assertTrue(dato.getApellido().equals("Jones"));
 		assertTrue(dato.getMail().equals("Juanito@jones.cl"));
@@ -96,24 +80,10 @@ public class ContactoTest {
 		String contactoingreso=Contacto.ingresar(dato);
 		System.out.println(contactoingreso);
 		assertTrue(contactoingreso.equals("Ingreso exitoso" ));
-		
 	}
-	@Test
-	public void testBusquedaSimple(){
-		Contacto dato =new Contacto();
-		
-		try {
-			dato.busquedaSimple("daniela");
-		} catch (PersistentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			System.out.println(dato.busquedaSimple("daniela"));
-			assertTrue(true);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
+	
+	
+	
+
 }

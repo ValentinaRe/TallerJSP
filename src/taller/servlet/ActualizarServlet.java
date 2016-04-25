@@ -89,10 +89,6 @@ public class ActualizarServlet extends HttpServlet {
 			actual.esEntero(telefono);
 			Contacto actualizar = new Contacto();
 			Empresa empresas = new Empresa();
-			System.out.println(actual.validarId(id));
-			System.out.println(actual.validarRun(run));
-			System.out.println(actual.validateMail(mail));
-			System.out.println(actual.esEntero(telefono));
 			
 			if((actual.validarId(id)==false)||(actual.validarRun(run)==false)||(actual.validateMail(mail)==false) || (actual.esEntero(telefono))==false) {
 				mensaje="Datos mal ingresados";
@@ -100,7 +96,7 @@ public class ActualizarServlet extends HttpServlet {
 			else {if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
 					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
 					|| region.trim().equals("") || ciudad.trim().equals("")) {
-				System.out.println("una variable vacia");
+				mensaje="una variable vacia";
 
 			} else {
 
