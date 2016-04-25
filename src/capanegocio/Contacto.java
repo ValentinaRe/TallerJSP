@@ -654,12 +654,6 @@ public class Contacto {
 		return listaContacto;
 		
 		}
-	private  String AlteracionPalabra(String busqueda ) throws PersistentException  {
-		
-	ContactoCriteria contactoc = new ContactoCriteria();
-	String dato= orm.ContactoDAO.
 	
-	return"";
-}
 	 
 	}
