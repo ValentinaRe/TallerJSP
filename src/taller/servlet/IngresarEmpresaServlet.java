@@ -98,7 +98,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 			else {
 				mensaje="Datos mal ingresados";
 				System.out.println("cantidad de caracteres superior a los aceptados");
-				request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
+			
 			}	
 		
 		
@@ -106,6 +106,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
+		request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
 	}
 	public static boolean validarRut(String rut) {
 

@@ -56,6 +56,7 @@ public class ActualizarServlet extends HttpServlet {
 		doGet(request, response);
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
+		int id;
 		String run ="";
 		String nombre ="";
 		String apellido="";
@@ -69,12 +70,8 @@ public class ActualizarServlet extends HttpServlet {
 	
 		
 		try {
-			int id = 0;
-			try {
-				id = Integer.parseInt(request.getParameter("id"));
-			} catch (NullPointerException e) {
-				id = 0;
-			}
+			
+			 id = Integer.parseInt(request.getParameter("id"));
 			 run = request.getParameter("run");
 			 nombre = request.getParameter("nombre");
 			 apellido = request.getParameter("apellido");
@@ -92,8 +89,15 @@ public class ActualizarServlet extends HttpServlet {
 			actual.esEntero(telefono);
 			Contacto actualizar = new Contacto();
 			Empresa empresas = new Empresa();
-			if((actual.validarRun(run)==true)&&(actual.validateMail(mail)==true) && (actual.esEntero(telefono)==true) ){
-			if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
+			System.out.println(actual.validarId(id));
+			System.out.println(actual.validarRun(run));
+			System.out.println(actual.validateMail(mail));
+			System.out.println(actual.esEntero(telefono));
+			
+			if((actual.validarId(id)==false)||(actual.validarRun(run)==false)||(actual.validateMail(mail)==false) || (actual.esEntero(telefono))==false) {
+				mensaje="Datos mal ingresados";
+				System.out.println("Datos mal ingresados");}
+			else {if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
 					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
 					|| region.trim().equals("") || ciudad.trim().equals("")) {
 				System.out.println("una variable vacia");
@@ -108,50 +112,59 @@ public class ActualizarServlet extends HttpServlet {
 						actualizar.setUid(id);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setRun(run);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setNombre(nombre);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setApellido(apellido);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setMail(mail);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setTelefono(telefono);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setPais(pais);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setRegion(region);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					try {
 						actualizar.setCiudad(ciudad);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
+						mensaje="Dato nulo";
 					}
 					
-					empresas.setUid(idempr);
-					actualizar.setEmpresaUid(empresas);
+					empresas.setUid(idempr);					
+					actualizar.setEmpresaUid(empresas);					
 					String respCon="";
 					try {
 						respCon=Contacto.actualizar(actualizar);
@@ -164,18 +177,18 @@ public class ActualizarServlet extends HttpServlet {
 
 			}
 
+			
 			}
-			else {
-				mensaje="Datos mal ingresados";
-				System.out.println("cantidad de caracteres superior a los aceptados");
-				request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
-			}	
+				
+				
+				
 		
 		
 		
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
+		request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
 	}
 
 	/**

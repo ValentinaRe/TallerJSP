@@ -131,7 +131,8 @@ public class TallerServlet extends HttpServlet {
 			else {
 				mensaje="Datos mal ingresados";
 				System.out.println("cantidad de caracteres superior a los aceptados");
-				request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
+				
+				
 			}	
 		
 		
@@ -139,6 +140,7 @@ public class TallerServlet extends HttpServlet {
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
+		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
 	}
 	/**
 	 * Metodo validacion mail

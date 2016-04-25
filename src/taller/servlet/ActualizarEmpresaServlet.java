@@ -133,7 +133,7 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 			else {
 				mensaje="Datos mal ingresados";
 				System.out.println("cantidad de caracteres superior a los aceptados");
-				request.getRequestDispatcher( "/FormularioActualizarEmpresa.jsp").forward(request, response);
+				
 			}	
 		
 		
@@ -141,6 +141,7 @@ public class ActualizarEmpresaServlet extends HttpServlet {
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
+		request.getRequestDispatcher( "/FormularioActualizarEmpresa.jsp").forward(request, response);
 	}
 
 	private  boolean validarId(int id) {

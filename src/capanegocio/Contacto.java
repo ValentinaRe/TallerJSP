@@ -317,10 +317,10 @@ public class Contacto {
 		String msg = "";
 		try {
 			try {
-				//orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);
-				 orm.Contacto lormContacto =
-				 orm.ContactoDAO.loadContactoByQuery("Contacto.run ='"+contacto.getRun()+"'" ,
-				 null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
+				orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.uid);
+				 //orm.Contacto lormContacto =
+				// orm.ContactoDAO.loadContactoByQuery("Contacto.run ='"+contacto.getRun()+"'" ,
+				 //null);//orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='Victor'",
 				// null);
 				// Delete the persistent object
 				orm.ContactoDAO.delete(lormContacto);
@@ -524,7 +524,7 @@ public class Contacto {
 		
 		listarContactos=orm.ContactoDAO.queryContacto(query,null);
 		
-		if (listarContactos != null) {
+		if (!listarContactos.isEmpty()) {
 			for (orm.Contacto contactoOrm : listarContactos) {
 	            Contacto contactoCon = new Contacto();
 	            Empresa empreNegocio=new Empresa();

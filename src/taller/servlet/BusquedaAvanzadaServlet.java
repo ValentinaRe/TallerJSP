@@ -1,10 +1,17 @@
 package taller.servlet;
 
+
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.orm.PersistentException;
+
+import capanegocio.Contacto;
 
 /**
  * Servlet implementation class BusquedaAvanzadaServlet
@@ -34,8 +41,87 @@ public class BusquedaAvanzadaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+         Contacto contacto = new Contacto();
+		
+		String run = request.getParameter("run");
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+		String mail = request.getParameter("mail");
+		String telefono = request.getParameter("telefono");
+		String pais = request.getParameter("pais");
+		String region = request.getParameter("region");
+		String ciudad = request.getParameter("ciudad");
+		
+		
+		if(run != null){
+			contacto.setRun(run);
+		}			
+		else{
+			contacto.setRun("");
+		}
+		
+		if(nombre != null){
+			contacto.setNombre(nombre);
+		}else{
+			contacto.setNombre("");
+		}
+		
+		if(apellido != null){
+			contacto.setApellido(apellido);
+		}else{
+			contacto.setApellido("");
+		}
+		
+		if(mail != null){
+			contacto.setMail(mail);
+		}else{
+			contacto.setMail("");
+		}
+		
+		if(telefono != null){
+			contacto.setTelefono(telefono);
+		}else{
+			contacto.setTelefono("");
+		}
+		
+		if(pais != null){
+			contacto.setPais(pais);
+		}else{
+			contacto.setPais("");
+		}
+		
+		if(region != null){
+			contacto.setRegion(region);
+		}else{
+			contacto.setRegion("");
+		}
+		if(ciudad != null){
+			contacto.setCiudad(ciudad);
+		}else{
+			contacto.setCiudad("");
+		}
+		
+		try {
+			List<Contacto> listaBusquedaAvan = contacto.busquedaAvanzada(contacto);
+			if(!listaBusquedaAvan.isEmpty()){
+				request.removeAttribute("busqueda");
+				request.setAttribute("busqueda", listaBusquedaAvan);				
+				request.getRequestDispatcher( "FormularioBusquedaAvanzada.jsp").forward(request, response);
+			}else{
+				
+				request.removeAttribute("busqueda");
+				request.setAttribute("listaContacto",listaBusquedaAvan);
+				request.getRequestDispatcher( "FormularioBusquedaAvanzada.jsp").forward(request, response);
+				
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}		
 		
 	}
+
+		
+	
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)

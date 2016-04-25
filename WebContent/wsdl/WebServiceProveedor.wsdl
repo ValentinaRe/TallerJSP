@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://serviciosweb" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://serviciosweb" xmlns:intf="http://serviciosweb" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://serviciosweb" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://serviciosweb" xmlns:intf="http://serviciosweb" xmlns:tns1="http://orm.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://serviciosweb" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="actualizar">
+   <import namespace="http://orm.org"/>
+   <element name="busquedaAvanzada">
     <complexType>
      <sequence>
-      <element name="uid" type="xsd:int"/>
+      <element name="run" type="xsd:string"/>
       <element name="nombre" type="xsd:string"/>
       <element name="apellido" type="xsd:string"/>
       <element name="mail" type="xsd:string"/>
@@ -18,119 +19,71 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="actualizarResponse">
+   <element name="busquedaAvanzadaResponse">
     <complexType>
      <sequence>
-      <element name="actualizarReturn" type="xsd:string"/>
+      <element name="busquedaAvanzadaReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="ingreso">
+   <element name="fault" type="tns1:PersistentException"/>
+   <element name="busquedaSimple">
     <complexType>
      <sequence>
-      <element name="nombre" type="xsd:string"/>
-      <element name="apellido" type="xsd:string"/>
-      <element name="mail" type="xsd:string"/>
-      <element name="telefono" type="xsd:string"/>
-      <element name="pais" type="xsd:string"/>
-      <element name="region" type="xsd:string"/>
-      <element name="ciudad" type="xsd:string"/>
+      <element name="busqueda" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="ingresoResponse">
+   <element name="busquedaSimpleResponse">
     <complexType>
      <sequence>
-      <element name="ingresoReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="eliminar">
-    <complexType>
-     <sequence>
-      <element name="uid" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="eliminarResponse">
-    <complexType>
-     <sequence>
-      <element name="eliminarReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="listar">
-    <complexType/>
-   </element>
-   <element name="listarResponse">
-    <complexType>
-     <sequence>
-      <element name="listarReturn" type="xsd:string"/>
+      <element name="busquedaSimpleReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://orm.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="PersistentException">
+    <sequence/>
+   </complexType>
+  </schema>
  </wsdl:types>
 
-   <wsdl:message name="listarResponse">
+   <wsdl:message name="busquedaAvanzadaResponse">
 
-      <wsdl:part element="impl:listarResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="ingresoRequest">
-
-      <wsdl:part element="impl:ingreso" name="parameters">
+      <wsdl:part element="impl:busquedaAvanzadaResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="eliminarResponse">
+   <wsdl:message name="PersistentException">
 
-      <wsdl:part element="impl:eliminarResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="listarRequest">
-
-      <wsdl:part element="impl:listar" name="parameters">
+      <wsdl:part element="impl:fault" name="fault">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="actualizarResponse">
+   <wsdl:message name="busquedaSimpleRequest">
 
-      <wsdl:part element="impl:actualizarResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="actualizarRequest">
-
-      <wsdl:part element="impl:actualizar" name="parameters">
+      <wsdl:part element="impl:busquedaSimple" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="ingresoResponse">
+   <wsdl:message name="busquedaAvanzadaRequest">
 
-      <wsdl:part element="impl:ingresoResponse" name="parameters">
+      <wsdl:part element="impl:busquedaAvanzada" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="eliminarRequest">
+   <wsdl:message name="busquedaSimpleResponse">
 
-      <wsdl:part element="impl:eliminar" name="parameters">
+      <wsdl:part element="impl:busquedaSimpleResponse" name="parameters">
 
       </wsdl:part>
 
@@ -138,51 +91,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="WebServiceProveedor">
 
-      <wsdl:operation name="actualizar">
+      <wsdl:operation name="busquedaAvanzada">
 
-         <wsdl:input message="impl:actualizarRequest" name="actualizarRequest">
+         <wsdl:input message="impl:busquedaAvanzadaRequest" name="busquedaAvanzadaRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:actualizarResponse" name="actualizarResponse">
+         <wsdl:output message="impl:busquedaAvanzadaResponse" name="busquedaAvanzadaResponse">
 
        </wsdl:output>
+
+         <wsdl:fault message="impl:PersistentException" name="PersistentException">
+
+       </wsdl:fault>
 
       </wsdl:operation>
 
-      <wsdl:operation name="ingreso">
+      <wsdl:operation name="busquedaSimple">
 
-         <wsdl:input message="impl:ingresoRequest" name="ingresoRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:ingresoResponse" name="ingresoResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="eliminar">
-
-         <wsdl:input message="impl:eliminarRequest" name="eliminarRequest">
+         <wsdl:input message="impl:busquedaSimpleRequest" name="busquedaSimpleRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:eliminarResponse" name="eliminarResponse">
+         <wsdl:output message="impl:busquedaSimpleResponse" name="busquedaSimpleResponse">
 
        </wsdl:output>
 
-      </wsdl:operation>
+         <wsdl:fault message="impl:PersistentException" name="PersistentException">
 
-      <wsdl:operation name="listar">
-
-         <wsdl:input message="impl:listarRequest" name="listarRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:listarResponse" name="listarResponse">
-
-       </wsdl:output>
+       </wsdl:fault>
 
       </wsdl:operation>
 
@@ -192,75 +129,51 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="actualizar">
+      <wsdl:operation name="busquedaAvanzada">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="actualizarRequest">
+         <wsdl:input name="busquedaAvanzadaRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="actualizarResponse">
+         <wsdl:output name="busquedaAvanzadaResponse">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:output>
+
+         <wsdl:fault name="PersistentException">
+
+            <wsdlsoap:fault name="PersistentException" use="literal"/>
+
+         </wsdl:fault>
 
       </wsdl:operation>
 
-      <wsdl:operation name="ingreso">
+      <wsdl:operation name="busquedaSimple">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="ingresoRequest">
+         <wsdl:input name="busquedaSimpleRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="ingresoResponse">
+         <wsdl:output name="busquedaSimpleResponse">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:output>
 
-      </wsdl:operation>
+         <wsdl:fault name="PersistentException">
 
-      <wsdl:operation name="eliminar">
+            <wsdlsoap:fault name="PersistentException" use="literal"/>
 
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="eliminarRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="eliminarResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="listar">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="listarRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="listarResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
+         </wsdl:fault>
 
       </wsdl:operation>
 

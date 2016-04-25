@@ -23,8 +23,8 @@
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="WebServiceProveedor" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="actualizar" qname="ns1:actualizar" returnQName="ns1:actualizarReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:uid" type="xsd:int"/>
+  <ns2:operation name="busquedaAvanzada" qname="ns1:busquedaAvanzada" returnQName="ns1:busquedaAvanzadaReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:run" type="xsd:string"/>
    <ns2:parameter qname="ns1:nombre" type="xsd:string"/>
    <ns2:parameter qname="ns1:apellido" type="xsd:string"/>
    <ns2:parameter qname="ns1:mail" type="xsd:string"/>
@@ -32,28 +32,21 @@
    <ns2:parameter qname="ns1:pais" type="xsd:string"/>
    <ns2:parameter qname="ns1:region" type="xsd:string"/>
    <ns2:parameter qname="ns1:ciudad" type="xsd:string"/>
+   <ns3:fault class="org.orm.PersistentException" qname="ns1:fault" type="ns2:PersistentException" xmlns:ns2="http://orm.org" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
   </ns2:operation>
-  <ns1:operation name="ingreso" qname="ns2:ingreso" returnQName="ns2:ingresoReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:nombre" type="xsd:string"/>
-   <ns1:parameter qname="ns2:apellido" type="xsd:string"/>
-   <ns1:parameter qname="ns2:mail" type="xsd:string"/>
-   <ns1:parameter qname="ns2:telefono" type="xsd:string"/>
-   <ns1:parameter qname="ns2:pais" type="xsd:string"/>
-   <ns1:parameter qname="ns2:region" type="xsd:string"/>
-   <ns1:parameter qname="ns2:ciudad" type="xsd:string"/>
+  <ns1:operation name="busquedaSimple" qname="ns3:busquedaSimple" returnQName="ns3:busquedaSimpleReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:busqueda" type="xsd:string"/>
+   <ns1:fault class="org.orm.PersistentException" qname="ns3:fault" type="ns4:PersistentException" xmlns:ns4="http://orm.org"/>
   </ns1:operation>
-  <ns1:operation name="eliminar" qname="ns3:eliminar" returnQName="ns3:eliminarReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:uid" type="xsd:int"/>
-  </ns1:operation>
-  <ns1:operation name="listar" qname="ns4:listar" returnQName="ns4:listarReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:parameter name="allowedMethods" value="eliminar actualizar ingreso listar"/>
+  <ns1:parameter name="allowedMethods" value="busquedaSimple busquedaAvanzada"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="WebServiceProveedor"/>
   <ns1:parameter name="className" value="serviciosweb.WebServiceProveedor"/>
   <ns1:parameter name="wsdlServicePort" value="WebServiceProveedor"/>
-  <ns1:parameter name="schemaQualified" value="http://serviciosweb"/>
+  <ns1:parameter name="schemaQualified" value="http://serviciosweb,http://orm.org"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://serviciosweb"/>
   <ns1:parameter name="wsdlServiceElement" value="WebServiceProveedorService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.orm.PersistentException" xmlns:ns5="http://orm.org"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>

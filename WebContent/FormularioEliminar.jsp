@@ -24,9 +24,9 @@
 <body>
 	<form action="EliminarServlet" method="Post" class="form-horizontal mitad" id="EliminarServlet">
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese run</label>
+			<label class="col-lg-3 control-label">Ingrese id</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" placeholder=" run" name="run" required> <br>
+				<input type="text" class="form-control" placeholder="id" name="id" required> <br>
 			</div>
 		</div>
 

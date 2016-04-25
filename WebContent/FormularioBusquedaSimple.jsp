@@ -31,6 +31,11 @@
 		<th>apellido</th>
 		<th>telefono</th>
 		<th>mail</th>
+		<th>pais</th>
+		<th>region</th>
+		<th>ciudad</th>
+		<th>nombre empresa</th>
+		<th>razon social empresa</th>
 		</thead>
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">
@@ -43,6 +48,8 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
+			<td>${contacto.empresaUid.nombre}</td>
+			<td>${contacto.empresaUid.razonSocial}</td>
 		<tr/>
 		</i:forEach>
 		</tbody>

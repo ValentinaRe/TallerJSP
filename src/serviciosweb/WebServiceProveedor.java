@@ -2,7 +2,11 @@ package serviciosweb;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 
 import org.orm.PersistentException;
 
@@ -13,81 +17,104 @@ import capanegocio.Contacto;
 
 public class WebServiceProveedor {
   
-	public String listar(){
-		String listaResultado="";
-		try {
-		    Gson gson = new GsonBuilder().create();
-			List<Contacto> listaContacto=Contacto.listar();
-			listaResultado = gson.toJson(listaContacto);
-			
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@WebMethod(operationName="BusquedaSimpleContacto")
+	public String busquedaSimple(@WebParam(name="busqueda")String busqueda) throws PersistentException{
+		String resultBusqueda="";
+		List<Contacto> listaContactos=new ArrayList<Contacto>();
+		Contacto contacto=new Contacto();
+		Gson listarJson=new GsonBuilder().create();
+	try{	
+		listaContactos=contacto.busquedaSimple(busqueda);
+		if(listaContactos.isEmpty()){
+			return "no se encontraron datos";
+		}else{
+			resultBusqueda=listarJson.toJson(listaContactos);
+			return resultBusqueda;
 		}
 		
-		return listaResultado;
+	}catch(PersistentException e){
+		return e.getMessage();
 	}
 	
+	}
 	
-	public String eliminar( int uid){
-		String respuesta="";
-		Contacto contacto=new Contacto();
-		contacto.setUid(uid);
-		try {
-			Contacto.eliminar(contacto);
-   		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@WebMethod(operationName = "busquedaAvanzada")
+	public String busquedaAvanzada(
+			@WebParam(name = "run") String run, 
+			@WebParam(name = "nombre") String nombre, 
+			@WebParam(name = "apellido") String apellido,
+			@WebParam(name = "mail") String mail,
+			@WebParam(name = "telefono") String telefono,
+			@WebParam(name = "pais") String pais,
+			@WebParam(name = "region") String region,
+			@WebParam(name = "ciudad") String ciudad) throws PersistentException{
+		
+		String resultado = "";
+		List<Contacto> listarContactos = new ArrayList<Contacto>();
+		Contacto contacto = new Contacto();
+		
+	
+		if(run != null){
+			contacto.setRun(run);
+		}			
+		else{
+			contacto.setRun("");
 		}
 		
-		return respuesta;
-}
-	
-  public String ingreso(String nombre,String apellido,String mail,String telefono,String pais,String region,
-				String ciudad){
-			        String respuesta = "no se pudo almacenar el contacto";
-			        
-			        Contacto contacto = new Contacto();
-			        contacto.setNombre(nombre);
-			        contacto.setApellido(apellido);
-			        contacto.setTelefono(telefono);
-			        contacto.setPais(pais);
-			        contacto.setRegion(region);
-			        contacto.setCiudad(ciudad);
-
-			        try {
-			            Contacto.ingresar(contacto);
-			           
-			        } catch (PersistentException ex) {
-			        	// TODO Auto-generated catch block
-			 			ex.printStackTrace();
-			        }
-			        return respuesta;
-			    }
-			   
-     public String actualizar(int uid,String nombre,String apellido,String mail,String telefono,String pais,String region,
-						String ciudad) {
-
-			        String respuesta = "";
-			    
-			        Contacto contacto = new Contacto();
-			        contacto.setUid(uid);
-			        contacto.setNombre(nombre);
-			        contacto.setApellido(apellido);
-			        contacto.setTelefono(telefono);
-			        contacto.setPais(pais);
-			        contacto.setRegion(region);
-			        contacto.setCiudad(ciudad);
-			        try {
-			         Contacto.actualizar(contacto);
-			          
-			        } catch (PersistentException ex) {
-			        	// TODO Auto-generated catch block
-			 			ex.printStackTrace();
-			        }
-			        return respuesta;
-			    }
+		if(nombre != null){
+			contacto.setNombre(nombre);
+		}else{
+			contacto.setNombre("");
+		}
 		
-
+		if(apellido != null){
+			contacto.setApellido(apellido);
+		}else{
+			contacto.setApellido("");
+		}
+		
+		if(mail != null){
+			contacto.setMail(mail);
+		}else{
+			contacto.setMail("");
+		}
+		
+		if(telefono != null){
+			contacto.setTelefono(telefono);
+		}else{
+			contacto.setTelefono("");
+		}
+		
+		if(pais != null){
+			contacto.setPais(pais);
+		}else{
+			contacto.setPais("");
+		}
+		
+		if(region != null){
+			contacto.setRegion(region);
+		}else{
+			contacto.setRegion("");
+		}
+		if(ciudad!= null){
+			contacto.setCiudad(ciudad);
+		}else{
+			contacto.setCiudad("");
+		}
 	
+		
+		Gson listarJson = new GsonBuilder().create();
+		
+		try{
+			listarContactos = contacto.busquedaAvanzada(contacto);
+			if(listarContactos.isEmpty()){
+				resultado = "no se encontraron datos";
+			}else{
+				resultado = listarJson.toJson(listarContactos);
+			}			
+		}catch(PersistentException p){
+			resultado = p.getMessage();
+		}
+		return resultado;
+	}
 }

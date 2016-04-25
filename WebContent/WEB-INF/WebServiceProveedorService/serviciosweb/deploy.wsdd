@@ -5,13 +5,13 @@
   <service name="WebServiceProveedor" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://serviciosweb"/>
       <parameter name="wsdlServiceElement" value="WebServiceProveedorService"/>
-      <parameter name="schemaQualified" value="http://serviciosweb"/>
+      <parameter name="schemaQualified" value="http://serviciosweb,http://orm.org"/>
       <parameter name="wsdlServicePort" value="WebServiceProveedor"/>
       <parameter name="className" value="serviciosweb.WebServiceProveedor"/>
       <parameter name="wsdlPortType" value="WebServiceProveedor"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="actualizar" qname="operNS:actualizar" returnQName="retNS:actualizarReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:uid" type="tns:int"/>
+      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="busquedaAvanzada" qname="operNS:busquedaAvanzada" returnQName="retNS:busquedaAvanzadaReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:run" type="tns:string"/>
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nombre" type="tns:string"/>
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:apellido" type="tns:string"/>
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
@@ -19,22 +19,14 @@
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pais" type="tns:string"/>
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:region" type="tns:string"/>
         <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ciudad" type="tns:string"/>
+        <fault xmlns:fns="http://serviciosweb" xmlns:tns="http://orm.org" name="PersistentException" qname="fns:fault" class="org.orm.PersistentException" type="tns:PersistentException"/>
       </operation>
-      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="ingreso" qname="operNS:ingreso" returnQName="retNS:ingresoReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nombre" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:apellido" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mail" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:telefono" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pais" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:region" type="tns:string"/>
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ciudad" type="tns:string"/>
+      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="busquedaSimple" qname="operNS:busquedaSimple" returnQName="retNS:busquedaSimpleReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:busqueda" type="tns:string"/>
+        <fault xmlns:fns="http://serviciosweb" xmlns:tns="http://orm.org" name="PersistentException" qname="fns:fault" class="org.orm.PersistentException" type="tns:PersistentException"/>
       </operation>
-      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="eliminar" qname="operNS:eliminar" returnQName="retNS:eliminarReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://serviciosweb" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:uid" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://serviciosweb" xmlns:retNS="http://serviciosweb" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listar" qname="operNS:listar" returnQName="retNS:listarReturn" returnType="rtns:string" soapAction="">
-      </operation>
-      <parameter name="allowedMethods" value="eliminar actualizar ingreso listar"/>
+      <parameter name="allowedMethods" value="busquedaSimple busquedaAvanzada"/>
 
+      <typeMapping xmlns:ns="http://orm.org" qname="ns:PersistentException" type="java:org.orm.PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>
