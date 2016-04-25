@@ -40,7 +40,7 @@ public class BusquedaAvanzadaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
          Contacto contacto = new Contacto();
 		
 		String run = request.getParameter("run");
@@ -105,7 +105,7 @@ public class BusquedaAvanzadaServlet extends HttpServlet {
 			List<Contacto> listaBusquedaAvan = contacto.busquedaAvanzada(contacto);
 			if(!listaBusquedaAvan.isEmpty()){
 				request.removeAttribute("busqueda");
-				request.setAttribute("busqueda", listaBusquedaAvan);				
+				request.setAttribute("listaContacto", listaBusquedaAvan);				
 				request.getRequestDispatcher( "FormularioBusquedaAvanzada.jsp").forward(request, response);
 			}else{
 				
