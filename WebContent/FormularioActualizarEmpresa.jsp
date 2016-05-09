@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Direccion</label>
+			<label class="col-lg-3 control-label">Ingrese Dirección</label>
 			<div class="col-lg-3">
 				<input type="text" class="form-control" name="direccion" required> <br>
 			</div>
@@ -62,13 +62,13 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Telefono</label>
+			<label class="col-lg-3 control-label">Ingrese Teléfono</label>
 			<div class="col-lg-3">
 				<input type="text" class="form-control" name="telefono" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Razon Social</label>
+			<label class="col-lg-3 control-label">Ingrese Razón Social</label>
 			<div class="col-lg-3">
 				<input type="text" class="form-control" name="razonSocial" required> <br>
 			</div>

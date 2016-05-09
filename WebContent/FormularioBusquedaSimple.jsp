@@ -13,7 +13,7 @@
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
 </head>
 <body>
-<h2 >Busqueda simple</h2>
+<h2 >Búsqueda simple</h2>
 	<form action="BusquedaSimpleServlet" id="BusquedaSimpleServlet" method="post" class="form-horizontal mitad" action="#">
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Buscar</label>
@@ -30,13 +30,13 @@
 		<th>id</th>
 		<th>nombre</th>
 		<th>apellido</th>
-		<th>telefono</th>
+		<th>teléfono</th>
 		<th>mail</th>
-		<th>pais</th>
-		<th>region</th>
+		<th>país</th>
+		<th>región</th>
 		<th>ciudad</th>
 		<th>nombre empresa</th>
-		<th>razon social empresa</th>
+		<th>razón social empresa</th>
 		</thead>
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">

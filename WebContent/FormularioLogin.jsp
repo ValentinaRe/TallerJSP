@@ -18,7 +18,7 @@
 <script
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
-<script type="text/javascript" src="validator.js"></script>
+<script type="text/javascript" src="./js/validator.js"></script>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 
       <form class="form-signin" role="form" action="LoginServlet" method="post" id="LoginServlet">
       
-        <h2 class="form-signin-heading">Iniciar Sesion</h2>
+        <h2 class="form-signin-heading">Iniciar Sesión</h2>
         
         <div class="form-group">
         <label class="col-lg-3 control-label">Usuario</label>

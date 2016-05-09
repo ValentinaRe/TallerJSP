@@ -47,8 +47,8 @@
 							   <li role="presentation"><a href="FormularioActualizarUsuario.jsp">Actualizar  Usuario </a></li>
 							   <li role="presentation"><a href="FormularioEliminarUsuario.jsp">Eliminar  Usuario</a></li>  
 							   <li role="presentation"><a href="FormularioListarUsuario.jsp">Listar  Usuario</a></li>  
-							   <li role="presentation"><a href="FormularioBusquedaSimple.jsp">Busqueda  Simple</a></li>
-							   <li role="presentation"><a href="FormularioBusquedaAvanzada.jsp">Busqueda  Avanzada</a></li>
+							   <li role="presentation"><a href="FormularioBusquedaSimple.jsp">Búsqueda  Simple</a></li>
+							   <li role="presentation"><a href="FormularioBusquedaAvanzada.jsp">Búsqueda  Avanzada</a></li>
 						    
 						      
                               

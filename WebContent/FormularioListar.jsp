@@ -38,7 +38,7 @@
 		
 		<th>nombre</th>
 		<th>apellido</th>
-		<th>telefono</th>
+		<th>teléfono</th>
 		<th>mail</th>
 		<th>Empresa</th>
 		</thead>

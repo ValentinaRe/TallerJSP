@@ -13,7 +13,7 @@
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
 </head>
 <body>
-<h2 >Busqueda avanzada</h2>
+<h2 >Búsqueda avanzada</h2>
 	<form action="BusquedaAvanzadaServlet" id="BusquedaAvanzadaServlet" method="post" class="form-horizontal mitad" action="#">
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Run</label>
@@ -44,21 +44,21 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Telefono</label>
+			<label class="col-lg-3 control-label">Teléfono</label>
 			<div class="col-lg-3">
 			<input type="text" class="form-control" name="telefono" >
 			<br>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Pais</label>
+			<label class="col-lg-3 control-label">País</label>
 			<div class="col-lg-3">
 			<input type="text" class="form-control" name="pais" >
 			<br>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Region</label>
+			<label class="col-lg-3 control-label">Región</label>
 			<div class="col-lg-3">
 			<input type="text" class="form-control" name="region" >
 			<br>
