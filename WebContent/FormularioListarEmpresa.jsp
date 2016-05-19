@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Listar Empresa</title>
 </head>
 <body>
@@ -12,13 +13,33 @@
 <%@page import="orm.Empresa" %>
 
 	<form action="ListarEmpresaServlet" method="get">
-	<label>lista de empresas</label>
-	<br />
+	<label>lista de empresa</label>
+	<br/>
 	<input type="submit" value="mostrar">
-		<i:forEach items="${lista}" var="empresa">
-			${empresa.nombre}:${empresa.ciudad}:${empresa.direcciom}:${empresa.pais}
-		<br />
-		</i:forEach>
 	</form>
+	<table class="table table-striped">
+		<thead>
+		
+		<th>nombre</th>
+		<th>apellido</th>
+		<th>teléfono</th>
+		<th>mail</th>
+		
+		</thead>
+		<tbody>
+		<i:forEach items="${listaEmpresa}" var="empresa">
+			<tr>
+			<td>${empresa.rut}</td>
+			<td>${empresa.nombre}</td>
+			
+			<td>${empresa.ciudad}</td>
+			<td>${empresa.pais}</td>
+			
+			
+			<br />
+		</i:forEach>
+		</tbody>
+	
+</table>	
 </body>
 </html>

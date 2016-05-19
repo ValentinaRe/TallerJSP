@@ -38,7 +38,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 		
 	}
 	/**
-	 * Método post que recibe peticiones post para ingresar una empresa
+	 * Mï¿½todo post que recibe peticiones post para ingresar una empresa
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,12 +67,14 @@ public class IngresarEmpresaServlet extends HttpServlet {
 			pais=request.getParameter( "pais");
 			telefono=request.getParameter( "telefono");
 			razonSocial=request.getParameter( "razonSocial");
-			if((ingresa.validarRut(rut)==true) && (ingresa.esEntero(telefono)==true) ){
+			//if((ingresa.validarRut(rut)==true) && (ingresa.esEntero(telefono)==true) ){
 			if(rut.trim().equals("")||nombre.trim().equals("")|| ciudad.trim().equals("")||direccion.trim().equals("")||pais.trim().equals("")||telefono.trim().equals("")||razonSocial.trim().equals("")){
 				System.out.println("una variable vacia");
 				
 			}else{
-				if(rut.length()<=12 && nombre.length()<=50 && ciudad.length()<=50 && direccion.length()<=50 && pais.length()<=50 && telefono.length()<=20 && razonSocial.length()<=50){
+				if(rut.length()<=12 && nombre.length()<=50 
+					&& ciudad.length()<=50 && direccion.length()<=50 && pais.length()<=50 
+					&& telefono.length()<=20 && razonSocial.length()<=50){
 					Empresa ingresar = new Empresa();
 					ingresar.setRut(rut);
 					ingresar.setNombre(nombre);
@@ -90,25 +92,26 @@ public class IngresarEmpresaServlet extends HttpServlet {
 					}
 				}else{
 					System.out.println("cantidad de caracteres superior a los aceptados");
+					
 				}
+			request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
 			}
-			
 		
-			}
-			else {
-				mensaje="Datos mal ingresados";
-				System.out.println("cantidad de caracteres superior a los aceptados");
+		//}
+			//else {
+			//	mensaje="Datos mal ingresados";
+			//	System.out.println("cantidad de caracteres superior a los aceptados");
 			
-			}	
+		//	}	
 		
 		
 		
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
-		request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
+		
 	}
-	public static boolean validarRut(String rut) {
+	public boolean validarRut(String rut) {
 
 		boolean validacion = false;
 		try {
