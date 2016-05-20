@@ -37,7 +37,7 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método recibe peticiones post para actualizar un usuario
+	 * Mï¿½todo recibe peticiones post para actualizar un usuario
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +50,7 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 		try {
 
 			int id = Integer.parseInt(request.getParameter("id"));
-			String user = request.getParameter("user");
+			String usuario = request.getParameter("user");
 			String pass = request.getParameter("password");
 			
 			ActualizarUsuarioServlet actual = new ActualizarUsuarioServlet();
@@ -58,15 +58,15 @@ public class ActualizarUsuarioServlet extends HttpServlet {
 			
 			Usuario actualizar = new Usuario();
 
-			if (id < 0 ||user.trim().equals("") || pass.trim().equals("")) {
+			if (id < 0 ||usuario.trim().equals("") || pass.trim().equals("")) {
 				System.out.println("una variable vacia");
 
 			} else {
 
-				if (user.length() <= 20 && pass.length() <= 20 ) {
+				if (usuario.length() <= 20 && pass.length() <= 20 ) {
 					out.println("Id = " + id);
 					actualizar.setUid(id);
-					actualizar.setUser(user);
+					actualizar.setUsuario(usuario);
 					actualizar.setPass(pass);
 					
 					try {

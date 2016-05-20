@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método que recibe peticiones post para loguearse
+	 * Mï¿½todo que recibe peticiones post para loguearse
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,12 +65,12 @@ public class LoginServlet extends HttpServlet {
         usu = request.getParameter("user");
         pass = request.getParameter("password");
         Usuario usuario=new Usuario();
-        usuario.setUser(usu);
+        usuario.setUsuario(usu);
         usuario.setPass(pass);
         
         try {
 			usuario=Usuario.busquedaUsuario(usuario);
-			if(!usuario.getUser().equals("")  ){
+			if(!usuario.getUsuario().equals("")  ){
 	        	sesion.setAttribute("usuario", "password");
 	        	response.sendRedirect("FormularioIngreso.jsp");
 	      System.out.print("loguedo");
@@ -88,14 +88,14 @@ public class LoginServlet extends HttpServlet {
 		}
         
         
-        //deberíamos buscar el usuario en la base de datos, pero dado que se escapa de este tema, ponemos un ejemplo en el mismo código
+        //deberï¿½amos buscar el usuario en la base de datos, pero dado que se escapa de este tema, ponemos un ejemplo en el mismo cï¿½digo
        /* if(usu.equals("admin") && pass.equals("admin")) /*&& sesion.getAttribute("usuario") == null){
-            //si coincide usuario y password y además no hay sesión iniciada
+            //si coincide usuario y password y ademï¿½s no hay sesiï¿½n iniciada
             //sesion.setAttribute("usuario", usu);
-            //redirijo a página con información de login exitoso
+            //redirijo a pï¿½gina con informaciï¿½n de login exitoso
           //  response.sendRedirect("LoginExito.jsp");
       //  }else{
-            //lógica para login inválido
+            //lï¿½gica para login invï¿½lido
         	//response.sendRedirect("LoginFallido.jsp");
         
       //  }*/

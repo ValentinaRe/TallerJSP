@@ -48,6 +48,8 @@ public class Contacto {
 	
 	private String ciudad;
 	
+	private String fotoCont;
+	
 	private orm.Empresa empresauid;
 	
 	private void setUid(int value) {
@@ -124,6 +126,14 @@ public class Contacto {
 	
 	public String getRun() {
 		return run;
+	}
+	
+	public void setFotoCont(String value) {
+		this.fotoCont = value;
+	}
+	
+	public String getFotoCont() {
+		return fotoCont;
 	}
 	
 	public void setEmpresauid(orm.Empresa value) {

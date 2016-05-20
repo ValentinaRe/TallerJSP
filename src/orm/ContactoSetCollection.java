@@ -79,6 +79,7 @@ public class ContactoSetCollection extends org.orm.util.ORMSet {
 	 * <li>pais</li>
 	 * <li>region</li>
 	 * <li>ciudad</li>
+	 * <li>fotoCont</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -98,6 +99,7 @@ public class ContactoSetCollection extends org.orm.util.ORMSet {
 	 * <li>pais</li>
 	 * <li>region</li>
 	 * <li>ciudad</li>
+	 * <li>fotoCont</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

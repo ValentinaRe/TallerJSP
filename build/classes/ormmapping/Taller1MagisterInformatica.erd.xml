@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
-  <Entity name="contacto">
+  <Entity name="contacto" PKClustered="0">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -101,6 +101,17 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="fotoCont">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>34</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="empresauid">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -114,7 +125,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="usuario">
+  <Entity name="usuario" PKClustered="0">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -126,7 +137,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="user">
+    <Column name="usuario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
@@ -149,7 +160,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="empresa">
+  <Entity name="empresa" PKClustered="0">
     <Column name="uid">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>

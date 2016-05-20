@@ -46,7 +46,7 @@ public class TallerServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método que recibe petición post para ingresar contacto
+	 * Mï¿½todo que recibe peticiï¿½n post para ingresar contacto
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -65,6 +65,7 @@ public class TallerServlet extends HttpServlet {
 		String region = "";
 		String ciudad = "";
 		String empresa = "";
+		String fotoCont="";
 		
 		TallerServlet ingresa = new TallerServlet();
 		String mensaje="";
@@ -77,6 +78,7 @@ public class TallerServlet extends HttpServlet {
 			pais = request.getParameter("pais");
 			region = request.getParameter("region");
 			ciudad = request.getParameter("ciudad");
+			fotoCont=request.getParameter("fotoCont");
 			// obtener request de la empresa
 			empresa = request.getParameter("idEmpresa");
 			int idempr=Integer.parseInt(empresa);
@@ -107,7 +109,9 @@ public class TallerServlet extends HttpServlet {
 					ingresarContacto.setPais(pais);
 					ingresarContacto.setRegion(region);
 					ingresarContacto.setCiudad(ciudad);
+					ingresarContacto.setFotoCont(fotoCont);
 					ingresarContacto.setEmpresaUid(empresas);
+					
 					String respCon="";
 					// asignar contacto el objeto de la empresa
 					// instanciar una variable que almacene la respuesta de la

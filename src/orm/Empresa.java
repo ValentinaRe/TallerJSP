@@ -50,7 +50,7 @@ public class Empresa {
 	
 	private java.util.Set ORM_contacto = new java.util.HashSet();
 	
-	public void setUid(int value) {
+	private void setUid(int value) {
 		this.uid = value;
 	}
 	

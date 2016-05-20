@@ -38,7 +38,7 @@ public class IngresarUsuarioServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método que recibe peticiones post para ingresar un usuario
+	 * Mï¿½todo que recibe peticiones post para ingresar un usuario
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,22 +46,22 @@ public class IngresarUsuarioServlet extends HttpServlet {
 		PersistentTransaction t = null;
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
-		String user = "";
+		String usuario = "";
 		String pass ="";
 		
 		IngresarUsuarioServlet ingresa= new IngresarUsuarioServlet();
 		try{
-			user=request.getParameter( "user");
+			usuario=request.getParameter( "user");
 			pass= request.getParameter( "password");
 			
 			
-			if(user.trim().equals("")|| pass.trim().equals("")){
+			if(usuario.trim().equals("")|| pass.trim().equals("")){
 				System.out.println("una variable vacia");
 				
 			}else{
-				if(user.length()<=20 && pass.length()<=20){
+				if(usuario.length()<=20 && pass.length()<=20){
 					Usuario ingresar = new Usuario();
-					ingresar.setUser(user);
+					ingresar.setUsuario(usuario);
 					ingresar.setPass(pass);
 					
 					try {

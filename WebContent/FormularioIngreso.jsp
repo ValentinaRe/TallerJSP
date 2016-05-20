@@ -21,6 +21,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<script type="text/javascript" src="js/fotoStr.js"></script>
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Ingresar Contacto</title>
 </head>
@@ -76,6 +77,16 @@
 				<input type="text" class="form-control"  placeholder="Ingrese Ciudad" name="ciudad" required> <br>
 			</div>
 		</div>
+		<div class="form-group">
+	  			<label for="foto">Foto Contacto:</label>
+	  			<input id="fotoCont" name="fotoCont" type="file" multiple accept='image/*' onchange="encodeImage();" />	  			
+	  		</div>
+	  		<div class="form-group">
+            	<textarea id="textArea" name="textArea" class="form-control textbox" style="display:none;"></textarea>
+        	</div>
+       
+        	<div class="form-group" id="imgContainer"></div>
+        		   		
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Seleccione Empresa</label>
 			<div class="col-lg-3">

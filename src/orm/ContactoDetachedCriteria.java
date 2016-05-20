@@ -28,6 +28,7 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression pais;
 	public final StringExpression region;
 	public final StringExpression ciudad;
+	public final StringExpression fotoCont;
 	public final IntegerExpression empresauidId;
 	public final AssociationExpression empresauid;
 	
@@ -42,6 +43,7 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 		pais = new StringExpression("pais", this.getDetachedCriteria());
 		region = new StringExpression("region", this.getDetachedCriteria());
 		ciudad = new StringExpression("ciudad", this.getDetachedCriteria());
+		fotoCont = new StringExpression("fotoCont", this.getDetachedCriteria());
 		empresauidId = new IntegerExpression("empresauid.uid", this.getDetachedCriteria());
 		empresauid = new AssociationExpression("empresauid", this.getDetachedCriteria());
 	}
@@ -57,6 +59,7 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 		pais = new StringExpression("pais", this.getDetachedCriteria());
 		region = new StringExpression("region", this.getDetachedCriteria());
 		ciudad = new StringExpression("ciudad", this.getDetachedCriteria());
+		fotoCont = new StringExpression("fotoCont", this.getDetachedCriteria());
 		empresauidId = new IntegerExpression("empresauid.uid", this.getDetachedCriteria());
 		empresauid = new AssociationExpression("empresauid", this.getDetachedCriteria());
 	}

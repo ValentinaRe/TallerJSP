@@ -30,7 +30,7 @@ public class ListarUsuarioServlet extends HttpServlet {
     }
 
 	/**
-	 * Método que recibe peticiones get para  listar  ususarios
+	 * Mï¿½todo que recibe peticiones get para  listar  ususarios
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     
@@ -44,7 +44,7 @@ public class ListarUsuarioServlet extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			for(Usuario contacto: lista){
 				out.println("");
-				out.println("el user es: "+contacto.getUser());
+				out.println("el user es: "+contacto.getUsuario());
 				out.println("el password es: "+contacto.getPass());
 				out.println("--------------");
 				

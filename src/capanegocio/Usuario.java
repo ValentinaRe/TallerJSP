@@ -9,7 +9,7 @@ import org.orm.PersistentTransaction;
 public class Usuario {
 
 	private int uid;
-	private String user;
+	private String usuario;
 	private String pass;
 /**
  * Constructor de la clase Usuario
@@ -18,42 +18,42 @@ public class Usuario {
 		super();
 	}
 /**
- * Método para obtener el valor de id
+ * Mï¿½todo para obtener el valor de id
  * @return uid de tipo int
  */
 	public int getUid() {
 		return uid;
 	}
 /**
- * Método para obtener el valor de usuario
+ * Mï¿½todo para obtener el valor de usuario
  * @return user de tipo String
  */
-	public String getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
 /**
- * Método para obtener el valor de la contraseña
+ * Mï¿½todo para obtener el valor de la contraseï¿½a
  * @return
  */
 	public String getPass() {
 		return pass;
 	}
 /**
- *  Método para modificar el valor de id
+ *  Mï¿½todo para modificar el valor de id
  * @param uid de tipo int
  */
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
 /**
- *  Método para modificar el valor de usuario
+ *  Mï¿½todo para modificar el valor de usuario
  * @param user
  */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 /**
- *  Método para modificar el valor de la contraseña
+ *  Mï¿½todo para modificar el valor de la contraseï¿½a
  * @param pass
  */
 	public void setPass(String pass) {
@@ -76,7 +76,7 @@ public class Usuario {
 				orm.Usuario lormUsuario = orm.UsuarioDAO.createUsuario();
 				// Initialize the properties of the persistent object here
 				try{
-				lormUsuario.setUser(usuario.getUser());
+				lormUsuario.setUsuario(usuario.getUsuario());
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 					msg = "Dato nulo";
@@ -130,7 +130,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Método que muestra los datos que estan en la base de datos
+	 * Mï¿½todo que muestra los datos que estan en la base de datos
 	 * 
 	 * @return listaUSuario
 	 * @throws PersistentException
@@ -142,7 +142,7 @@ public class Usuario {
 
 		for (orm.Usuario usuarioOrm : listaUsuarioOrm) {
 			Usuario usuario = new Usuario();
-			usuario.setUser(usuarioOrm.getUser());
+			usuario.setUsuario(usuarioOrm.getUsuario());
 			usuario.setPass(usuarioOrm.getPass());
 
 			listaUsuario.add(usuario);
@@ -152,7 +152,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Método que permite actualizar los datos en la base de datos
+	 * Mï¿½todo que permite actualizar los datos en la base de datos
 	 * 
 	 * @param usuario se tipo Usuario
 	 * @return msg retorna un mensaje que avisa que los datos fueron actualizados
@@ -169,7 +169,7 @@ public class Usuario {
 																							// null);
 				// Update the properties of the persistent object
 				System.out.println("id: " + usuario.uid);
-				lormUsuario.setUser(usuario.user);
+				lormUsuario.setUsuario(usuario.usuario);
 				lormUsuario.setPass(usuario.pass);
 
 				System.out.println("Ingreso exitoso");
@@ -187,7 +187,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Método para obtener usuario y contraseña de la base de datos
+	 * Mï¿½todo para obtener usuario y contraseï¿½a de la base de datos
 	 * 
 	 * @param usuarioRec de tipo Usuario
 	 * @return usuario de tipo Usuario
@@ -197,9 +197,9 @@ public class Usuario {
 		Usuario usuario = new Usuario();
 		try {
 			orm.Usuario usuarioOrm = orm.UsuarioDAO.loadUsuarioByQuery(
-					"Usuario.user='" + usuarioRec.getUser() + "'AND Usuario.pass='" + usuarioRec.getPass() + "'", null);
+					"Usuario.user='" + usuarioRec.getUsuario() + "'AND Usuario.pass='" + usuarioRec.getPass() + "'", null);
 
-			usuario.setUser(usuarioOrm.getUser());
+			usuario.setUsuario(usuarioOrm.getUsuario());
 			usuario.setPass(usuarioOrm.getPass());
 
 			System.out.println(" record(s) retrieved.");

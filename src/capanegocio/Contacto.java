@@ -32,7 +32,8 @@ public class Contacto {
 	private String ciudad;
 
 	private String run;
-
+	
+	private String fotoCont;
 	/**
 	 * Constructor de la clase Contacto
 	 */
@@ -41,7 +42,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de id
+	 * Mï¿½todo get para obtener el valor de id
 	 * 
 	 * @return int
 	 */
@@ -50,7 +51,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de id
+	 * Mï¿½todo set para modificar el valor de id
 	 * 
 	 * @param uid de tipo int
 	 */
@@ -60,7 +61,7 @@ public class Contacto {
 	}
 
 	/**
-	 * método get para obtener el valor de el nombre
+	 * mï¿½todo get para obtener el valor de el nombre
 	 * 
 	 * @return nombre de tipo String
 	 */
@@ -69,7 +70,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el nombre
+	 * Mï¿½todo set para modificar el valor de el nombre
 	 * 
 	 * @param nombre de tipo String
 	 */
@@ -78,7 +79,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de el apellido
+	 * Mï¿½todo get para obtener el valor de el apellido
 	 * 
 	 * @return apellido de tipo String
 	 */
@@ -87,7 +88,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el apellido
+	 * Mï¿½todo set para modificar el valor de el apellido
 	 * 
 	 * @param apellido de tipo String
 	 */
@@ -96,7 +97,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de el mail
+	 * Mï¿½todo get para obtener el valor de el mail
 	 * 
 	 * @return mail de tipo String
 	 */
@@ -105,7 +106,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el mail
+	 * Mï¿½todo set para modificar el valor de el mail
 	 * 
 	 * @param mail de tipo String
 	 */
@@ -114,7 +115,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de el teléfono
+	 * Mï¿½todo get para obtener el valor de el telï¿½fono
 	 * 
 	 * @return telefono de tipo String
 	 */
@@ -123,7 +124,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el teléfono
+	 * Mï¿½todo set para modificar el valor de el telï¿½fono
 	 * 
 	 * @param telefono de tipo String
 	 */
@@ -132,7 +133,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor del país
+	 * Mï¿½todo get para obtener el valor del paï¿½s
 	 * 
 	 * @return pais de tipo String
 	 */
@@ -141,7 +142,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de el país
+	 * Mï¿½todo set para modificar el valor de el paï¿½s
 	 * 
 	 * @param pais de tipo String
 	 */
@@ -150,7 +151,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de la región
+	 * Mï¿½todo get para obtener el valor de la regiï¿½n
 	 * 
 	 * @return region de tipo String
 	 */
@@ -159,7 +160,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de la región
+	 * Mï¿½todo set para modificar el valor de la regiï¿½n
 	 * 
 	 * @param region de tipo String
 	 */
@@ -168,7 +169,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para obtener el valor de la ciudad
+	 * Mï¿½todo get para obtener el valor de la ciudad
 	 * 
 	 * @return ciudad de tipo String
 	 */
@@ -177,7 +178,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método set para modificar el valor de la ciudad
+	 * Mï¿½todo set para modificar el valor de la ciudad
 	 * 
 	 * @param ciudad  de tipo String
 	 */
@@ -186,7 +187,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método para obtener valor de run 
+	 * Mï¿½todo para obtener valor de run 
 	 * 
 	 * @return run de tipo String
 	 */
@@ -195,7 +196,19 @@ public class Contacto {
 	}
 
 	/**
-	 * Método get para modificar el valor de run
+	 * Mï¿½todo get para modificar el valor de run
+	 * 
+	 * @param run de tipo String
+	 */
+	public void setFotoCont(String fotCont) {
+		this.fotoCont = fotoCont;
+	}
+	public String getFotoCont() {
+		return fotoCont;
+	}
+
+	/**
+	 * Mï¿½todo get para modificar el valor de run
 	 * 
 	 * @param run de tipo String
 	 */
@@ -203,7 +216,7 @@ public class Contacto {
 		this.run = run;
 	}
 /**
- * Método para modificar el valor de empresa
+ * Mï¿½todo para modificar el valor de empresa
  * @param empresaUid de tipo Empresa
  */
 	
@@ -211,7 +224,7 @@ public class Contacto {
 		this.empresaUid = empresaUid;
 	}
 /**
- * Método para obtener el valor de empresa
+ * Mï¿½todo para obtener el valor de empresa
  * @return empresa de tipo Empresa
  */
 	public Empresa getEmpresaUid() {
@@ -219,7 +232,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Este método ingresa datos de contacto en la base de datos
+	 * Este mï¿½todo ingresa datos de contacto en la base de datos
 	 * 
 	 * @param contacto de tipo Contacto
 	 * @return msg retorna un mensaje de tipo String
@@ -286,6 +299,12 @@ public class Contacto {
 				msg = "Dato nulo";
 			}
 			try {
+				lormContacto.setFotoCont(contacto.getFotoCont());
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+				msg = "Dato nulo";
+			}
+			try {
 				lormContacto.setEmpresauid(empresa);
 			} catch (NullPointerException e) {
 				e.printStackTrace();
@@ -307,7 +326,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método para eliminar datos de la Base de datos
+	 * Mï¿½todo para eliminar datos de la Base de datos
 	 * 
 	 * @param contacto de tipo Contacto
 	 * @return msg retorna un mensaje de tipo String
@@ -343,7 +362,7 @@ public class Contacto {
 	private static final int ROW_COUNT = 100;
 
 	/**
-	 * Método para listar los datos de la base de datos
+	 * Mï¿½todo para listar los datos de la base de datos
 	 * 
 	 * @return ArrayList arreglo con la lista de contacto
 	 * @throws PersistentException
@@ -385,7 +404,7 @@ public class Contacto {
 	}
 
 	/**
-	 * Método que permite actualizar datos de contacto en la base de datos
+	 * Mï¿½todo que permite actualizar datos de contacto en la base de datos
 	 * 
 	 * @param contacto de tipo Contacto
 	 * @return msg retorna un mensaje de tipo String
@@ -476,7 +495,7 @@ public class Contacto {
 		return msg;
 	}
 /**
- * Método para realizar una búsqueda simple a la base de datos de contacto asociado a empresa por medio de una query realizada con un or
+ * Mï¿½todo para realizar una bï¿½squeda simple a la base de datos de contacto asociado a empresa por medio de una query realizada con un or
  * @param busqueda de tipo String
  * @return listaContacto de tipo List<Contacto>
  * @throws PersistentException
