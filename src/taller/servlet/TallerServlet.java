@@ -78,7 +78,7 @@ public class TallerServlet extends HttpServlet {
 			pais = request.getParameter("pais");
 			region = request.getParameter("region");
 			ciudad = request.getParameter("ciudad");
-			fotoCont=request.getParameter("fotoCont");
+			fotoCont=request.getParameter("textArea");
 			// obtener request de la empresa
 			empresa = request.getParameter("idEmpresa");
 			int idempr=Integer.parseInt(empresa);
