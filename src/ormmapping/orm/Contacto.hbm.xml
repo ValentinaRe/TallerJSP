@@ -19,7 +19,7 @@ License Type: Academic
 		<property name="pais" column="pais" type="string" length="50" not-null="true" lazy="false"/>
 		<property name="region" column="region" type="string" length="50" not-null="true" lazy="false"/>
 		<property name="ciudad" column="ciudad" type="string" length="50" not-null="true" lazy="false"/>
-		<property name="fotoCont" column="fotoCont" type="text" not-null="true" lazy="false"/>
+		<property name="fotoCont" column="fotoCont" type="text" not-null="false" lazy="false"/>
 		<many-to-one name="empresauid" cascade="lock" column="empresauid" class="orm.Empresa" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>

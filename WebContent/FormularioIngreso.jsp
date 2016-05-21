@@ -102,7 +102,7 @@
 				<button type="submit" class="btn btn-success left">Enviar</button>
 			</div>
 		</div>
-	
+	</form>
 </body>
 
 </html>
