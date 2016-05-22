@@ -530,6 +530,7 @@ public class Contacto {
             contactoCon.setPais(contactoOrm.getPais());
             contactoCon.setRegion(contactoOrm.getRegion());
             contactoCon.setCiudad(contactoOrm.getCiudad());
+            contactoCon.setFotoCont(contactoOrm.getFotoCont());
            
             empreNegocio.setUid(empresaORM.getUid());
             empreNegocio.setRut(empresaORM.getRut());
@@ -653,6 +654,7 @@ public class Contacto {
 	            contactoCon.setPais(contactoOrm.getPais());
 	            contactoCon.setRegion(contactoOrm.getRegion());
 	            contactoCon.setCiudad(contactoOrm.getCiudad());
+	            contacto.setFotoCont(contactoOrm.getFotoCont());
 	           
 	            empreNegocio.setUid(empresaORM.getUid());
 	            empreNegocio.setRut(empresaORM.getRut());

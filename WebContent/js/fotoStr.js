@@ -25,7 +25,9 @@ function encodeImage(){
         }
     }
 
-
+function decodeImageURLAsFile(){
+    document.getElementById("imgContainer").innerHTML = window.atob(encodeImageFileAsURL());
+}
 
         
        

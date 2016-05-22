@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Busqueda Simple</title>
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
+<script type="text/javascript" src="./js/fotoSrt.js"></script>
 </head>
 <body>
 <h2 >Búsqueda simple</h2>
@@ -35,6 +36,7 @@
 		<th>país</th>
 		<th>región</th>
 		<th>ciudad</th>
+		<th>fotografía</th>
 		<th>nombre empresa</th>
 		<th>razón social empresa</th>
 		</thead>
@@ -49,6 +51,9 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
+			<td id="imgContainer" onLoad="decodeImageURLAsFile();">
+			<img src="${contacto.fotoCont}" width="100px" class = "rounded">
+			</td>
 			<td>${contacto.empresaUid.nombre}</td>
 			<td>${contacto.empresaUid.razonSocial}</td>
 		<tr/>

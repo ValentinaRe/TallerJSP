@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Busqueda Avanzada</title>
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
+<script type="text/javascript" src="./js/fotoSrt.js"></script>
 </head>
 <body>
 <h2 >Búsqueda avanzada</h2>
@@ -88,6 +89,7 @@
 		<th>pais</th>
 		<th>region</th>
 		<th>ciudad</th>
+		<th>fotografía</th>
 		
 		</thead>
 		<tbody>
@@ -100,6 +102,9 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
+			<td id="imgContainer" onLoad="decodeImageURLAsFile();">
+			<img src="${contacto.fotoCont}" width="100px" class = "rounded">
+			</td>
 		
 		<tr/>
 		</i:forEach>

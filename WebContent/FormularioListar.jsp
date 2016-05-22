@@ -25,6 +25,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
+<script type="text/javascript" src="./js/fotoSrt.js"></script>
 
 <title>Listar Contacto</title>
 </head>
@@ -55,7 +56,9 @@
 			<td>${contacto.apellido}</td>
 			<td>${contacto.telefono}</td>
 			<td>${contacto.mail}</td>
-			<td>${contacto.fotoCont}</td>
+			<td id="imgContainer" onLoad="decodeImageURLAsFile();">
+			<img src="${contacto.fotoCont}" width="100px" class = "rounded">
+			</td>
 			<td>${contacto.empresaUid.rut}</td>
 			
 			
