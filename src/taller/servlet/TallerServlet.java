@@ -15,6 +15,8 @@ import capanegocio.Contacto;
 import capanegocio.Empresa;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -69,6 +71,7 @@ public class TallerServlet extends HttpServlet {
 		
 		TallerServlet ingresa = new TallerServlet();
 		String mensaje="";
+		
 		try {
 			run = request.getParameter("run");
 			nombre = request.getParameter("nombre");
@@ -101,16 +104,36 @@ public class TallerServlet extends HttpServlet {
 					// asignar valor capturado del request
 					empresas.setUid(idempr);
 					Contacto ingresarContacto = new Contacto();
+					if(run != null){
 					ingresarContacto.setRun(run);
+					}
+					if(nombre !=null){
 					ingresarContacto.setNombre(nombre);
+					}
+					if(apellido != null){
 					ingresarContacto.setApellido(apellido);
+					}
+					if(mail !=null){
 					ingresarContacto.setMail(mail);
+					}
+					if (telefono != null){
 					ingresarContacto.setTelefono(telefono);
+					}
+					if (pais !=null){
 					ingresarContacto.setPais(pais);
+					}
+					if(region != null){
 					ingresarContacto.setRegion(region);
+					}
+					if(ciudad != null){
 					ingresarContacto.setCiudad(ciudad);
+					}
+					if(fotoCont !=null){
 					ingresarContacto.setFotoCont(fotoCont);
+					}
+					if(empresas !=null){
 					ingresarContacto.setEmpresaUid(empresas);
+					}
 					
 					String respCon="";
 					// asignar contacto el objeto de la empresa
@@ -144,6 +167,7 @@ public class TallerServlet extends HttpServlet {
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
+		
 		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
 	}
 	/**

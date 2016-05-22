@@ -24,6 +24,11 @@ function encodeImage(){
             fileReader.readAsDataURL(fileToLoad);
         }
     }
+
+
+
+        
+       
 /*
 function convertFileToDataURLviaFileReader(url, callback){
     var xhr = new XMLHttpRequest();

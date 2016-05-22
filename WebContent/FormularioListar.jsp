@@ -1,6 +1,7 @@
+<%@page import="capanegocio.Contacto"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="i" %>
 <%@page import="java.util.List"%>
-<%@page import="orm.Contacto" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 
@@ -24,6 +25,7 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <jsp:include page="MenuFormularios.jsp"></jsp:include>
+
 <title>Listar Contacto</title>
 </head>
 <body>
@@ -40,9 +42,12 @@
 		<th>apellido</th>
 		<th>teléfono</th>
 		<th>mail</th>
+		<th>fotografía</th>
 		<th>Empresa</th>
 		</thead>
 		<tbody>
+		
+		
 		<i:forEach items="${listaContacto}" var="contacto">
 			<tr>
 			
@@ -50,6 +55,7 @@
 			<td>${contacto.apellido}</td>
 			<td>${contacto.telefono}</td>
 			<td>${contacto.mail}</td>
+			<td>${contacto.fotoCont}</td>
 			<td>${contacto.empresaUid.rut}</td>
 			
 			
@@ -58,16 +64,15 @@
 							<input type="hidden" value="${contacto.uid}" name="id">
 							<input type="submit" value="Eliminar" class="btn btn-danger">	
 						</form>
+						
 					</td>	
-					</tr>
+					
+					
 		<br />
 		</i:forEach>
 		</tbody>
 	
 </table>	
-	
-	
-		
 	
 </body>
 </html>

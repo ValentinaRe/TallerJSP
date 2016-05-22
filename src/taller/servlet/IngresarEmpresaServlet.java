@@ -2,6 +2,8 @@ package taller.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import capanegocio.Contacto;
 import capanegocio.Empresa;
 
 /**
@@ -46,6 +49,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 		PersistentTransaction t = null;
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
+		
 		String rut="";
 		String nombre = "";
 		String ciudad ="";
@@ -94,6 +98,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 					System.out.println("cantidad de caracteres superior a los aceptados");
 					
 				}
+				
 			request.getRequestDispatcher( "/FormularioIngresoEmpresa.jsp").forward(request, response);
 			}
 		

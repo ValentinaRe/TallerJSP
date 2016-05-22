@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  <%@page import="java.util.List"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="i" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -86,6 +88,14 @@
         	</div>
        
         	<div class="form-group" id="imgContainer"></div>
+        	
+        	<div class="form-group">	
++		  		<select multiple class="form-control" name="idEmpresa">  
++		  		<i:forEach items="${listaEmpresas}" var="empresa">				
++					<option value="${empresa.Uid}">${empresa.nombre}</option>
++				</i:forEach>
++				</select>
++	  		</div>
         		   		
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Seleccione Empresa</label>
@@ -97,12 +107,26 @@
 			 </select>
 		    	</div>
 		</div>
+		
+		<div class="form-group">
+			<label class="col-lg-3 control-label">Seleccione Empresa</label>
+			<div class="col-lg-3">
+		    <select multiple class="form-control" name="idEmpresa">
+	 		<i:forEach items="${listaEmpresa}" var="contacto">		
+	 			
++					<option value="${contacto.empresaUid}">${contacto.empresaUid.nombre}</option>
++				</i:forEach>
+			 </select>
+		    	</div>
+		</div>
 		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>
 			</div>
 		</div>
 	</form>
+	
+		
 </body>
 
 </html>

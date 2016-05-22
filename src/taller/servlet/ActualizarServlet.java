@@ -46,7 +46,7 @@ public class ActualizarServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método recibe peticiones post para  actualizar contacto
+	 * Mï¿½todo recibe peticiones post para  actualizar contacto
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -105,55 +105,72 @@ public class ActualizarServlet extends HttpServlet {
 						&& ciudad.length() <= 50) {
 					out.println("Id = " + id);
 					try {
+						
 						actualizar.setUid(id);
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(run !=null){
 						actualizar.setRun(run);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(nombre != null){
 						actualizar.setNombre(nombre);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(apellido != null){
 						actualizar.setApellido(apellido);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(mail != null){
 						actualizar.setMail(mail);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(telefono != null){
 						actualizar.setTelefono(telefono);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(pais != null){
 						actualizar.setPais(pais);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(region != null){
 						actualizar.setRegion(region);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";
 					}
 					try {
+						if(ciudad != null){
 						actualizar.setCiudad(ciudad);
+						}
 					} catch (NullPointerException e) {
 						e.printStackTrace();
 						mensaje="Dato nulo";

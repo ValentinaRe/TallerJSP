@@ -200,7 +200,7 @@ public class Contacto {
 	 * 
 	 * @param run de tipo String
 	 */
-	public void setFotoCont(String fotCont) {
+	public void setFotoCont(String fotoCont) {
 		this.fotoCont = fotoCont;
 	}
 	public String getFotoCont() {
@@ -298,12 +298,12 @@ public class Contacto {
 				e.printStackTrace();
 				msg = "Dato nulo";
 			}
-			try {
+			//try {
 				lormContacto.setFotoCont(contacto.getFotoCont());
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				msg = "Dato nulo";
-			}
+			//} catch (NullPointerException e) {
+			//	e.printStackTrace();
+			//	msg = "Dato nulo";
+			//}
 			try {
 				lormContacto.setEmpresauid(empresa);
 			} catch (NullPointerException e) {
@@ -386,6 +386,7 @@ public class Contacto {
 			contacto.setPais(contactoOrm.getPais());
 			contacto.setRegion(contactoOrm.getRegion());
 			contacto.setCiudad(contactoOrm.getCiudad());
+			contacto.setFotoCont(contactoOrm.getFotoCont());
 			
 		    empreNegocio.setUid(empresaORM.getUid());
 	        empreNegocio.setRut(empresaORM.getRut());

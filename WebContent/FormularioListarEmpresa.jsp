@@ -35,6 +35,13 @@
 			<td>${empresa.ciudad}</td>
 			<td>${empresa.pais}</td>
 			
+			<td>
+						<form action="EliminarEmpresaServlet" method="post">
+							<input type="hidden" value="${empresa.uid}" name="id">
+							<input type="submit" value="Eliminar" class="btn btn-danger">	
+						</form>
+						
+					</td>
 			
 			<br />
 		</i:forEach>

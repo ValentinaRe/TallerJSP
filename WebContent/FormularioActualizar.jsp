@@ -35,13 +35,13 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Run</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="run" required> <br>
+				<input type="text" class="form-control" name="run"   required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Nombre</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" name="nombre" required> <br>
+				<input type="text" class="form-control" name="nombre"  required><br>
 			</div>
 		</div>
 		<div class="form-group">
@@ -93,6 +93,7 @@
 		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>
+				
 			</div>
 		</div>
 	</form>

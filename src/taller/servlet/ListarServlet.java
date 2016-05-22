@@ -29,7 +29,7 @@ public class ListarServlet extends HttpServlet {
     }
 
 	/**
-	 * Método que recibe peticiones get para  listar contactos
+	 * Mï¿½todo que recibe peticiones get para  listar contactos
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,6 +51,7 @@ public class ListarServlet extends HttpServlet {
 				out.println("el pais es: "+contacto.getPais());
 				out.println("el region es: "+contacto.getRegion());
 				out.println("el ciudad es: "+contacto.getCiudad());
+				//out.println("la foto es: "+contacto.getFotoCont());
 				out.println("empresa: "+ contacto.getEmpresaUid());
 				//out.println("--------------");
 				
@@ -65,6 +66,7 @@ public class ListarServlet extends HttpServlet {
 		request.getRequestDispatcher("FormularioListar.jsp").forward(request, response);
 		
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
