@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +54,7 @@ public class ActualizarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		PersistentTransaction t = null;
 		PrintWriter out = response.getWriter();
 		int id;
@@ -67,6 +68,7 @@ public class ActualizarServlet extends HttpServlet {
 		String ciudad ="";
 		String empresa = "";
 		String mensaje="";
+		String fotoCont="";
 	
 		
 		try {
@@ -80,7 +82,9 @@ public class ActualizarServlet extends HttpServlet {
 			 pais = request.getParameter("pais");
 			 region = request.getParameter("region");
 			 ciudad = request.getParameter("ciudad");
+			 fotoCont = request.getParameter("textArea");
 			 empresa = request.getParameter("idEmpresa");
+			
 			 int idempr=Integer.parseInt(empresa);
 			 ActualizarServlet actual = new ActualizarServlet();
 			actual.validarId(id);
@@ -92,118 +96,92 @@ public class ActualizarServlet extends HttpServlet {
 			
 			if((actual.validarId(id)==false)||(actual.validarRun(run)==false)||(actual.validateMail(mail)==false) || (actual.esEntero(telefono))==false) {
 				mensaje="Datos mal ingresados";
+				
+				
 				System.out.println("Datos mal ingresados");}
 			else {if (id < 0 || run.trim().equals("") || nombre.trim().equals("") || apellido.trim().equals("")
 					|| mail.trim().equals("") || telefono.trim().equals("") || pais.trim().equals("")
 					|| region.trim().equals("") || ciudad.trim().equals("")) {
-				mensaje="una variable vacia";
+				
+				
 
 			} else {
-
+				
 				if (run.length() <= 12 && nombre.length() <= 50 && apellido.length() <= 50 && mail.length() <= 50
 						&& telefono.length() <= 20 && pais.length() <= 50 && region.length() <= 50
 						&& ciudad.length() <= 50) {
 					out.println("Id = " + id);
-					try {
+					
 						
 						actualizar.setUid(id);
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
+					
 					}
-					try {
+					
 						if(run !=null){
 						actualizar.setRun(run);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+					
+					
 						if(nombre != null){
 						actualizar.setNombre(nombre);
-						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+						
 						if(apellido != null){
 						actualizar.setApellido(apellido);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+					
 						if(mail != null){
 						actualizar.setMail(mail);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+					
 						if(telefono != null){
 						actualizar.setTelefono(telefono);
-						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+						
 						if(pais != null){
 						actualizar.setPais(pais);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+					
 						if(region != null){
 						actualizar.setRegion(region);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
-					try {
+					
 						if(ciudad != null){
 						actualizar.setCiudad(ciudad);
 						}
-					} catch (NullPointerException e) {
-						e.printStackTrace();
-						mensaje="Dato nulo";
-					}
+					
+					actualizar.setFotoCont(fotoCont);
 					
 					empresas.setUid(idempr);					
 					actualizar.setEmpresaUid(empresas);					
 					String respCon="";
 					try {
 						respCon=Contacto.actualizar(actualizar);
+						
+						
 					} catch (PersistentException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
+						
+					}//catch persistence
+					mensaje="Actualizacion guardada";
+					RequestDispatcher rs = request.getRequestDispatcher("FormularioActualizar.jsp");
+					request.setAttribute("mensaje", mensaje);
+					rs.forward(request, response);
 					
-				}
+				}//fin ifvalidacion cant caracteres
 
-			}
-
-			
-			}
+			}	//fin else 	trim		
+	  }	//fin else validacion de funciones
 				
-				
-				
-		
-		
-		
+			mensaje="Actualizacion no guardada";
+			RequestDispatcher rs = request.getRequestDispatcher("FormularioActualizar.jsp");
+			request.setAttribute("mensaje", mensaje);
+			rs.forward(request, response);			
+	}
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
-		request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
+		
 	}
-
 	/**
 	 * Metodo validacion mail
 	 * 

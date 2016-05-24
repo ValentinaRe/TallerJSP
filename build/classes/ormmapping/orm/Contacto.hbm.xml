@@ -22,5 +22,9 @@ License Type: Academic
 		<property name="fotoCont" column="fotoCont" type="text" not-null="false" lazy="false"/>
 		<many-to-one name="empresauid" cascade="lock" column="empresauid" class="orm.Empresa" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
+		<set name="ORM_Anotacion" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="contactouid" not-null="true"/>
+			<one-to-many class="orm.Anotacion"/>
+		</set>
 	</class>
 </hibernate-mapping>

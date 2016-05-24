@@ -56,13 +56,19 @@
 			<td>${contacto.apellido}</td>
 			<td>${contacto.telefono}</td>
 			<td>${contacto.mail}</td>
-			<td id="imgContainer" onLoad="decodeImageURLAsFile();">
-			<img src="${contacto.fotoCont}" width="100px" class = "rounded">
+			<td id="fotoContainer" onLoad="decodeImage();">
+			<img src="${contacto.fotoCont}" style="border-radius:6px%;" class = "img-rounded">
 			</td>
 			<td>${contacto.empresaUid.rut}</td>
 			
 			
-			<td>
+			<td>		
+						<form action="FormularioAnotacion.jsp" method="post">
+							
+							<input type="hidden" value="${contacto.uid}" name="idContacto" >	
+							<input type="submit" value="Agregar comentario" class="btn btn-danger">	
+						</form>
+			
 						<form action="EliminarServlet" method="post">
 							<input type="hidden" value="${contacto.uid}" name="id">
 							<input type="submit" value="Eliminar" class="btn btn-danger">	

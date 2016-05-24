@@ -18,6 +18,9 @@ public class RetrieveAndUpdateTaller1MagisterInformaticaData {
 			orm.Empresa lormEmpresa = orm.EmpresaDAO.loadEmpresaByQuery(null, null);
 			// Update the properties of the persistent object
 			orm.EmpresaDAO.save(lormEmpresa);
+			orm.Anotacion lormAnotacion = orm.AnotacionDAO.loadAnotacionByQuery(null, null);
+			// Update the properties of the persistent object
+			orm.AnotacionDAO.save(lormAnotacion);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -44,6 +47,12 @@ public class RetrieveAndUpdateTaller1MagisterInformaticaData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lormEmpresaCriteria.uid.eq();
 		System.out.println(lormEmpresaCriteria.uniqueEmpresa());
+		
+		System.out.println("Retrieving Anotacion by AnotacionCriteria");
+		orm.AnotacionCriteria lormAnotacionCriteria = new orm.AnotacionCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lormAnotacionCriteria.idAnotacion.eq();
+		System.out.println(lormAnotacionCriteria.uniqueAnotacion());
 		
 	}
 	

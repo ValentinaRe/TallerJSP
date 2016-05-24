@@ -250,11 +250,68 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="anotacion" PKClustered="0">
+    <Column name="idAnotacion">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>sequence</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>50</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="descripcion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>200</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="contactouid">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>contacto.uid</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <ForeignKey name="FKcontacto84342">
     <ReferenceTable>contacto</ReferenceTable>
     <ReferencedTable>empresa</ReferencedTable>
     <Columns>
       <Column>empresauid</Column>
+    </Columns>
+    <RefColumns>
+      <Column>uid</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKanotacion829170">
+    <ReferenceTable>anotacion</ReferenceTable>
+    <ReferencedTable>contacto</ReferencedTable>
+    <Columns>
+      <Column>contactouid</Column>
     </Columns>
     <RefColumns>
       <Column>uid</Column>

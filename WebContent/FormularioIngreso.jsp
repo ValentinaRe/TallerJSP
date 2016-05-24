@@ -87,7 +87,7 @@
             	<textarea id="textArea" name="textArea" class="form-control textbox" style="display:none;"></textarea>
         	</div>
        
-        	<div class="form-group" id="imgContainer"></div>
+        	<div class="form-group" id="fotoContainer"></div>
         	
         	<div class="form-group">	
 +		  		<select multiple class="form-control" name="idEmpresa">  

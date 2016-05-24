@@ -17,7 +17,7 @@ function encodeImage(){
                 var newImage = document.createElement('img'); //elemento img
                 newImage.src = srcData;
 
-                document.getElementById("imgContainer").innerHTML = newImage.outerHTML;
+                document.getElementById("fotoContainer").innerHTML = newImage.outerHTML;
                 //document.getElementById("imgTest").innerHTML);
                 document.getElementById("textArea").innerHTML = newImage.src;
             }
@@ -25,8 +25,8 @@ function encodeImage(){
         }
     }
 
-function decodeImageURLAsFile(){
-    document.getElementById("imgContainer").innerHTML = window.atob(encodeImageFileAsURL());
+function decodeImage(){
+    document.getElementById("fotoContainer").innerHTML = window.atob(encodeImage());
 }
 
         

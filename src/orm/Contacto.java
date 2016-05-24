@@ -17,6 +17,14 @@ public class Contacto {
 	public Contacto() {
 	}
 	
+	private java.util.Set this_getSet (int key) {
+		if (key == orm.ORMConstants.KEY_CONTACTO_ANOTACION) {
+			return ORM_anotacion;
+		}
+		
+		return null;
+	}
+	
 	private void this_setOwner(Object owner, int key) {
 		if (key == orm.ORMConstants.KEY_CONTACTO_EMPRESAUID) {
 			this.empresauid = (orm.Empresa) owner;
@@ -24,6 +32,10 @@ public class Contacto {
 	}
 	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
 		}
@@ -51,6 +63,8 @@ public class Contacto {
 	private String fotoCont;
 	
 	private orm.Empresa empresauid;
+	
+	private java.util.Set ORM_anotacion = new java.util.HashSet();
 	
 	private void setUid(int value) {
 		this.uid = value;
@@ -159,6 +173,16 @@ public class Contacto {
 	private orm.Empresa getORM_Empresauid() {
 		return empresauid;
 	}
+	
+	private void setORM_Anotacion(java.util.Set value) {
+		this.ORM_anotacion = value;
+	}
+	
+	private java.util.Set getORM_Anotacion() {
+		return ORM_anotacion;
+	}
+	
+	public final orm.AnotacionSetCollection anotacion = new orm.AnotacionSetCollection(this, _ormAdapter, orm.ORMConstants.KEY_CONTACTO_ANOTACION, orm.ORMConstants.KEY_ANOTACION_CONTACTOUID, orm.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getUid());

@@ -14,6 +14,10 @@
 package orm;
 
 public interface ORMConstants extends org.orm.util.ORMBaseConstants {
+	final int KEY_ANOTACION_CONTACTOUID = -385896746;
+	
+	final int KEY_CONTACTO_ANOTACION = 545780036;
+	
 	final int KEY_CONTACTO_EMPRESAUID = 857575671;
 	
 	final int KEY_EMPRESA_CONTACTO = 1968643941;

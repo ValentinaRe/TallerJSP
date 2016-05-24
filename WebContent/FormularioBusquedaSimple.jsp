@@ -51,8 +51,8 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
-			<td id="imgContainer" onLoad="decodeImageURLAsFile();">
-			<img src="${contacto.fotoCont}" width="100px" class = "rounded">
+			<td id="fotoContainer" onLoad="decodeImage();">
+			<img src="${contacto.fotoCont}" border-radius="6px" class = "img-rounded">
 			</td>
 			<td>${contacto.empresaUid.nombre}</td>
 			<td>${contacto.empresaUid.razonSocial}</td>

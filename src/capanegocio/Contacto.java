@@ -377,6 +377,7 @@ public class Contacto {
 	          orm.Empresa empresaORM = orm.EmpresaDAO.loadEmpresaByORMID(contactoOrm.getEmpresauid().getUid());
 	           
 			Contacto contacto = new Contacto();
+			
 			contacto.setUid(contactoOrm.getUid());
 			contacto.setRun(contactoOrm.getRun());
 			contacto.setNombre(contactoOrm.getNombre());
@@ -676,6 +677,17 @@ public class Contacto {
 		return listaContacto;
 		
 		}
+public 	List<Contacto> busquedaSimpleValidacion(String busqueda){
+	String busquedaCon="";
+	busquedaCon=busqueda.toLowerCase();
 	
+	
+	List<Contacto> listaContacto = new ArrayList<Contacto>();
+	List<orm.Contacto> listarContacto = new ArrayList<orm.Contacto>();
+	
+	
+	return listaContacto;
+	
+}
 	 
 	}

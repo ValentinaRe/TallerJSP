@@ -31,6 +31,7 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression fotoCont;
 	public final IntegerExpression empresauidId;
 	public final AssociationExpression empresauid;
+	public final CollectionExpression anotacion;
 	
 	public ContactoDetachedCriteria() {
 		super(orm.Contacto.class, orm.ContactoCriteria.class);
@@ -46,6 +47,7 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 		fotoCont = new StringExpression("fotoCont", this.getDetachedCriteria());
 		empresauidId = new IntegerExpression("empresauid.uid", this.getDetachedCriteria());
 		empresauid = new AssociationExpression("empresauid", this.getDetachedCriteria());
+		anotacion = new CollectionExpression("ORM_Anotacion", this.getDetachedCriteria());
 	}
 	
 	public ContactoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -62,10 +64,15 @@ public class ContactoDetachedCriteria extends AbstractORMDetachedCriteria {
 		fotoCont = new StringExpression("fotoCont", this.getDetachedCriteria());
 		empresauidId = new IntegerExpression("empresauid.uid", this.getDetachedCriteria());
 		empresauid = new AssociationExpression("empresauid", this.getDetachedCriteria());
+		anotacion = new CollectionExpression("ORM_Anotacion", this.getDetachedCriteria());
 	}
 	
 	public EmpresaDetachedCriteria createEmpresauidCriteria() {
 		return new EmpresaDetachedCriteria(createCriteria("empresauid"));
+	}
+	
+	public AnotacionDetachedCriteria createAnotacionCriteria() {
+		return new AnotacionDetachedCriteria(createCriteria("ORM_Anotacion"));
 	}
 	
 	public Contacto uniqueContacto(PersistentSession session) {

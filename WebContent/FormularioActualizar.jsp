@@ -20,11 +20,13 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+<script type="text/javascript" src="js/fotoStr.js"></script>
  <jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Actualizar Contacto</title>
 </head>
 <body>
 <h2 >Actualizar Contacto</h2>
+   <h2>${mensaje}</h2 >
 	<form action="ActualizarServlet" method="Post" class="form-horizontal mitad" id="ActualizarServlet">
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Id</label>
@@ -90,6 +92,15 @@
 			 </select>
 		    	</div>
 		</div>
+		<div class="form-group">
+	  			<label for="foto">Foto Contacto:</label>
+	  			<input id="fotoCont" name="fotoCont" type="file" multiple accept='image/*' onchange="encodeImage();" />	  			
+	  		</div>
+	  		<div class="form-group">
+            	<textarea id="textArea" name="textArea" class="form-control textbox" style="display:none;"></textarea>
+        	</div>
+       
+        	<div class="form-group" id="fotoContainer"></div>
 		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>

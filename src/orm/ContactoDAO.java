@@ -327,6 +327,10 @@ public class ContactoDAO {
 				contacto.getEmpresauid().contacto.remove(contacto);
 			}
 			
+			orm.Anotacion[] lAnotacions = contacto.anotacion.toArray();
+			for(int i = 0; i < lAnotacions.length; i++) {
+				lAnotacions[i].setContactouid(null);
+			}
 			return delete(contacto);
 		}
 		catch(Exception e) {
@@ -341,6 +345,10 @@ public class ContactoDAO {
 				contacto.getEmpresauid().contacto.remove(contacto);
 			}
 			
+			orm.Anotacion[] lAnotacions = contacto.anotacion.toArray();
+			for(int i = 0; i < lAnotacions.length; i++) {
+				lAnotacions[i].setContactouid(null);
+			}
 			try {
 				session.delete(contacto);
 				return true;

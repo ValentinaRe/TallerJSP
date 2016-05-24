@@ -196,4 +196,14 @@
     <servlet-name>BusquedaAvanzadaServlet</servlet-name>
     <url-pattern>/BusquedaAvanzadaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AnotacionServlet</display-name>
+    <servlet-name>AnotacionServlet</servlet-name>
+    <servlet-class>taller.servlet.AnotacionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnotacionServlet</servlet-name>
+    <url-pattern>/AnotacionServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

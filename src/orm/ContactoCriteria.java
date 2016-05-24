@@ -31,6 +31,7 @@ public class ContactoCriteria extends AbstractORMCriteria {
 	public final StringExpression fotoCont;
 	public final IntegerExpression empresauidId;
 	public final AssociationExpression empresauid;
+	public final CollectionExpression anotacion;
 	
 	public ContactoCriteria(Criteria criteria) {
 		super(criteria);
@@ -46,6 +47,7 @@ public class ContactoCriteria extends AbstractORMCriteria {
 		fotoCont = new StringExpression("fotoCont", this);
 		empresauidId = new IntegerExpression("empresauid.uid", this);
 		empresauid = new AssociationExpression("empresauid", this);
+		anotacion = new CollectionExpression("ORM_Anotacion", this);
 	}
 	
 	public ContactoCriteria(PersistentSession session) {
@@ -58,6 +60,10 @@ public class ContactoCriteria extends AbstractORMCriteria {
 	
 	public EmpresaCriteria createEmpresauidCriteria() {
 		return new EmpresaCriteria(createCriteria("empresauid"));
+	}
+	
+	public AnotacionCriteria createAnotacionCriteria() {
+		return new AnotacionCriteria(createCriteria("ORM_Anotacion"));
 	}
 	
 	public Contacto uniqueContacto() {
