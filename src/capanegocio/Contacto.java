@@ -3,6 +3,9 @@ package capanegocio;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
@@ -677,17 +680,16 @@ public class Contacto {
 		return listaContacto;
 		
 		}
-public 	List<Contacto> busquedaSimpleValidacion(String busqueda){
+public List<Contacto> busquedaSimpleValidacion(String busqueda){
 	String busquedaCon="";
 	busquedaCon=busqueda.toLowerCase();
 	
 	
-	List<Contacto> listaContacto = new ArrayList<Contacto>();
-	List<orm.Contacto> listarContacto = new ArrayList<orm.Contacto>();
 	
-	
-	return listaContacto;
-	
+	return contsSalida;
 }
+	
+
+
 	 
 	}

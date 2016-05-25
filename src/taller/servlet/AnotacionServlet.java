@@ -60,7 +60,7 @@ public class AnotacionServlet extends HttpServlet {
 			contac=request.getParameter("idContacto");
 			System.out.println(contac);
 			int contacto=Integer.parseInt(contac);
-			if (nombre.trim().equals("") || descripcion.trim().equals("") /*||contacto<0*/) {
+			if (nombre.trim().equals("") || descripcion.trim().equals("") ||contacto<0) {
 				System.out.println("una variable vacia");
 
 			} else {
@@ -77,7 +77,7 @@ public class AnotacionServlet extends HttpServlet {
 					ingresarA.setDescripcion(descripcion);
 					}
 					String respAnot="";
-					
+					ingresarA.setContactouid(con);
 
 					try {
 						respAnot=Anotacion.ingresar(ingresarA);

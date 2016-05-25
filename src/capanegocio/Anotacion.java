@@ -59,11 +59,13 @@ public static String ingresar(Anotacion anotacion) throws PersistentException {
 			msg = "Dato nulo";
 		}
 		try{
-		lormAnotaciones.setDescripcion(anotacion.getDescripcion());
+	lormAnotaciones.setDescripcion(anotacion.getDescripcion());
 		}catch(NullPointerException e){
 			e.printStackTrace();
 			msg = "Dato nulo";
 		}
+		
+		lormAnotaciones.setContactouid(contacto);
 	}catch (Exception e) {
 		t.rollback();
 		msg = "Ingreso fallido";
