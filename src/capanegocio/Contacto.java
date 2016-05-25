@@ -552,7 +552,12 @@ public class Contacto {
         }
 		return listaContacto;
 	}
-	
+	/**
+	 * Método para realizar busqueda avazada
+	 * @param contacto de tipo Contacto
+	 * @return lista de busqueda avanzada de tipo contacto
+	 * @throws PersistentException
+	 */
 	public static List<Contacto> busquedaAvanzada(Contacto contacto) throws PersistentException {
 		List<Contacto> listaContacto = new ArrayList<Contacto>();
 		List<orm.Contacto> listarContactos = new ArrayList<orm.Contacto>();
@@ -658,7 +663,7 @@ public class Contacto {
 	            contactoCon.setPais(contactoOrm.getPais());
 	            contactoCon.setRegion(contactoOrm.getRegion());
 	            contactoCon.setCiudad(contactoOrm.getCiudad());
-	            contacto.setFotoCont(contactoOrm.getFotoCont());
+	            contactoCon.setFotoCont(contactoOrm.getFotoCont());
 	           
 	            empreNegocio.setUid(empresaORM.getUid());
 	            empreNegocio.setRut(empresaORM.getRut());
@@ -680,15 +685,7 @@ public class Contacto {
 		return listaContacto;
 		
 		}
-public List<Contacto> busquedaSimpleValidacion(String busqueda){
-	String busquedaCon="";
-	busquedaCon=busqueda.toLowerCase();
-	
-	
-	
-	return contsSalida;
-}
-	
+
 
 
 	 

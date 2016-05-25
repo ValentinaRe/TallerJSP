@@ -25,9 +25,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-lg-3 control-label">Id</label>
+			<label class="col-lg-3 control-label"></label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control"  name="idContacto" value=<%=idContacto%> > <br>
+				<input type="hidden" class="form-control"  name="idContacto" value=<%=idContacto%> > <br>
 			</div>
 		</div>
 		

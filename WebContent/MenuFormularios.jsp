@@ -41,7 +41,6 @@
                           <ul class="nav navbar-nav">
 							   <li role="presentation"><a href="FormularioIngreso.jsp">Ingresar Contacto </a></li>
 							   <li role="presentation"><a href="FormularioActualizar.jsp">Actualizar  Contacto </a></li>
-							   <li role="presentation"><a href="FormularioEliminar.jsp">Eliminar  Contacto </a></li>
 							   <li role="presentation"><a href="FormularioListar.jsp">Listar  Contacto </a></li>
 							   <li role="presentation"><a href="FormularioIngresarUsuario.jsp">Ingresar Usuario </a></li>
 							   <li role="presentation"><a href="FormularioActualizarUsuario.jsp">Actualizar  Usuario </a></li>

@@ -28,6 +28,7 @@
 <title>Ingresar Contacto</title>
 </head>
 <body>
+ <h2>${mensaje}</h2 >
 <h2 >Ingrese Datos de Contacto</h2>
 	<form id="TallerServlet" action="TallerServlet" method="Post"
 		class="form-horizontal mitad" action="#">
@@ -89,13 +90,7 @@
        
         	<div class="form-group" id="fotoContainer"></div>
         	
-        	<div class="form-group">	
-+		  		<select multiple class="form-control" name="idEmpresa">  
-+		  		<i:forEach items="${listaEmpresas}" var="empresa">				
-+					<option value="${empresa.Uid}">${empresa.nombre}</option>
-+				</i:forEach>
-+				</select>
-+	  		</div>
+        	
         		   		
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Seleccione Empresa</label>
@@ -108,17 +103,8 @@
 		    	</div>
 		</div>
 		
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Seleccione Empresa</label>
-			<div class="col-lg-3">
-		    <select multiple class="form-control" name="idEmpresa">
-	 		<i:forEach items="${listaEmpresa}" var="contacto">		
-	 			
-+					<option value="${contacto.empresaUid}">${contacto.empresaUid.nombre}</option>
-+				</i:forEach>
-			 </select>
-		    	</div>
-		</div>
+		
+		
 		<div class="form-group">
 			<div class="col-lg-9 col-lg-offset-3">
 				<button type="submit" class="btn btn-success left">Enviar</button>

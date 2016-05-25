@@ -39,7 +39,7 @@ public class BusquedaSimpleServlet extends HttpServlet {
 	}
 
 	/**
-	 * Método recibe peticiones post para realizar una busqueda simple 
+	 * Mï¿½todo recibe peticiones post para realizar una bÃºsqueda simple 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	

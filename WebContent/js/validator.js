@@ -346,8 +346,7 @@ $(document).ready(function() {
 												message : 'El user es requerido'
 											},
 											stringLength : {
-												min : 9,
-												message : 'El user debe contener minimo 9 caracteres',
+												
 												max : 100,
 												message : 'El user debe contener maximo 20 caracteres'
 											}
@@ -359,8 +358,7 @@ $(document).ready(function() {
 												message : 'El password es requerido'
 											},
 											stringLength : {
-												min : 12,
-												message : 'El password debe contener minimo 12 caracteres',
+												
 												max : 20,
 												message : 'El password debe contener maximo 20 caracteres'
 											}

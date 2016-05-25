@@ -20,6 +20,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </complexType>
    </element>
    <element name="fault" type="tns1:PersistentException"/>
+   <element name="validacionUsuario">
+    <complexType>
+     <sequence>
+      <element name="usser" type="xsd:string"/>
+      <element name="pass" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validacionUsuarioResponse">
+    <complexType>
+     <sequence>
+      <element name="validacionUsuarioReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="busquedaAvanzada">
     <complexType>
      <sequence>
@@ -49,6 +64,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
+   <wsdl:message name="validacionUsuarioRequest">
+
+      <wsdl:part element="impl:validacionUsuario" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="PersistentException">
 
       <wsdl:part element="impl:fault" name="fault">
@@ -68,6 +91,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="busquedaSimpleRequest">
 
       <wsdl:part element="impl:busquedaSimple" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validacionUsuarioResponse">
+
+      <wsdl:part element="impl:validacionUsuarioResponse" name="parameters">
 
       </wsdl:part>
 
@@ -98,6 +129,22 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:busquedaSimpleResponse" name="busquedaSimpleResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:PersistentException" name="PersistentException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validacionUsuario">
+
+         <wsdl:input message="impl:validacionUsuarioRequest" name="validacionUsuarioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:validacionUsuarioResponse" name="validacionUsuarioResponse">
 
        </wsdl:output>
 
@@ -140,6 +187,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="busquedaSimpleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="PersistentException">
+
+            <wsdlsoap:fault name="PersistentException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="validacionUsuario">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validacionUsuarioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validacionUsuarioResponse">
 
             <wsdlsoap:body use="literal"/>
 

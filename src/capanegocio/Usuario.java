@@ -210,4 +210,24 @@ public class Usuario {
 			return usuario;
 		}
 	}
+	/**
+	 * Método para validar usuarios
+	 * @param usuario de tipo Usuario
+	 * @return un dato de tipo boleano
+	 * @throws PersistentException
+	 */
+	public boolean validacionUsuario(Usuario usuario) throws PersistentException{
+		orm.Taller1MagisterInformaticaPersistentManager.instance().getSession().beginTransaction();
+		boolean validar = false;
+		
+		orm.Usuario[] usuarioORM = orm.UsuarioDAO.listUsuarioByQuery("Usuario.usuario = '"+usuario.getUsuario()+"' AND Usuario.password = '"+usuario.getPass()+"'", null);
+		
+		if(usuarioORM.length > 0){
+			validar = true;
+			return validar;
+		}else{
+			return validar;
+		}
+	}
+
 }

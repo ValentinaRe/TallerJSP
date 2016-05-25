@@ -15,6 +15,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import capanegocio.Contacto;
+import capanegocio.Usuario;
 
 public class WebServiceProveedor {
   
@@ -116,6 +117,38 @@ public class WebServiceProveedor {
 			resultado = p.getMessage();
 		}
 		return resultado;
+	}
+	@WebMethod(operationName = "validacionUsuario")
+	public String validacionUsuario(
+			@WebParam(name = "usser") String usser,
+			@WebParam(name = "pass") String pass) throws PersistentException{
+		
+		Usuario usuario = new Usuario();
+		String valido = "f";
+		
+		if(usser != null){
+			usuario.setUsuario(usser);
+		}			
+		else{
+			usuario.setUsuario("");
+		}
+		
+		if(pass != null){
+			usuario.setPass(pass);
+		}			
+		else{
+			usuario.setPass("");
+		}
+		
+		
+		
+		if(usuario.validacionUsuario(usuario)){
+			valido = "verdadero";
+		}else{
+			valido = "falso";
+		}
+		
+		return valido;
 	}
 	//@WebMethod(operationName = "busquedaAvanzada")
 	/*public String busquedaAvanzada(String busquedaAvanzada)throws PersistentException{

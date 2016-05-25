@@ -67,24 +67,22 @@ public class LoginServlet extends HttpServlet {
         Usuario usuario=new Usuario();
         usuario.setUsuario(usu);
         usuario.setPass(pass);
-        
+        String mensaje="";
         try {
 			usuario=Usuario.busquedaUsuario(usuario);
-			if(!usuario.getUsuario().equals("")  ){
-	        	sesion.setAttribute("usuario", "password");
+			if(usuario.validacionUsuario(usuario)){
+	        	sesion.setAttribute("usu",usuario);
 	        	response.sendRedirect("FormularioIngreso.jsp");
-	      System.out.print("loguedo");
-			}
+	            System.out.print("loguedo");
+			}else
+			sesion.setAttribute("mensaje","Datos mal ingresados");
+        	response.sendRedirect("FormularioLoginjsp");
 			
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}catch(NullPointerException e){
-			e.printStackTrace();
-			System.out.println("datos mal ingresados");
-        	response.sendRedirect("FormularioLogin.jsp");
 		}
         
         

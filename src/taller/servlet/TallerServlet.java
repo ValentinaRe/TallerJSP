@@ -167,8 +167,9 @@ public class TallerServlet extends HttpServlet {
 	}catch (NullPointerException e) {
 		e.printStackTrace();
 	}
-		
+		mensaje="Ingreso guardado";
 		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
+		request.setAttribute("mensaje", mensaje);
 	}
 	/**
 	 * Metodo validacion mail
