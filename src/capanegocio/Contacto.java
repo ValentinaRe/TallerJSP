@@ -1,6 +1,7 @@
 package capanegocio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.criterion.Criterion;
@@ -508,7 +509,7 @@ public class Contacto {
 	public List<Contacto> busquedaSimple(String busqueda) throws PersistentException {
 		List<Contacto> listaContacto = new ArrayList<Contacto>();
 		List<orm.Contacto> listarContacto = new ArrayList<orm.Contacto>();
-		
+		/**
 		if (busqueda != null || !busqueda.equals("")) {
 		listarContacto = orm.ContactoDAO.queryContacto("Contacto.run='" + busqueda +
 				"' OR Contacto.nombre ='" + busqueda + 
@@ -518,7 +519,19 @@ public class Contacto {
 				"' OR Contacto.pais ='"+busqueda+
 				"' OR Contacto.region ='"+busqueda+
 				"' OR Contacto.ciudad ='"+busqueda+"'" ,null);
-		}
+		}**/
+		ContactoCriteria ccr= new ContactoCriteria();
+		Criterion run= Restrictions.ilike("run", busqueda.toLowerCase());
+		Criterion nombre= Restrictions.ilike("nombre", busqueda.toLowerCase());
+		Criterion apellido= Restrictions.ilike("apellido", busqueda.toLowerCase());
+		Criterion mail= Restrictions.ilike("mail", busqueda.toLowerCase());
+		Criterion telefono= Restrictions.ilike("telefono", busqueda.toLowerCase());
+		Criterion pais= Restrictions.ilike("pais", busqueda.toLowerCase());
+		Criterion region= Restrictions.ilike("region", busqueda.toLowerCase());
+		Criterion ciudad= Restrictions.ilike("ciudad", busqueda.toLowerCase());
+		Disjunction or= Restrictions.or(nombre,apellido,mail,telefono,pais,region,ciudad);
+		ccr.add(or);
+		listarContacto= Arrays.asList(orm.ContactoDAO.listContactoByCriteria(ccr));
 		
 		for (orm.Contacto contactoOrm : listarContacto) {
             Contacto contactoCon = new Contacto();
