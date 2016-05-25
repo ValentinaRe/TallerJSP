@@ -20,10 +20,6 @@
       <parameter name="className" value="serviciosweb.WebServiceProveedorSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="WebServiceProveedor"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="busquedaSimple" qname="operNS:busquedaSimple" xmlns:operNS="http://serviciosweb" returnQName="retNS:busquedaSimpleReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:busqueda" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
-      </operation>
       <operation name="validacionUsuario" qname="operNS:validacionUsuario" xmlns:operNS="http://serviciosweb" returnQName="retNS:validacionUsuarioReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:usser" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:pass" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -40,7 +36,14 @@
         <parameter qname="pns:ciudad" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
       </operation>
-      <parameter name="allowedMethods" value="validacionUsuario busquedaSimple busquedaAvanzada"/>
+      <operation name="verPerfil" qname="operNS:verPerfil" xmlns:operNS="http://serviciosweb" returnQName="retNS:verPerfilReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idContacto" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="busquedaSimple" qname="operNS:busquedaSimple" xmlns:operNS="http://serviciosweb" returnQName="retNS:busquedaSimpleReturn" xmlns:retNS="http://serviciosweb" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:busqueda" xmlns:pns="http://serviciosweb" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="PersistentException" qname="fns:fault" xmlns:fns="http://serviciosweb" class="org.orm.PersistentException" type="tns:PersistentException" xmlns:tns="http://orm.org"/>
+      </operation>
+      <parameter name="allowedMethods" value="validacionUsuario busquedaSimple busquedaAvanzada verPerfil"/>
 
       <typeMapping
         xmlns:ns="http://orm.org"

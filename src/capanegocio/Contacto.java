@@ -707,8 +707,31 @@ public class Contacto {
 		return listaContacto;
 		
 		}
-
+public static Contacto verPerfilContacto(int idContacto) throws PersistentException{
+	
+	Contacto contactoCon=new Contacto();
+    orm.Contacto contactoOrm = orm.ContactoDAO.loadContactoByORMID(idContacto);
+   
+    contactoCon.setUid(contactoOrm.getUid());
+    contactoCon.setRun(contactoOrm.getRun());
+    contactoCon.setNombre(contactoOrm.getNombre());
+    contactoCon.setApellido(contactoOrm.getApellido());
+    contactoCon.setMail(contactoOrm.getMail());
+    contactoCon.setTelefono(contactoOrm.getTelefono());
+    contactoCon.setPais(contactoOrm.getPais());
+    contactoCon.setRegion(contactoOrm.getRegion());
+    contactoCon.setCiudad(contactoOrm.getCiudad());
+    contactoCon.setFotoCont(contactoOrm.getFotoCont());
+   
+  
+    
+  
+ 
+    
+    return  contactoCon;
+}
+}
 
 
 	 
-	}
+	

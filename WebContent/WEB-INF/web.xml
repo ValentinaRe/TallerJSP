@@ -206,4 +206,14 @@
     <servlet-name>AnotacionServlet</servlet-name>
     <url-pattern>/AnotacionServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Perfil</display-name>
+    <servlet-name>Perfil</servlet-name>
+    <servlet-class>taller.servlet.Perfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Perfil</servlet-name>
+    <url-pattern>/Perfil</url-pattern>
+  </servlet-mapping>
 </web-app>

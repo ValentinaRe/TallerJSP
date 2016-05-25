@@ -80,6 +80,7 @@ public class AnotacionServlet extends HttpServlet {
 					ingresarA.setContactouid(con);
 
 					try {
+						System.out.println("ingreso");
 						respAnot=Anotacion.ingresar(ingresarA);
 						
 

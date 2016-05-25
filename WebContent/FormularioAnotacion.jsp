@@ -10,7 +10,7 @@
 <%String idContacto =request.getParameter("idContacto"); %>
 <h2 >Ingrese Comentario </h2>
 
-	<form id="AnotacionServlet" action="AnotacionServlet" method="Post "
+	<form id="AnotacionServlet" action="AnotacionServlet" method="POST"
 		class="form-horizontal mitad" >
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese nombre</label>
@@ -27,7 +27,7 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label"></label>
 			<div class="col-lg-3">
-				<input type="hidden" class="form-control"  name="idContacto" value=<%=idContacto%> > <br>
+				<input type="hidden" class="form-control"  name="idContacto" value="<%=idContacto%>" > <br>
 			</div>
 		</div>
 		

@@ -56,8 +56,16 @@
 			</td>
 			<td>${contacto.empresaUid.nombre}</td>
 			<td>${contacto.empresaUid.razonSocial}</td>
+			<td>
+			<form action="Perfil" method="post">
+							<input type="hidden" value="${contacto.uid}" name="id">
+							<input type="submit" value="ver perfil" class="btn btn-danger">
+						</form>	</td>
 		<tr/>
 		</i:forEach>
+		
+		
+		
 		</tbody>
 </table>	
 	

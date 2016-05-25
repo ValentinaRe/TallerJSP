@@ -63,7 +63,7 @@
 			
 			
 			<td>		
-						<form action="FormularioAnotacion.jsp" method="post">
+						<form action="FormularioAnotacion.jsp" method="POST">
 							
 							<input type="hidden" value="${contacto.uid}" name="idContacto" >	
 							<input type="submit" value="Agregar comentario" class="btn btn-danger">	

@@ -66,6 +66,8 @@ public static String ingresar(Anotacion anotacion) throws PersistentException {
 		}
 		
 		lormAnotaciones.setContactouid(contacto);
+		orm.AnotacionDAO.save(lormAnotaciones);
+		t.commit();
 	}catch (Exception e) {
 		t.rollback();
 		msg = "Ingreso fallido";

@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -23,27 +23,30 @@
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="WebServiceProveedor" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="busquedaSimple" qname="ns1:busquedaSimple" returnQName="ns1:busquedaSimpleReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:busqueda" type="xsd:string"/>
+  <ns2:operation name="validacionUsuario" qname="ns1:validacionUsuario" returnQName="ns1:validacionUsuarioReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:usser" type="xsd:string"/>
+   <ns2:parameter qname="ns1:pass" type="xsd:string"/>
    <ns3:fault class="org.orm.PersistentException" qname="ns1:fault" type="ns2:PersistentException" xmlns:ns2="http://orm.org" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
   </ns2:operation>
-  <ns1:operation name="validacionUsuario" qname="ns3:validacionUsuario" returnQName="ns3:validacionUsuarioReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:usser" type="xsd:string"/>
-   <ns1:parameter qname="ns3:pass" type="xsd:string"/>
+  <ns1:operation name="busquedaAvanzada" qname="ns3:busquedaAvanzada" returnQName="ns3:busquedaAvanzadaReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:run" type="xsd:string"/>
+   <ns1:parameter qname="ns3:nombre" type="xsd:string"/>
+   <ns1:parameter qname="ns3:apellido" type="xsd:string"/>
+   <ns1:parameter qname="ns3:mail" type="xsd:string"/>
+   <ns1:parameter qname="ns3:telefono" type="xsd:string"/>
+   <ns1:parameter qname="ns3:pais" type="xsd:string"/>
+   <ns1:parameter qname="ns3:region" type="xsd:string"/>
+   <ns1:parameter qname="ns3:ciudad" type="xsd:string"/>
    <ns1:fault class="org.orm.PersistentException" qname="ns3:fault" type="ns4:PersistentException" xmlns:ns4="http://orm.org"/>
   </ns1:operation>
-  <ns1:operation name="busquedaAvanzada" qname="ns5:busquedaAvanzada" returnQName="ns5:busquedaAvanzadaReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns5:run" type="xsd:string"/>
-   <ns1:parameter qname="ns5:nombre" type="xsd:string"/>
-   <ns1:parameter qname="ns5:apellido" type="xsd:string"/>
-   <ns1:parameter qname="ns5:mail" type="xsd:string"/>
-   <ns1:parameter qname="ns5:telefono" type="xsd:string"/>
-   <ns1:parameter qname="ns5:pais" type="xsd:string"/>
-   <ns1:parameter qname="ns5:region" type="xsd:string"/>
-   <ns1:parameter qname="ns5:ciudad" type="xsd:string"/>
-   <ns1:fault class="org.orm.PersistentException" qname="ns5:fault" type="ns6:PersistentException" xmlns:ns6="http://orm.org"/>
+  <ns1:operation name="verPerfil" qname="ns5:verPerfil" returnQName="ns5:verPerfilReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:idContacto" type="xsd:string"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="validacionUsuario busquedaSimple busquedaAvanzada"/>
+  <ns1:operation name="busquedaSimple" qname="ns6:busquedaSimple" returnQName="ns6:busquedaSimpleReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://serviciosweb" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:busqueda" type="xsd:string"/>
+   <ns1:fault class="org.orm.PersistentException" qname="ns6:fault" type="ns7:PersistentException" xmlns:ns7="http://orm.org"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="validacionUsuario busquedaSimple busquedaAvanzada verPerfil"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="WebServiceProveedor"/>
   <ns1:parameter name="className" value="serviciosweb.WebServiceProveedor"/>
@@ -51,7 +54,7 @@
   <ns1:parameter name="schemaQualified" value="http://serviciosweb,http://orm.org"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://serviciosweb"/>
   <ns1:parameter name="wsdlServiceElement" value="WebServiceProveedorService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.orm.PersistentException" xmlns:ns7="http://orm.org"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:PersistentException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:org.orm.PersistentException" xmlns:ns8="http://orm.org"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>

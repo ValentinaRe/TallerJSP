@@ -150,6 +150,22 @@ public class WebServiceProveedor {
 		
 		return valido;
 	}
+	
+	public String verPerfil(String idContacto){
+		int id=Integer.parseInt(idContacto);
+		try {
+			Contacto contactoNegocio=Contacto.verPerfilContacto(id);
+			Gson listarJson = new GsonBuilder().create();
+			return listarJson.toJson(contactoNegocio);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "error";
+		}
+		
+		
+		
+	}
 	//@WebMethod(operationName = "busquedaAvanzada")
 	/*public String busquedaAvanzada(String busquedaAvanzada)throws PersistentException{
 		

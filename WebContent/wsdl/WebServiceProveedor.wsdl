@@ -5,21 +5,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://serviciosweb" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://orm.org"/>
-   <element name="busquedaSimple">
-    <complexType>
-     <sequence>
-      <element name="busqueda" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="busquedaSimpleResponse">
-    <complexType>
-     <sequence>
-      <element name="busquedaSimpleReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="fault" type="tns1:PersistentException"/>
    <element name="validacionUsuario">
     <complexType>
      <sequence>
@@ -35,6 +20,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="fault" type="tns1:PersistentException"/>
    <element name="busquedaAvanzada">
     <complexType>
      <sequence>
@@ -56,6 +42,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="verPerfil">
+    <complexType>
+     <sequence>
+      <element name="idContacto" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="verPerfilResponse">
+    <complexType>
+     <sequence>
+      <element name="verPerfilReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="busquedaSimple">
+    <complexType>
+     <sequence>
+      <element name="busqueda" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="busquedaSimpleResponse">
+    <complexType>
+     <sequence>
+      <element name="busquedaSimpleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
   <schema elementFormDefault="qualified" targetNamespace="http://orm.org" xmlns="http://www.w3.org/2001/XMLSchema">
    <complexType name="PersistentException">
@@ -63,6 +77,22 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    </complexType>
   </schema>
  </wsdl:types>
+
+   <wsdl:message name="verPerfilRequest">
+
+      <wsdl:part element="impl:verPerfil" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verPerfilResponse">
+
+      <wsdl:part element="impl:verPerfilResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
 
    <wsdl:message name="validacionUsuarioRequest">
 
@@ -122,22 +152,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="WebServiceProveedor">
 
-      <wsdl:operation name="busquedaSimple">
-
-         <wsdl:input message="impl:busquedaSimpleRequest" name="busquedaSimpleRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:busquedaSimpleResponse" name="busquedaSimpleResponse">
-
-       </wsdl:output>
-
-         <wsdl:fault message="impl:PersistentException" name="PersistentException">
-
-       </wsdl:fault>
-
-      </wsdl:operation>
-
       <wsdl:operation name="validacionUsuario">
 
          <wsdl:input message="impl:validacionUsuarioRequest" name="validacionUsuarioRequest">
@@ -170,35 +184,39 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="verPerfil">
+
+         <wsdl:input message="impl:verPerfilRequest" name="verPerfilRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:verPerfilResponse" name="verPerfilResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="busquedaSimple">
+
+         <wsdl:input message="impl:busquedaSimpleRequest" name="busquedaSimpleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:busquedaSimpleResponse" name="busquedaSimpleResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:PersistentException" name="PersistentException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="WebServiceProveedorSoapBinding" type="impl:WebServiceProveedor">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="busquedaSimple">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="busquedaSimpleRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="busquedaSimpleResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-         <wsdl:fault name="PersistentException">
-
-            <wsdlsoap:fault name="PersistentException" use="literal"/>
-
-         </wsdl:fault>
-
-      </wsdl:operation>
 
       <wsdl:operation name="validacionUsuario">
 
@@ -235,6 +253,48 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="busquedaAvanzadaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="PersistentException">
+
+            <wsdlsoap:fault name="PersistentException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="verPerfil">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="verPerfilRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="verPerfilResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="busquedaSimple">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="busquedaSimpleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="busquedaSimpleResponse">
 
             <wsdlsoap:body use="literal"/>
 
