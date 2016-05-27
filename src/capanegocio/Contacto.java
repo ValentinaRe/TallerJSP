@@ -711,6 +711,8 @@ public static Contacto verPerfilContacto(int idContacto) throws PersistentExcept
 	
 	Contacto contactoCon=new Contacto();
     orm.Contacto contactoOrm = orm.ContactoDAO.loadContactoByORMID(idContacto);
+    Empresa empreNegocio=new Empresa();
+    orm.Empresa empresaORM = orm.EmpresaDAO.loadEmpresaByORMID(contactoOrm.getEmpresauid().getUid());
    
     contactoCon.setUid(contactoOrm.getUid());
     contactoCon.setRun(contactoOrm.getRun());
@@ -724,9 +726,17 @@ public static Contacto verPerfilContacto(int idContacto) throws PersistentExcept
     contactoCon.setFotoCont(contactoOrm.getFotoCont());
    
   
+    empreNegocio.setUid(empresaORM.getUid());
+    empreNegocio.setRut(empresaORM.getRut());
+    empreNegocio.setNombre(empresaORM.getNombre());
+    empreNegocio.setCiudad(empresaORM.getCiudad());
+    empreNegocio.setDireccion(empresaORM.getDireccion());
+    empreNegocio.setPais(empresaORM.getPais());
+    empreNegocio.setTelefono(empresaORM.getTelefono());
+    empreNegocio.setRazonSocial(empresaORM.getRazonSocial());
     
   
- 
+    contactoCon.setEmpresaUid(empreNegocio);
     
     return  contactoCon;
 }

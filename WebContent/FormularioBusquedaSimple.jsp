@@ -51,16 +51,22 @@
 			<td>${contacto.pais}</td>
 			<td>${contacto.region}</td>
 			<td>${contacto.ciudad}</td>
-			<td id="fotoContainer" onLoad="decodeImage();">
+			<td id="fotoContainer" >
 			<img src="${contacto.fotoCont}" border-radius="6px" class = "img-rounded">
 			</td>
 			<td>${contacto.empresaUid.nombre}</td>
 			<td>${contacto.empresaUid.razonSocial}</td>
 			<td>
-			<form action="Perfil" method="post">
+			             <form action="Perfil" method="post">
 							<input type="hidden" value="${contacto.uid}" name="id">
 							<input type="submit" value="ver perfil" class="btn btn-danger">
-						</form>	</td>
+						</form>	
+						
+						<form action="FormularioAnotacion.jsp" method="POST">
+							<input type="hidden" value="${contacto.uid}" name="idContacto" >	
+							<input type="submit" value="Agregar comentario" class="btn btn-danger">	
+						</form>
+						</td>
 		<tr/>
 		</i:forEach>
 		

@@ -1,6 +1,8 @@
 package taller.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,24 +35,13 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		 
 		//me llega la url "proyecto/login/out"
-        // String action=(request.getPathInfo()!=null?request.getPathInfo():"");
+        
         HttpSession sesion = request.getSession();
-        if(sesion.getAttribute("usuario")!= null){
-            sesion.invalidate();
-            response.sendRedirect("FormularioLogin.jsp");
-        }else{
-        	//response.sendRedirect("FormularioLogin.jsp");
-        }
-		        //me llega la url "proyecto/login/out"
-		       // String action=(request.getPathInfo()!=null?request.getPathInfo():"");
-		       // HttpSession sesion = request.getSession();
-		        //if(sesion.getAttribute("usuario")!= null ){
-		            //sesion.invalidate();
-		         //   response.sendRedirect("FormularioIngreso.jsp");
-		        //}else{
-		        	
-		        //}
-		 
+        sesion.invalidate();
+        RequestDispatcher rec= request.getRequestDispatcher("FormularioLogin.jsp");
+    	request.setAttribute("Status", "Sesión finalizada");
+    	rec.forward(request, response);
+              
 	}
 
 	/**
@@ -59,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 		HttpSession sesion = request.getSession();
         String usu, pass;
         usu = request.getParameter("user");
@@ -67,19 +58,22 @@ public class LoginServlet extends HttpServlet {
         Usuario usuario=new Usuario();
         usuario.setUsuario(usu);
         usuario.setPass(pass);
-        String mensaje="";
+      
         try {
-			usuario=Usuario.busquedaUsuario(usuario);
+			//usuario=Usuario.busquedaUsuario(usuario);
 			if(usuario.validacionUsuario(usuario)){
+				RequestDispatcher rec= request.getRequestDispatcher("MenuFormularios.jsp");
 	        	sesion.setAttribute("usu",usuario);
-	        	response.sendRedirect("FormularioIngreso.jsp");
-	            System.out.print("loguedo");
-			}else
-			sesion.setAttribute("mensaje","Datos mal ingresados");
-        	response.sendRedirect("FormularioLoginjsp");
+	        	rec.forward(request, response);
+	           
+			}else{
+				
+			    RequestDispatcher rec= request.getRequestDispatcher("FormularioLogin.jsp");
+	        	request.setAttribute("Status", "Datos incorrectos");
+	        	rec.forward(request, response);
 			
 			
-		} catch (PersistentException e) {
+		}} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			

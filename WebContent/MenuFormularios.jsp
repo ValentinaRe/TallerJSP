@@ -48,10 +48,12 @@
 							   <li role="presentation"><a href="FormularioListarUsuario.jsp">Listar  Usuario</a></li>  
 							   <li role="presentation"><a href="FormularioBusquedaSimple.jsp">Búsqueda  Simple</a></li>
 							   <li role="presentation"><a href="FormularioBusquedaAvanzada.jsp">Búsqueda  Avanzada</a></li>
+							  
 						    
 						      
                               
-         <li role="presentation"><form action="LoginServlet" id="LoginServlet" method="get" class="form-horizontal mitad" action="#">
+         <li role="presentation">
+        <form action="LoginServlet" id="LoginServlet" method="get" class="form-horizontal mitad" action="#">
 		<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
 			<button type="submit" class="btn btn-success left">salir</button>
