@@ -4,6 +4,7 @@
 <%@page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -26,7 +27,7 @@
 	</div>
 	</form>
 	
-	<table class="table table-striped">
+	<table class="table table-striped"  >
 		<thead>
 		<th>id</th>
 		<th>nombre</th>
@@ -42,7 +43,7 @@
 		</thead>
 		<tbody>
 		<i:forEach items="${listaContacto}" var="contacto">
-			<tr>
+			<tr >
 			<td>${contacto.uid}</td>
 			<td>${contacto.nombre}</td>
 			<td>${contacto.apellido}</td>
@@ -59,7 +60,7 @@
 			<td>
 			             <form action="Perfil" method="post">
 							<input type="hidden" value="${contacto.uid}" name="id">
-							<input type="submit" value="ver perfil" class="btn btn-danger">
+							<input type="submit" value="ver perfil" class="btn btn-warning btn-filter">
 						</form>	
 						
 						<form action="FormularioAnotacion.jsp" method="POST">

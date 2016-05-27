@@ -11,8 +11,8 @@
   <form action="Perfil" method="get">
 	<label>lista de contactos</label>
 	<br />
-	<input type="submit" value="mostrar">
-	</form>
+	
+
 	<table class="table table-striped">
 		<thead>
 		
@@ -40,5 +40,6 @@
 			
 			
 			<td>		
+	</form>
 </body>
 </html>

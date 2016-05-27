@@ -66,7 +66,7 @@
 						<form action="FormularioAnotacion.jsp" method="POST">
 							
 							<input type="hidden" value="${contacto.uid}" name="idContacto" >	
-							<input type="submit" value="Agregar comentario" class="btn btn-danger">	
+							<input type="submit" value="Agregar comentario" class="btn btn-warning btn-filter">	
 						</form>
 			
 						<form action="EliminarServlet" method="post">

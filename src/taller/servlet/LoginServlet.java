@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
         try {
 			//usuario=Usuario.busquedaUsuario(usuario);
 			if(usuario.validacionUsuario(usuario)){
-				RequestDispatcher rec= request.getRequestDispatcher("MenuFormularios.jsp");
+				RequestDispatcher rec= request.getRequestDispatcher("Principal.jsp");
 	        	sesion.setAttribute("usu",usuario);
 	        	rec.forward(request, response);
 	           

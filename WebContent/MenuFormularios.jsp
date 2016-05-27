@@ -21,6 +21,7 @@
      
     <script type="text/javascript" src="./js/validator.js"></script>
   
+  
 <title>Menu</title>
 </head>
 <body>
@@ -60,11 +61,12 @@
 		</div>
 	</div>
 	</form>
-                              
-						</ul>
-                </div>
-				 </div>
-            </div>
+    </ul>
+     </div>
+ </div>
+   </div>
         </nav>
+         
+ 
 </body>
 </html>
