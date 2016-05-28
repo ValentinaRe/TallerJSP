@@ -28,8 +28,11 @@
 <title>Ingresar Contacto</title>
 </head>
 <body>
+<div class="container">
  <h2>${mensaje}</h2 >
+ <div class="page-header">
 <h2 >Ingrese Datos de Contacto</h2>
+</div>
 	<form id="TallerServlet" action="TallerServlet" method="Post"
 		class="form-horizontal mitad" action="#">
 		<div class="form-group">
@@ -96,9 +99,9 @@
 			<label class="col-lg-3 control-label">Seleccione Empresa</label>
 			<div class="col-lg-3">
 		    <select name="idEmpresa">
-	 		 <option value=1>comasa</option>
- 		 	 <option value=2>Santa Isabel</option>
- 			 <option value=3>sofoagro</option>
+		    <i:forEach items="${lista}" var="empresa">
+	 		 <option value="${empresa.uid }">${empresa.nombre}</option>
+ 		 	 </i:forEach>
 			 </select>
 		    	</div>
 		</div>
@@ -112,7 +115,7 @@
 		</div>
 	</form>
 	
-		
+</div>	
 </body>
 
 </html>

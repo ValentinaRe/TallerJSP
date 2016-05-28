@@ -1,5 +1,6 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,92 +22,111 @@
 
 <script type="text/javascript" src="./js/validator.js"></script>
 <script type="text/javascript" src="js/fotoStr.js"></script>
- <jsp:include page="MenuFormularios.jsp"></jsp:include>
+<jsp:include page="MenuFormularios.jsp"></jsp:include>
 <title>Actualizar Contacto</title>
 </head>
 <body>
-<h2 >Actualizar Contacto</h2>
-   <h2>${mensaje}</h2 >
-	<form action="ActualizarServlet" method="Post" class="form-horizontal mitad" id="ActualizarServlet">
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Id</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="id" required> <br>
+
+	<%
+		String id = request.getParameter("id");
+	%>
+	<h2>${mensaje}</h2>
+	<div class="container">
+		<div class="page-header">
+			<h2>Actualizar Contacto</h2>
+		</div>
+		<form action="ActualizarServletSet" method="Post"
+			class="form-horizontal mitad" id="ActualizarServletSet">
+			<div class="form-group">
+				<label class="col-lg-3 control-label"></label>
+				<div class="col-lg-3">
+					<input type="hidden" class="form-control" name="id"
+						value="${contacto.uid}" required readonly> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Run</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="run"   required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Run</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="run" value="${run}" required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Nombre</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="nombre"  required><br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Nombre</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="nombre"
+						value="${nombre}" required><br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Apellido</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="apellido" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Apellido</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="apellido"
+						value="${apellido}" required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese mail</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="mail" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese mail</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="mail" value="${mail}"
+						required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Teléfono</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="telefono" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Teléfono</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="telefono"
+						value="${telefono}" required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese País</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="pais" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese País</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="pais" value="${pais}"
+						required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Región</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="region" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Región</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="region"
+						value="${region}" required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Ingrese Ciudad</label>
-			<div class="col-lg-3">
-				<input type="text" class="form-control" name="ciudad" required> <br>
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Ingrese Ciudad</label>
+				<div class="col-lg-3">
+					<input type="text" class="form-control" name="ciudad"
+						value="${ciudad}" required> <br>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">Seleccione Empresa</label>
-			<div class="col-lg-3">
-		    <select name="idEmpresa">
-	 		 <option value=1>comasa</option>
- 		 	 <option value=2>Santa Isabel</option>
- 			 <option value=3>sofoagro</option>
-			 </select>
-		    	</div>
-		</div>
-		<div class="form-group">
-	  			<label for="foto">Foto Contacto:</label>
-	  			<input id="fotoCont" name="fotoCont" type="file" multiple accept='image/*' onchange="encodeImage();" />	  			
-	  		</div>
-	  		<div class="form-group">
-            	<textarea id="textArea" name="textArea" class="form-control textbox" style="display:none;"></textarea>
-        	</div>
-       
-        	<div class="form-group" id="fotoContainer"></div>
-		<div class="form-group">
-			<div class="col-lg-9 col-lg-offset-3">
-				<button type="submit" class="btn btn-success left">Enviar</button>
-				
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Seleccione Empresa</label>
+				<div class="col-lg-3">
+					<select name="idEmpresa">
+						<i:forEach items="${lista}" var="empresa">
+							<option value="${empresa.Uid}">${empresa.nombre}</option>
+						</i:forEach>
+					</select>
+				</div>
 			</div>
-		</div>
-	</form>
+			<div class="form-group">
+				<label for="foto">Foto Contacto:</label> <input id="fotoCont"
+					name="fotoCont" type="file" multiple accept='image/*'
+					onchange="encodeImage();"  />
+			</div>
+			<div class="form-group">
+				<textarea id="textArea" name="textArea" class="form-control textbox" 
+					style="display: none;"></textarea>
+			</div> 
+
+			<div class="form-group" id="fotoContainer" value="${fotoCont}"></div>
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<button type="submit" class="btn btn-success left">Enviar</button>
+
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

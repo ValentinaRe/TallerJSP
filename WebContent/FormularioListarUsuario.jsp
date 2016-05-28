@@ -43,7 +43,7 @@
 		<tbody>
 		<i:forEach items="${listaContacto}" var="usuario">
 			<tr>
-			<td>${usuario.user}</td>
+			<td>${usuario.usuario}</td>
 			<td>${usuario.pass}</td>
 					<td>
 						<form action="EliminarUsuarioServlet" method="post">

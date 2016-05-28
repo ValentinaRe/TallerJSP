@@ -58,9 +58,10 @@ public class BusquedaSimpleServlet extends HttpServlet {
 		try {
 			
 			lista = contacto.busquedaSimple(buscar);
-		    if(!lista.isEmpty()){
-		    	
-		    	
+		    if(lista.isEmpty()){
+		    	request.setAttribute("Status", "no se encontraron datos");
+		    }else{
+				request.setAttribute("Status", "se encontraron los siguientes datos");
 		    }
 			
 		} catch (PersistentException e) {

@@ -16,6 +16,7 @@
 </head>
 <body>
 <h2 >Búsqueda simple</h2>
+<h3>${Status}</h3>
 	<form action="BusquedaSimpleServlet" id="BusquedaSimpleServlet" method="post" class="form-horizontal mitad" action="#">
 	<div class="form-group">
 		<label class="col-lg-3 control-label">Buscar</label>
@@ -27,7 +28,9 @@
 	</div>
 	</form>
 	
-	<table class="table table-striped"  >
+	<% try{ 
+	request.getAttribute("listaContacto").toString();%>
+	<table class = "table"  >
 		<thead>
 		<th>id</th>
 		<th>nombre</th>
@@ -75,7 +78,10 @@
 		
 		</tbody>
 </table>	
-	
+	<% 
+	}catch(NullPointerException e){
+		
+	}%>
 	
 </body>
 </html>

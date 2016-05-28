@@ -216,4 +216,14 @@
     <servlet-name>Perfil</servlet-name>
     <url-pattern>/Perfil</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActualizarServletSet</display-name>
+    <servlet-name>ActualizarServletSet</servlet-name>
+    <servlet-class>taller.servlet.ActualizarServletSet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActualizarServletSet</servlet-name>
+    <url-pattern>/ActualizarServletSet</url-pattern>
+  </servlet-mapping>
 </web-app>

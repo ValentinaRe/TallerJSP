@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.orm.PersistentException;
 
 import capanegocio.Contacto;
+import capanegocio.Empresa;
 
 /**
  * Servlet implementation class ListarServlet
@@ -64,8 +65,14 @@ public class ListarServlet extends HttpServlet {
 		}
 		request.setAttribute("listaContacto",lista);
 		request.getRequestDispatcher("FormularioListar.jsp").forward(request, response);
+        
 		
+
+		
+	
 	}
+		
+
 	
 
 	/**

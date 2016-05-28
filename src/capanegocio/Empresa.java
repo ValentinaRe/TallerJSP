@@ -23,28 +23,28 @@ public class Empresa {
 		// TODO Auto-generated constructor stub
 	}
 /**
- * Método para obtener el valor de id
+ * Mï¿½todo para obtener el valor de id
  * @return uid de tipo int 
  */
 	public int getUid() {
 		return uid;
 	}
 /**
- * Método para modificar el valor de id
+ * Mï¿½todo para modificar el valor de id
  * @param uid de tipo int
  */
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
 /**
- * Método para obtner el valor de rut
+ * Mï¿½todo para obtner el valor de rut
  * @return rut de tipo String
  */
 	public String getRut() {
 		return rut;
 	}
 /**
- * Método para modificar el valor de rut
+ * Mï¿½todo para modificar el valor de rut
  * @param rut de tipo String
  */
 
@@ -52,7 +52,7 @@ public class Empresa {
 		this.rut = rut;
 	}
 	/**
-	 * Método para obtener el valor de nombre
+	 * Mï¿½todo para obtener el valor de nombre
 	 * @return nombre de tipo String
 	 */
 
@@ -60,77 +60,77 @@ public class Empresa {
 		return nombre;
 	}
 /**
- * Método para modificar el valor de nombre
+ * Mï¿½todo para modificar el valor de nombre
  * @param nombre de tipo String
  */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 /**
- * Método para obtener el valor de ciudad
+ * Mï¿½todo para obtener el valor de ciudad
  * @return ciudad de tipo String
  */
 	public String getCiudad() {
 		return ciudad;
 	}
 /**
- * Método para modificar el valor de ciudad
+ * Mï¿½todo para modificar el valor de ciudad
  * @param ciudad de tipo String
  */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 /**
- * Método para obtener el valo de dirección
+ * Mï¿½todo para obtener el valo de direcciï¿½n
  * @return direccion de tipo String
  */
 	public String getDireccion() {
 		return direccion;
 	}
 /**
- * Método para modificar el valor de dirección
+ * Mï¿½todo para modificar el valor de direcciï¿½n
  * @param direccion de tipo String
  */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 /**
- * Método para obtener el valor de país
+ * Mï¿½todo para obtener el valor de paï¿½s
  * @return pais de valos String
  */
 	public String getPais() {
 		return pais;
 	}
 /**
- * Método para modificar el valor de país
+ * Mï¿½todo para modificar el valor de paï¿½s
  * @param pais de tipo String
  */
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
 /**
- * Método para obtener el valor de teléfono
+ * Mï¿½todo para obtener el valor de telï¿½fono
  * @return telefono de tipo String
  */
 	public String getTelefono() {
 		return telefono;
 	}
 /**
- * Método para modificar el valor de teléfono
+ * Mï¿½todo para modificar el valor de telï¿½fono
  * @param telefono de tipo String
  */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 /**
- * Método para obtener el valor de razón social
+ * Mï¿½todo para obtener el valor de razï¿½n social
  * @return razon social de tipo String
  */
 	public String getRazonSocial() {
 		return razonSocial;
 	}
 /**
- * Método para modificar el valor de razón social
+ * Mï¿½todo para modificar el valor de razï¿½n social
  * @param razonSocial de tipo String
  */
 
@@ -139,7 +139,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Este método ingresa datos de la empresa a la base de datos
+	 * Este mï¿½todo ingresa datos de la empresa a la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg retorna un mensaje de tipo String
@@ -210,7 +210,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Método para eliminar datos de la base de datos
+	 * Mï¿½todo para eliminar datos de la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg retorna mensaje de tipo String
@@ -238,7 +238,7 @@ public class Empresa {
 	}
 
 	/**
-	 * Método para listar los datos de empresa de la base de datos
+	 * Mï¿½todo para listar los datos de empresa de la base de datos
 	 * 
 	 * @return ArrayList retorna un arreglo con la lista empresa
 	 * @throws PersistentException
@@ -247,7 +247,7 @@ public class Empresa {
 
 	public static List<Empresa> listar() throws PersistentException {
 
-		List<orm.Empresa> listaEmpresaOrm = orm.EmpresaDAO.queryEmpresa(null, null);
+		orm.Empresa[] listaEmpresaOrm = orm.EmpresaDAO.listEmpresaByQuery(null, null);
 		List<Empresa> listaEmpresa = new ArrayList<>();
 
 		for (orm.Empresa empresaOrm : listaEmpresaOrm) {
@@ -264,9 +264,24 @@ public class Empresa {
 		System.out.println(" record(s) retrieved.");
 		return listaEmpresa;
 	}
+	public List<Empresa> listarEmpre() throws PersistentException {
+
+		orm.Empresa[] listaEmpresaOrm = orm.EmpresaDAO.listEmpresaByQuery(null, null);
+		List<Empresa> listaEmpresa = new ArrayList<>();
+
+		for (orm.Empresa empresaOrm : listaEmpresaOrm) {
+			Empresa empresa = new Empresa();
+			empresa.setUid(empresaOrm.getUid());
+			empresa.setNombre(empresaOrm.getNombre());
+			
+			listaEmpresa.add(empresa);
+		}
+		System.out.println(" record(s) retrieved.");
+		return listaEmpresa;
+	}
 
 	/**
-	 * Método que permite actualizar datos de empresa en la base de datos
+	 * Mï¿½todo que permite actualizar datos de empresa en la base de datos
 	 * 
 	 * @param empresa de tipo Empresa
 	 * @return msg String retorna un mensaje

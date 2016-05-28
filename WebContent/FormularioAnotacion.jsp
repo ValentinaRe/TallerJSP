@@ -9,7 +9,11 @@
 </head>
 <body>
 <%String idContacto =request.getParameter("idContacto"); %>
+<div class="container">
+<div class="page-header">
 <h2 >Ingrese Comentario </h2>
+</div>
+
 
 	<form id="AnotacionServlet" action="AnotacionServlet" method="POST"
 		class="form-horizontal mitad" >
@@ -40,7 +44,7 @@
 	</form>
 	
 		
-
+</div>
 
 </body>
 </html>

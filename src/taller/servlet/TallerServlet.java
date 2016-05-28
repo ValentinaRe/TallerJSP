@@ -2,6 +2,7 @@ package taller.servlet;
 
 import java.io.IOException;
 
+import javax.persistence.PersistenceException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +44,17 @@ public class TallerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		List<Empresa> lista=new ArrayList<>();
+		
+		try{
+			lista=Empresa.listar();
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("lista",lista);
+		request.getRequestDispatcher( "/FormularioIngreso.jsp").forward(request, response);
 		
 	}
 

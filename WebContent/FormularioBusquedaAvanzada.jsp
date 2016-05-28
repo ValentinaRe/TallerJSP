@@ -74,14 +74,14 @@
 		</div>
 	<div class="form-group">
 		<div class="col-lg-9 col-lg-offset-3">
-		<button type="submit" class="btn btn-success left">Buscar</button>
+		<button type="submit" class="btn btn-success left" >Buscar</button>
 		</div>
 		</div>
 	</form>
 	
-	<table class="table table-striped">
-		<thead>
+	<table type="hidden" class="table table-striped" id="tabla">
 		
+		<thead>
 		<th>nombre</th>
 		<th>apellido</th>
 		<th>telefono</th>
@@ -106,11 +106,13 @@
 			<img src="${contacto.fotoCont}" border-radius="6px" class = "img-rounded">
 			</td>
 				<td>
+						<div>
 						<form action="Perfil" method="post">
 							<input type="hidden" value="${contacto.uid}" name="id">
-							<input type="submit" value="ver perfil" class="btn btn-danger">
-						</form>	
-						
+							<input type="submit" value="ver perfil" class="btn btn-warning btn-filter">
+						</form>
+						<br>	
+						</div>
 						<form action="FormularioAnotacion.jsp" method="POST">
 							<input type="hidden" value="${contacto.uid}" name="idContacto" >	
 							<input type="submit" value="Agregar comentario" class="btn btn-danger">	

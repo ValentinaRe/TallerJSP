@@ -22,6 +22,8 @@
 <title>Eliminar Contacto</title>
 </head>
 <body>
+<body>
+
 <h2 >Eliminar Contacto</h2>
 	<form action="EliminarServlet" method="Post" class="form-horizontal mitad" id="EliminarServlet">
 		<div class="form-group">
