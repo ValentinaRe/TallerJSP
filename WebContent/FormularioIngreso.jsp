@@ -62,19 +62,19 @@
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Teléfono</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" placeholder="Ingrese Telefono" name="telefono" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Teléfono" name="telefono" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese País</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" placeholder="Ingrese Pais" name="pais" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese País" name="pais" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-lg-3 control-label">Ingrese Región</label>
 			<div class="col-lg-3">
-				<input type="text" class="form-control" placeholder="Ingrese Region" name="region" required> <br>
+				<input type="text" class="form-control" placeholder="Ingrese Región" name="region" required> <br>
 			</div>
 		</div>
 		<div class="form-group">
@@ -100,7 +100,7 @@
 			<div class="col-lg-3">
 		    <select name="idEmpresa">
 		    <i:forEach items="${lista}" var="empresa">
-	 		 <option value="${empresa.uid }">${empresa.nombre}</option>
+	 		 <option value="${empresa.uid}">${empresa.nombre}</option>
  		 	 </i:forEach>
 			 </select>
 		    	</div>
@@ -114,6 +114,7 @@
 			</div>
 		</div>
 	</form>
+	<h3 class="text-danger">${Status}</h3>
 	
 </div>	
 </body>

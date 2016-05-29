@@ -77,7 +77,7 @@
 					</td>
 					
 					<td>
-						<form action="ActualizarServletSet" method="post">
+						<form action="ActualizarServletSet" method="POST">
 
 							<input type="hidden" value="${contacto.uid}" name="id"> 
 							<input type="hidden" value="${contacto.run}" name="run"> 
@@ -89,7 +89,7 @@
 							<input type="hidden" value="${contacto.region}" name="region">
 							<input type="hidden" value="${contacto.ciudad}" name="ciudad">
 							<input type="hidden" value="${contacto.fotoCont}" name="fotoCont">
-							<input type="hidden" value="${contacto.empresaUid}" name="idEmpresa"> 
+							<input type="hidden" value="${contacto.empresaUid.uid}" name="idEmpresa"> 
 							<input type="submit" value="Actualizar Contacto" class="btn btn-warning">
 						</form>
 

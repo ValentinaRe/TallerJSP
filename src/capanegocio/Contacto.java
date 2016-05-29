@@ -707,6 +707,12 @@ public class Contacto {
 		return listaContacto;
 		
 		}
+	/**
+	 * Método para ver perfil de Contacto
+	 * @param idContacto
+	 * @return contactoCon de tipo Contacto
+	 * @throws PersistentException
+	 */
 public static Contacto verPerfilContacto(int idContacto) throws PersistentException{
 	
 	Contacto contactoCon=new Contacto();

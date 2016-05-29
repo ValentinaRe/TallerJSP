@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
@@ -33,11 +35,16 @@ public class IngresarEmpresaServlet extends HttpServlet {
     }
 
 	/**
+	 * Método para verificar sesión
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        RequestDispatcher rec= request.getRequestDispatcher("FormularioLogin.jsp");
+    	request.setAttribute("Status", "No logueado");
 		
 	}
 	/**
@@ -47,7 +54,7 @@ public class IngresarEmpresaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PersistentTransaction t = null;
-		doGet(request, response);
+		
 		PrintWriter out = response.getWriter();
 		
 		String rut="";

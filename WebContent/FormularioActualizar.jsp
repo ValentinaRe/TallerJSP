@@ -31,17 +31,18 @@
 		String id = request.getParameter("id");
 	%>
 	<h2>${mensaje}</h2>
+<div class="jumbotron">
 	<div class="container">
 		<div class="page-header">
 			<h2>Actualizar Contacto</h2>
 		</div>
-		<form action="ActualizarServletSet" method="Post"
-			class="form-horizontal mitad" id="ActualizarServletSet">
+		<form action="ActualizarServlet" method="POST"
+			class="form-horizontal mitad" id="ActualizarServlet">
 			<div class="form-group">
 				<label class="col-lg-3 control-label"></label>
 				<div class="col-lg-3">
 					<input type="hidden" class="form-control" name="id"
-						value="${contacto.uid}" required readonly> <br>
+						value="${uid}" required readonly> <br>
 				</div>
 			</div>
 			<div class="form-group">
@@ -99,16 +100,9 @@
 						value="${ciudad}" required> <br>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-lg-3 control-label">Seleccione Empresa</label>
-				<div class="col-lg-3">
-					<select name="idEmpresa">
-						<i:forEach items="${lista}" var="empresa">
-							<option value="${empresa.Uid}">${empresa.nombre}</option>
-						</i:forEach>
-					</select>
-				</div>
-			</div>
+			
+			${listaEmpresa}
+			
 			<div class="form-group">
 				<label for="foto">Foto Contacto:</label> <input id="fotoCont"
 					name="fotoCont" type="file" multiple accept='image/*'
@@ -120,6 +114,7 @@
 			</div> 
 
 			<div class="form-group" id="fotoContainer" value="${fotoCont}"></div>
+			
 			<div class="form-group">
 				<div class="col-lg-9 col-lg-offset-3">
 					<button type="submit" class="btn btn-success left">Enviar</button>
@@ -127,6 +122,8 @@
 				</div>
 			</div>
 		</form>
+		<h3 class="text-danger">${Status}</h3>
 	</div>
+</div>
 </body>
 </html>

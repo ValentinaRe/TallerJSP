@@ -3,10 +3,12 @@ package taller.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
@@ -30,14 +32,20 @@ public class AnotacionServlet extends HttpServlet {
     }
 
 	/**
+	 * Método para verificar sesión
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        RequestDispatcher rec= request.getRequestDispatcher("FormularioLogin.jsp");
+    	request.setAttribute("Status", "No logueado");
 	}
 
 	/**
+	 * Metodo que recibe peticiones post para realizar una bitácora 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

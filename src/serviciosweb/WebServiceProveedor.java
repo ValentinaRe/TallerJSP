@@ -18,7 +18,12 @@ import capanegocio.Contacto;
 import capanegocio.Usuario;
 
 public class WebServiceProveedor {
-  
+  /**
+   * Método de busqueda simple de servicio web 
+   * @param busqueda de tipo String 
+   * @return resulBusqueda de tipo String
+   * @throws PersistentException
+   */
 	//@WebMethod(operationName="BusquedaSimpleContacto")
 	public String busquedaSimple( String busqueda) throws PersistentException{
 		String resultBusqueda="";

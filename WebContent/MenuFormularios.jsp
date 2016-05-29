@@ -58,8 +58,8 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
+					
 					<li role="presentation"><a href="TallerServlet">Ingresar Contacto </a></li>
-					<li role="presentation"><a href="FormularioActualzar.jsp">Actualizar Contacto </a></li>
 					<li role="presentation"><a href="ListarServlet">Listar Contacto </a></li>
 					<li role="presentation"><a href="FormularioIngresarUsuario.jsp">Ingresar Usuario </a></li>
 					<li role="presentation"><a href="FormularioActualizarUsuario.jsp">Actualizar Usuario </a></li>

@@ -252,6 +252,7 @@ public class Empresa {
 
 		for (orm.Empresa empresaOrm : listaEmpresaOrm) {
 			Empresa empresa = new Empresa();
+			empresa.setUid(empresaOrm.getUid());
 			empresa.setRut(empresaOrm.getRut());
 			empresa.setNombre(empresaOrm.getNombre());
 			empresa.setCiudad(empresaOrm.getCiudad());
@@ -264,6 +265,11 @@ public class Empresa {
 		System.out.println(" record(s) retrieved.");
 		return listaEmpresa;
 	}
+	/**
+	 * Método para listar empresa no estatico
+	 * @return listaEmpresa de tipo Empresa
+	 * @throws PersistentException
+	 */
 	public List<Empresa> listarEmpre() throws PersistentException {
 
 		orm.Empresa[] listaEmpresaOrm = orm.EmpresaDAO.listEmpresaByQuery(null, null);
@@ -276,7 +282,7 @@ public class Empresa {
 			
 			listaEmpresa.add(empresa);
 		}
-		System.out.println(" record(s) retrieved.");
+		
 		return listaEmpresa;
 	}
 

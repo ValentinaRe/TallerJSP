@@ -32,6 +32,6 @@
 
 		<input type="submit" value="Enviar">
 	</form>
-	
+	<h3 class="text-danger">${Status}</h3>
 </body>
 </html>

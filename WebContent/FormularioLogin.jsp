@@ -23,30 +23,33 @@
 </head>
 <body>
 
-<div class="container">
+	<div class="container">
 
-      <form class="form-signin" role="form" action="LoginServlet" method="post" id="LoginServlet">
-      
-        <h2 class="form-signin-heading">Iniciar Sesión</h2>
-        
-        <div class="form-group">
-        <label class="col-lg-3 control-label">Usuario</label>
-         <input type="text" class="form-control" name="user" placeholder="Nombre de usuario" required>
-        </div>
-        
-        <div class="form-group">
-        <label class="col-lg-3 control-label">Password</label>
-         <input type="password" class="form-control" name="password" placeholder="Password" required >
-        </div>
-        
-        <div class="form-group">
-         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-        </div>
-        
-      </form> 
-      <h3 class="text-danger">${Status}</h3>
-      </div>
- 
- 
+		<form class="form-signin" role="form" action="LoginServlet"
+			method="post" id="LoginServlet">
+
+			<h2 class="form-signin-heading">Iniciar Sesión</h2>
+
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Usuario</label> <input
+					type="text" class="form-control" name="user"
+					placeholder="Nombre de usuario" required>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-3 control-label">Password</label> <input
+					type="password" class="form-control" name="password"
+					placeholder="Password" required>
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+			</div>
+
+		</form>
+		<h3 class="text-danger">${Status}</h3>
+	</div>
+
+
 </body>
 </html>

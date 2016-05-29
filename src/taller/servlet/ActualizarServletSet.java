@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.orm.PersistentException;
 
@@ -29,29 +30,19 @@ public class ActualizarServletSet extends HttpServlet {
     }
 
 	/**
+	 * Método para verificar sesión
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		List <Empresa> listar=new  ArrayList<>();
 		
-
-		
-		try{
-			listar=Empresa.listar();
-			
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.setAttribute("lista",listar);
-		request.getRequestDispatcher( "/FormularioActualizar.jsp").forward(request, response);
-		
+    	
+	
 	}
 	
 
-	/**
+	/**Método post intermedio que recibe peticiones post para que al actualizar un contacto este tenga daos precargados
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -81,24 +72,46 @@ public class ActualizarServletSet extends HttpServlet {
 		request.setAttribute("ciudad", ciudad);
 		request.setAttribute("fotoCont", fotoCont);
 		request.setAttribute("idEmpresa", empresa);
-		req.forward(request, response);
+		
 	
 	
-	List <Empresa> listar=new  ArrayList<>();
+	List <Empresa> listar=null;
 	Empresa emp = new Empresa();
 
 	try {
 		
 		listar = emp.listarEmpre();
-		request.setAttribute("listarEmpresa", listar);
-		request.getRequestDispatcher("/FormularioActualizar.jsp").forward(request, response);
 		
+		if(listar.isEmpty()){
+			System.out.println("lista vacia");
+			req.forward(request, response);
+			
+			
+		}else{
+			request.setAttribute("listar", listar);
+			String salida = "<div class='form-group'><label class='col-lg-3 control-label'>Seleccione Empresa</label>"
+					+ "<div class='col-lg-3'><select class='form-control' name='idEmpresa'>'";
+			for (Empresa empr: listar){
+				if (empr.getNombre().equals(empresa)){
+					salida += "<option value='"+empr.getUid()+"' selected>" + empr.getNombre()+"</option>";
+					System.out.println("mesaje if "+empr.getNombre());
+				}else{
+					salida += "<option value='"+empr.getUid()+"'>"
+							+empr.getNombre()+"</option>";
+					System.out.println("mesaje else "+empr.getNombre());
+				}
+			}
+			salida += "</select><br></div></div>";
+			request.setAttribute("listaEmpresa", salida);
+			request.getRequestDispatcher("/FormularioActualizar.jsp").forward(request, response);
+			
+		}
 	} catch (PersistentException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
+		req.forward(request, response);
 	}
 	
 	req.forward(request, response);
 
-}
+ }
 	}
