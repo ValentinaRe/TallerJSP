@@ -58,11 +58,10 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					
+					<li role="presentation"><a href="Principal.jsp">Bienvenida </a></li>
 					<li role="presentation"><a href="TallerServlet">Ingresar Contacto </a></li>
 					<li role="presentation"><a href="ListarServlet">Listar Contacto </a></li>
 					<li role="presentation"><a href="FormularioIngresarUsuario.jsp">Ingresar Usuario </a></li>
-					<li role="presentation"><a href="FormularioActualizarUsuario.jsp">Actualizar Usuario </a></li>
 					<li role="presentation"><a href="FormularioListarUsuario.jsp">Listar Usuario</a></li>
 					<li role="presentation"><a href="FormularioBusquedaSimple.jsp">Búsqueda Simple</a></li>
 					<li role="presentation"><a href="FormularioBusquedaAvanzada.jsp">Búsqueda Avanzada</a></li>
@@ -75,7 +74,7 @@
 							class="form-horizontal mitad" action="#">
 							<div class="form-group">
 								<div class="col-lg-9 col-lg-offset-3">
-									<button type="submit" class="btn btn-success left">salir</button>
+									<button type="submit" class="btn btn-danger left">Logout</button>
 								</div>
 							</div>
 						</form>

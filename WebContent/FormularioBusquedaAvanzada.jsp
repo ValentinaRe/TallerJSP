@@ -89,9 +89,6 @@
 					<th>apellido</th>
 					<th>telefono</th>
 					<th>mail</th>
-					<th>pais</th>
-					<th>region</th>
-					<th>ciudad</th>
 					<th>fotografía</th>
 					<th></th>
 				</tr>
@@ -103,9 +100,7 @@
 							<td>${contacto.apellido}</td>
 							<td>${contacto.telefono}</td>
 							<td>${contacto.mail}</td>
-							<td>${contacto.pais}</td>
-							<td>${contacto.region}</td>
-							<td>${contacto.ciudad}</td>
+							
 							<td id="fotoContainer" onLoad="decodeImage();"><img
 								src="${contacto.fotoCont}" border-radius="6px"
 								class="img-rounded"></td>
@@ -118,7 +113,7 @@
 									</form>
 									<br>
 								</div>
-								<form action="FormularioAnotacion.jsp" method="POST">
+								<form action="AnotacionServletSet" method="POST">
 									<input type="hidden" value="${contacto.uid}" name="idContacto">
 									<input type="submit" value="Agregar comentario"
 										class="btn btn-danger">

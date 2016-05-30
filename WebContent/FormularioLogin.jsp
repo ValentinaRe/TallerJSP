@@ -20,9 +20,10 @@
 	src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 <script type="text/javascript" src="./js/validator.js"></script>
+ <link href=./css/signin.css rel="stylesheet"></link>
 </head>
 <body>
-
+<div class="jumbotron">
 	<div class="container">
 
 		<form class="form-signin" role="form" action="LoginServlet"
@@ -36,7 +37,7 @@
 					placeholder="Nombre de usuario" required>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group" >
 				<label class="col-lg-3 control-label">Password</label> <input
 					type="password" class="form-control" name="password"
 					placeholder="Password" required>
@@ -49,7 +50,7 @@
 		</form>
 		<h3 class="text-danger">${Status}</h3>
 	</div>
-
+</div>
 
 </body>
 </html>

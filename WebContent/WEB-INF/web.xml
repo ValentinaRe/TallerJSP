@@ -226,4 +226,14 @@
     <servlet-name>ActualizarServletSet</servlet-name>
     <url-pattern>/ActualizarServletSet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AnotacionServletSet</display-name>
+    <servlet-name>AnotacionServletSet</servlet-name>
+    <servlet-class>taller.servlet.AnotacionServletSet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnotacionServletSet</servlet-name>
+    <url-pattern>/AnotacionServletSet</url-pattern>
+  </servlet-mapping>
 </web-app>

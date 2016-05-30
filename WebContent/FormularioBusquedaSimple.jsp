@@ -78,7 +78,7 @@
 										class="btn btn-warning btn-filter">
 								</form>
 
-								<form action="FormularioAnotacion.jsp" method="POST">
+								<form action="AnotacionServletSet" method="POST">
 									<input type="hidden" value="${contacto.uid}" name="idContacto">
 									<input type="submit" value="Agregar comentario"
 										class="btn btn-danger">

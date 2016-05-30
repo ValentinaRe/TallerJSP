@@ -90,6 +90,9 @@ public class AnotacionServlet extends HttpServlet {
 					try {
 						System.out.println("ingreso");
 						respAnot=Anotacion.ingresar(ingresarA);
+						RequestDispatcher req = request.getRequestDispatcher("Principal.jsp");
+						
+						req.forward(request, response);
 						
 
 					} 

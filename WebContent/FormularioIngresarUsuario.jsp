@@ -23,6 +23,8 @@
 <title>Ingresar Usuario</title>
 </head>
 <body>
+<div class="jumbotron">
+<div class="container">
 <h2 >Ingrese Datos de Usuario</h2>
 	<form id="IngresarUsuarioServlet" action="IngresarUsuarioServlet"
 		method="post" class="form-horizontal mitad" action="#">
@@ -46,5 +48,8 @@
 			</div>
 		</div>
 		<h3 class="text-danger">${Status}</h3>
+		</form>
+		</div>
+		</div>
 </body>
 </html>

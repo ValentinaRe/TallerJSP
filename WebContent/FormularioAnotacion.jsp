@@ -20,14 +20,16 @@
 
 			<form id="AnotacionServlet" action="AnotacionServlet" method="POST"
 				class="form-horizontal mitad">
+				
+					
 				<div class="form-group">
-					<label class="col-lg-3 control-label">Ingrese nombre</label>
+					<label class="col-lg-3 control-label">Ingrese Título</label>
 					<div class="col-lg-3">
 						<input type="text" class="form-control" name="nombre"> <br>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-lg-3 control-label">Ingrese Descripcion</label>
+					<label class="col-lg-3 control-label">Ingrese Descripción</label>
 					<div class="col-lg-3">
 						<textarea class="form-control" rows="10" cols="30"
 							name="descripcion"></textarea>
@@ -38,7 +40,7 @@
 					<label class="col-lg-3 control-label"></label>
 					<div class="col-lg-3">
 						<input type="hidden" class="form-control" name="idContacto"
-							value="<%=idContacto%>"> <br>
+							value="${idContacto}"></input> <br>
 					</div>
 				</div>
 

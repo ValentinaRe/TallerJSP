@@ -28,6 +28,7 @@
 <title>Ingresar Contacto</title>
 </head>
 <body>
+<div class="jumbotron">
 <div class="container">
  <h2>${mensaje}</h2 >
  <div class="page-header">
@@ -116,6 +117,7 @@
 	</form>
 	<h3 class="text-danger">${Status}</h3>
 	
+</div>
 </div>	
 </body>
 

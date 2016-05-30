@@ -30,26 +30,28 @@
 <title>Listar Contacto</title>
 </head>
 <body>
-
-	<form action="ListarServlet" method="get">
-		<label>lista de contactos</label> <br /> <input type="submit"
-			value="mostrar">
-	</form>
+<div class="jumbotron">
+	<div class="container">
+	
 	<table class="table table-striped">
 		<thead>
-
+		<tr class="success">
 			<th>nombre</th>
 			<th>apellido</th>
 			<th>teléfono</th>
 			<th>mail</th>
 			<th>fotografía</th>
 			<th>Empresa</th>
+			<th></th>
+			<th></th>	
+			<th></th>				
+		</tr>
 		</thead>
 		<tbody>
 
 
 			<i:forEach items="${listaContacto}" var="contacto">
-				<tr>
+				<tr >
 
 					<td>${contacto.nombre}</td>
 					<td>${contacto.apellido}</td>
@@ -61,7 +63,7 @@
 					<td>${contacto.empresaUid.rut}</td>
 					
 					<td>	
-						<form action="FormularioAnotacion.jsp" method="POST">
+						<form action="AnotacionServletSet" method="POST">
 							<input type="hidden" value="${contacto.uid}" name="idContacto">
 							<input type="submit" value="Agregar comentario"
 								class="btn btn-primary btn-filter"> 
@@ -101,6 +103,7 @@
 		</tbody>
 
 	</table>
-
+	</div>
+</div>
 </body>
 </html>

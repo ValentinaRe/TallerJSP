@@ -28,7 +28,8 @@
 
 </head>
 <body>
-
+<div class="jumbotron">
+<div class="container">
 	<form action="ListarUsuarioServlet" method="get">
 	<label>lista de usuarios</label>
 	<br />
@@ -58,6 +59,7 @@
 		
 </table>	
 	
-	
+	</div>
+	</div>
 </body>
 </html>
