@@ -81,9 +81,32 @@
 								<form action="AnotacionServletSet" method="POST">
 									<input type="hidden" value="${contacto.uid}" name="idContacto">
 									<input type="submit" value="Agregar comentario"
-										class="btn btn-danger">
+										class="btn btn-info">
 								</form>
-							</td>
+							
+						<form action="EliminarServlet" method="post">
+							<input type="hidden" value="${contacto.uid}" name="id"> <input
+								type="submit" value="Eliminar" class="btn btn-danger">
+
+						</form>
+					
+						<form action="ActualizarServletSet" method="POST">
+
+							<input type="hidden" value="${contacto.uid}" name="id"> 
+							<input type="hidden" value="${contacto.run}" name="run"> 
+							<input type="hidden" value="${contacto.nombre}" name="nombre">
+							<input type="hidden" value="${contacto.apellido}" name="apellido">
+							<input type="hidden" value="${contacto.mail}" name="mail">
+							<input type="hidden" value="${contacto.telefono}" name="telefono">
+							<input type="hidden" value="${contacto.pais}" name="pais">
+							<input type="hidden" value="${contacto.region}" name="region">
+							<input type="hidden" value="${contacto.ciudad}" name="ciudad">
+							<input type="hidden" value="${contacto.fotoCont}" name="fotoCont">
+							<input type="hidden" value="${contacto.empresaUid.uid}" name="idEmpresa"> 
+							<input type="submit" value="Actualizar Contacto" class="btn btn-success">
+						</form>
+
+					</td>
 						<tr />
 					</i:forEach>
 

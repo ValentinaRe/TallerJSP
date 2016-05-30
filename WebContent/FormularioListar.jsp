@@ -44,7 +44,8 @@
 			<th>Empresa</th>
 			<th></th>
 			<th></th>	
-			<th></th>				
+			<th></th>		
+			<th></th>		
 		</tr>
 		</thead>
 		<tbody>
@@ -96,7 +97,12 @@
 						</form>
 
 					</td>
-
+					<td>
+						<form action="Perfil" method="post">
+							<input type="hidden" value="${contacto.uid}" name="id">
+							<input type="submit" value="ver perfil" class="btn btn-info">
+						</form>  <br>
+					</td>
 					
 				</tr>
 			</i:forEach>

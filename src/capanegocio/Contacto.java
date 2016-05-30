@@ -422,11 +422,10 @@ public class Contacto {
 		String msg = "";
 		try {
 			
-				orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.getUid());// orm.ContactoDAO.loadContactoByQuery("Contacto.nombre='"+
+				orm.Contacto lormContacto = orm.ContactoDAO.loadContactoByORMID(contacto.getUid());
 				orm.Empresa empresa = orm.EmpresaDAO.loadEmpresaByORMID(contacto.getEmpresaUid().getUid());
-																								// +"'",
-																								// null);
-				// Update the properties of the persistent object
+																								
+				
 				System.out.println("id: " + contacto.getUid());
 				try {
 					lormContacto.setRun(contacto.getRun());
@@ -509,17 +508,7 @@ public class Contacto {
 	public List<Contacto> busquedaSimple(String busqueda) throws PersistentException {
 		List<Contacto> listaContacto = new ArrayList<Contacto>();
 		List<orm.Contacto> listarContacto = new ArrayList<orm.Contacto>();
-		/**
-		if (busqueda != null || !busqueda.equals("")) {
-		listarContacto = orm.ContactoDAO.queryContacto("Contacto.run='" + busqueda +
-				"' OR Contacto.nombre ='" + busqueda + 
-				"' OR Contacto.apellido ='"+ busqueda + 
-				"' OR Contacto.mail = '" + busqueda + 
-				"' OR Contacto.telefono = '"+ busqueda+
-				"' OR Contacto.pais ='"+busqueda+
-				"' OR Contacto.region ='"+busqueda+
-				"' OR Contacto.ciudad ='"+busqueda+"'" ,null);
-		}**/
+	
 		ContactoCriteria ccr= new ContactoCriteria();
 		Criterion run= Restrictions.ilike("run", busqueda.toLowerCase());
 		Criterion nombre= Restrictions.ilike("nombre", busqueda.toLowerCase());
@@ -581,86 +570,39 @@ public class Contacto {
 			query += "Contacto.run='"+contacto.getRun()+"' ";
 		}
 		
-		//if((contacto.getRun()!= null && !contacto.getRun().equals(""))
-		//		&& (contacto.getNombre()!=null && !contacto.getNombre().equals(""))){
-		//	query += "AND ";
-		//}
 		if(contacto.getNombre()!=null && !contacto.getNombre().equals("")){
 			ccr.add(Restrictions.ilike("nombre", contacto.getNombre().toLowerCase()));
 			query += "Contacto.nombre='"+contacto.getNombre()+"' ";
 		}
 		
-		//if(((contacto.getRun()!=null && !contacto.getRun().equals(""))
-		//		|| (contacto.getNombre()!=null && !contacto.getNombre().equals("")))
-		//		&& (contacto.getApellido()!=null && !contacto.getApellido().equals(""))){
-		//	query += "AND ";
-		//}
 		if(contacto.getApellido()!=null && !contacto.getApellido().trim().equals("")){
 			ccr.add(Restrictions.ilike("apellido", contacto.getApellido().toLowerCase()));
 			query += "Contacto.apellido='"+contacto.getApellido()+"' ";
 		}
 		
-		//if((contacto.getRun()!=null && !contacto.getRun().equals("")
-		//		|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
-		//		|| contacto.getApellido()!=null && !contacto.getApellido().equals(""))
-		//		&& (contacto.getMail() != null && !contacto.getMail().equals(""))){
-		//	query += "AND ";
-		//}
+		
 		if(contacto.getMail() != null && !contacto.getMail().trim().equals("")){
 			ccr.add(Restrictions.ilike("mail", contacto.getMail().toLowerCase()));
 			query += "Contacto.mail='"+contacto.getMail()+"' ";
 		}
 		
-		/*if((contacto.getRun()!=null && !contacto.getRun().equals("")
-				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
-				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
-				|| contacto.getMail() != null && !contacto.getMail().equals(""))
-				&&(contacto.getTelefono() != null && !contacto.getTelefono().equals(""))){
-			query += "AND ";
-		}*/
+		
 		if(contacto.getTelefono() != null && !contacto.getTelefono().trim().equals("")){
 			ccr.add(Restrictions.ilike("telefono", contacto.getTelefono().toLowerCase()));
 			query += "Contacto.telefono='"+contacto.getTelefono()+ "' ";
 		}
-		/*if((contacto.getRun()!=null && !contacto.getRun().equals("")
-				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
-				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
-				|| contacto.getMail() != null && !contacto.getMail().equals("")
-				|| contacto.getTelefono() != null && !contacto.getTelefono().equals(""))
-				&& (contacto.getPais() != null && !contacto.getPais().equals(""))){
-				
-			query += "AND ";
-		}*/
+		
 		if(contacto.getPais() != null && !contacto.getPais().trim().equals("")){
 			ccr.add(Restrictions.ilike("pais", contacto.getPais().toLowerCase()));
 			query += "Contacto.pais='"+contacto.getPais()+ "' ";
 		}	
-		/*if((contacto.getRun()!=null && !contacto.getRun().equals("")
-				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
-				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
-				|| contacto.getMail() != null && !contacto.getMail().equals("")
-				|| contacto.getTelefono() != null && !contacto.getTelefono().equals("")
-				|| contacto.getPais() != null && !contacto.getPais().equals(""))
-				&& (contacto.getRegion() != null && !contacto.getRegion().equals(""))){
-				
-			query += "AND ";
-		}*/
+	
 		if(contacto.getRegion() != null && !contacto.getRegion().trim().equals("")){
 			ccr.add(Restrictions.ilike("region", contacto.getRegion().toLowerCase()));
 			query += "Contacto.region='"+contacto.getRegion()+ "' ";
 			
 		}
-		/*if((contacto.getRun()!=null && !contacto.getRun().equals("")
-				|| contacto.getNombre()!=null && !contacto.getNombre().equals("")
-				|| contacto.getApellido()!=null && !contacto.getApellido().equals("")
-				|| contacto.getMail() != null && !contacto.getMail().equals("")
-				|| contacto.getTelefono() != null && !contacto.getTelefono().equals("")
-				|| contacto.getPais() != null && !contacto.getPais().equals("")
-				|| contacto.getRegion() != null && !contacto.getRegion().equals(""))
-				&&(contacto.getCiudad() != null && !contacto.getCiudad().equals(""))){
-				
-			query += "AND ";
-		}*/	
+	
 		if(contacto.getCiudad() != null && !contacto.getCiudad().trim().equals("")){
 			ccr.add(Restrictions.ilike("ciudad", contacto.getCiudad().toLowerCase()));
 			query += "Contacto.ciudad='"+contacto.getCiudad()+ "' ";
@@ -668,7 +610,6 @@ public class Contacto {
 		
 		listarContactos=Arrays.asList(orm.ContactoDAO.listContactoByCriteria(ccr));
 		
-		//listarContactos=orm.ContactoDAO.queryContacto(query,null);
 		
 		if (!listarContactos.isEmpty()) {
 			for (orm.Contacto contactoOrm : listarContactos) {
